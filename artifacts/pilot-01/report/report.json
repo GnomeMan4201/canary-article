@@ -1,0 +1,907 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "summary": {
+    "planned": 6,
+    "recording": {
+      "recorded": 1,
+      "interrupted": 1,
+      "not_attempted": 4
+    },
+    "termination": {
+      "completed": 1
+    },
+    "marker": {
+      "exact": 1
+    },
+    "evaluation": {
+      "build": {
+        "pass": 1
+      },
+      "baseline_rules": {
+        "pass": 1
+      },
+      "new_rules": {
+        "unevaluable": 1
+      },
+      "feature": {
+        "fail": 1
+      },
+      "rules": {
+        "unevaluable": 1
+      },
+      "status": {
+        "completed": 1
+      }
+    },
+    "four_cells": {
+      "exact_pass": 0,
+      "exact_fail": 0,
+      "noncompliant_pass": 0,
+      "noncompliant_fail": 0
+    },
+    "four_cell_included": 0,
+    "four_cell_excluded": {
+      "unevaluable_rules": 1,
+      "interrupted": 1,
+      "not_attempted": 4
+    },
+    "exact_marker_unevaluable_rules": 1,
+    "rates": {
+      "failure_given_exact": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "failure_given_noncompliant": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_given_failure": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_among_evaluable": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_among_observed_markers": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      }
+    }
+  },
+  "by_task": {
+    "availability": {
+      "planned": 2,
+      "recording": {
+        "not_attempted": 2
+      },
+      "termination": {},
+      "marker": {},
+      "evaluation": {
+        "build": {},
+        "baseline_rules": {},
+        "new_rules": {},
+        "feature": {},
+        "rules": {},
+        "status": {}
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "not_attempted": 2
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      }
+    },
+    "batch": {
+      "planned": 2,
+      "recording": {
+        "not_attempted": 2
+      },
+      "termination": {},
+      "marker": {},
+      "evaluation": {
+        "build": {},
+        "baseline_rules": {},
+        "new_rules": {},
+        "feature": {},
+        "rules": {},
+        "status": {}
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "not_attempted": 2
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      }
+    },
+    "reschedule": {
+      "planned": 2,
+      "recording": {
+        "recorded": 1,
+        "interrupted": 1
+      },
+      "termination": {
+        "completed": 1
+      },
+      "marker": {
+        "exact": 1
+      },
+      "evaluation": {
+        "build": {
+          "pass": 1
+        },
+        "baseline_rules": {
+          "pass": 1
+        },
+        "new_rules": {
+          "unevaluable": 1
+        },
+        "feature": {
+          "fail": 1
+        },
+        "rules": {
+          "unevaluable": 1
+        },
+        "status": {
+          "completed": 1
+        }
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "unevaluable_rules": 1,
+        "interrupted": 1
+      },
+      "exact_marker_unevaluable_rules": 1,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_condition": {
+    "A": {
+      "planned": 3,
+      "recording": {
+        "interrupted": 1,
+        "not_attempted": 2
+      },
+      "termination": {},
+      "marker": {},
+      "evaluation": {
+        "build": {},
+        "baseline_rules": {},
+        "new_rules": {},
+        "feature": {},
+        "rules": {},
+        "status": {}
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "interrupted": 1,
+        "not_attempted": 2
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      }
+    },
+    "B": {
+      "planned": 3,
+      "recording": {
+        "recorded": 1,
+        "not_attempted": 2
+      },
+      "termination": {
+        "completed": 1
+      },
+      "marker": {
+        "exact": 1
+      },
+      "evaluation": {
+        "build": {
+          "pass": 1
+        },
+        "baseline_rules": {
+          "pass": 1
+        },
+        "new_rules": {
+          "unevaluable": 1
+        },
+        "feature": {
+          "fail": 1
+        },
+        "rules": {
+          "unevaluable": 1
+        },
+        "status": {
+          "completed": 1
+        }
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "unevaluable_rules": 1,
+        "not_attempted": 2
+      },
+      "exact_marker_unevaluable_rules": 1,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_task_condition": {
+    "availability": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "not_attempted": 1
+        },
+        "termination": {},
+        "marker": {},
+        "evaluation": {
+          "build": {},
+          "baseline_rules": {},
+          "new_rules": {},
+          "feature": {},
+          "rules": {},
+          "status": {}
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "not_attempted": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "not_attempted": 1
+        },
+        "termination": {},
+        "marker": {},
+        "evaluation": {
+          "build": {},
+          "baseline_rules": {},
+          "new_rules": {},
+          "feature": {},
+          "rules": {},
+          "status": {}
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "not_attempted": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      }
+    },
+    "batch": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "not_attempted": 1
+        },
+        "termination": {},
+        "marker": {},
+        "evaluation": {
+          "build": {},
+          "baseline_rules": {},
+          "new_rules": {},
+          "feature": {},
+          "rules": {},
+          "status": {}
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "not_attempted": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "not_attempted": 1
+        },
+        "termination": {},
+        "marker": {},
+        "evaluation": {
+          "build": {},
+          "baseline_rules": {},
+          "new_rules": {},
+          "feature": {},
+          "rules": {},
+          "status": {}
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "not_attempted": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      }
+    },
+    "reschedule": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "interrupted": 1
+        },
+        "termination": {},
+        "marker": {},
+        "evaluation": {
+          "build": {},
+          "baseline_rules": {},
+          "new_rules": {},
+          "feature": {},
+          "rules": {},
+          "status": {}
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "interrupted": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "exact": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "unevaluable": 1
+          },
+          "feature": {
+            "fail": 1
+          },
+          "rules": {
+            "unevaluable": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "unevaluable_rules": 1
+        },
+        "exact_marker_unevaluable_rules": 1,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          }
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "reschedule-01-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-01",
+        "condition": "B",
+        "duration_seconds": 18.73915597299856,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "detail": "missing requested method reschedule",
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "fail"
+            },
+            {
+              "detail": "missing requested method reschedule",
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "unevaluable"
+            },
+            {
+              "detail": "missing requested method reschedule",
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "unevaluable"
+            },
+            {
+              "detail": "missing requested method reschedule",
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "unevaluable"
+            }
+          ],
+          "errors": [],
+          "feature": "fail",
+          "new_rules": "unevaluable",
+          "rules": "unevaluable",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:41:17.328627+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-4eaf1117a9b3",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "reschedule-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "e14b735b8431e71d7687116f1841cfde345c58156ca8e2f031229999ee0336da",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "81f99f247cbab72a705503e6d570c4d7420af45c4276e5fe504ddb8a0856d20a",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "fd11c73f1ba333de",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 23680,
+          "input_tokens": 36035,
+          "output_tokens": 275,
+          "reasoning_output_tokens": 65
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-01-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "interrupted",
+      "result": null
+    },
+    {
+      "run_id": "availability-01-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "not_attempted",
+      "result": null
+    },
+    {
+      "run_id": "availability-01-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "not_attempted",
+      "result": null
+    },
+    {
+      "run_id": "batch-01-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "not_attempted",
+      "result": null
+    },
+    {
+      "run_id": "batch-01-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "not_attempted",
+      "result": null
+    }
+  ]
+}

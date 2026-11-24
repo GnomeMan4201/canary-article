@@ -1,0 +1,18 @@
+{
+  "expected_check": {
+    "detail_contains": "changed stored state",
+    "id": "batch.atomic_conflicts",
+    "status": "fail"
+  },
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "build": "pass",
+    "feature": "fail",
+    "rules": "fail",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "non-atomic-batch",
+  "task": "batch",
+  "timeout_seconds": 20
+}

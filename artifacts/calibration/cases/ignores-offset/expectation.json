@@ -1,0 +1,17 @@
+{
+  "expected_check": {
+    "id": "baseline.offsets",
+    "status": "fail"
+  },
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "build": "pass",
+    "feature": "fail",
+    "rules": "fail",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "ignores-offset",
+  "task": "baseline",
+  "timeout_seconds": 20
+}

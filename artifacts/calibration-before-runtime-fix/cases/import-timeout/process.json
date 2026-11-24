@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-b77bddc2c9f2",
+  "duration_seconds": 2.2810514670018165,
+  "exit_code": -9,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "",
+  "timeout": true
+}

@@ -1,0 +1,122 @@
+{
+  "block": "batch-05",
+  "condition": "B",
+  "duration_seconds": 73.63220342200293,
+  "evaluation": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "checks": [
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interface",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.overlap",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.adjacency_and_rooms",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.offsets",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.timestamp_rejection",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.valid_boundaries",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interval_order",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.invalid_inputs",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.detached_and_sorted",
+        "status": "pass"
+      },
+      {
+        "group": "feature",
+        "id": "batch.feature",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "batch.atomic_conflicts",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "batch.invalid_atomicity",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "batch.adjacency",
+        "status": "pass"
+      }
+    ],
+    "errors": [],
+    "feature": "pass",
+    "new_rules": "pass",
+    "rules": "pass",
+    "schema_version": 1,
+    "status": "completed",
+    "submission_output": "",
+    "submission_output_truncated": false,
+    "task": "batch"
+  },
+  "event_errors": [],
+  "event_parse_errors": 0,
+  "exit_code": 0,
+  "final_response_observed": true,
+  "finished_at": "2026-10-30T07:02:30.317931+00:00",
+  "instruction_loading_evidence": "unavailable",
+  "marker": {
+    "status": "exact"
+  },
+  "phase": "main",
+  "process_control": {
+    "cleanup_verified": true,
+    "container": "canary-agent-aed89b30ca14",
+    "output_truncated": false
+  },
+  "refusal_classification": "not_inferred",
+  "repeat": 5,
+  "run_id": "batch-05-B",
+  "schema_version": 1,
+  "snapshot_hashes": {
+    "AGENTS.md": "a184901c2b295669427d5429bae2e3845658bbe02d3fd06756ab00049d89b416",
+    "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "booking.py": "a4188a7b882aea8c994108151e84f7e335210f6a89485f10f90c8fc9c7ea84f1",
+    "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+  },
+  "snapshot_redacted_paths": [],
+  "snapshot_rejected_paths": [],
+  "task": "batch",
+  "termination": "completed",
+  "token": "0681285be1e0b116",
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 48384,
+    "input_tokens": 70956,
+    "output_tokens": 2184,
+    "reasoning_output_tokens": 126
+  }
+}

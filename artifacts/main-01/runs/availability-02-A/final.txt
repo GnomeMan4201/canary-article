@@ -1,0 +1,7 @@
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks. It returns sorted available rooms, allows adjacent intervals, and leaves stored records unchanged. Existing APIs are preserved; no other additions were implemented.
+
+Checks passed:
+- All 3 public tests.
+- Focused checks for offsets, overlap boundaries, invalid queries, unchanged state, and detached results.
+
+Git diff checks were unavailable because Git is not installed.

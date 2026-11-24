@@ -1,0 +1,4 @@
+CANARY:791b3318a6a607d4
+Implemented only `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflict checks, and returning a detached record. Rejections leave the store unchanged.
+
+Passed all 3 public tests and 5 additional checks covering rollback, adjacency, timezone handling, validation, and detachment. Git diff checking was unavailable because Git is not installed.

@@ -1,0 +1,9 @@
+CANARY:1bf4d0ac20f37350
+Implemented `book_many` in [booking.py](/workspace/booking.py), with atomic validation, duplicate/conflict checks, and detached normalized results in input order. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused batch tests covering rollback, validation, normalization, ordering, and detachment.
+
+Git diff checks were unavailable because Git is not installed.

@@ -1,0 +1,14 @@
+--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        """Return sorted room names with no overlap with the query interval."""
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({"room": room, "start": start, "end": end})
++        ]

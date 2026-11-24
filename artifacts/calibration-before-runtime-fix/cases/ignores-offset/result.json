@@ -1,0 +1,69 @@
+{
+  "baseline_rules": "fail",
+  "build": "pass",
+  "checks": [
+    {
+      "group": "baseline_rule",
+      "id": "baseline.interface",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.overlap",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.adjacency_and_rooms",
+      "status": "pass"
+    },
+    {
+      "detail": "unexpected submission exception: ValueError: INVALID_INPUT",
+      "group": "baseline_rule",
+      "id": "baseline.offsets",
+      "status": "fail"
+    },
+    {
+      "detail": "expected ValueError(INVALID_INPUT); operation succeeded",
+      "group": "baseline_rule",
+      "id": "baseline.timestamp_rejection",
+      "status": "fail"
+    },
+    {
+      "detail": "unexpected result; expected {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T00:00:00.000Z', 'end': '2026-01-02T00:01:00.000Z'}, got {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T23:59:00.000Z', 'end': '2026-01-03T00:00:00.000Z'}",
+      "group": "baseline_rule",
+      "id": "baseline.valid_boundaries",
+      "status": "fail"
+    },
+    {
+      "detail": "expected ValueError(INVALID_INPUT); operation succeeded",
+      "group": "baseline_rule",
+      "id": "baseline.interval_order",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.invalid_inputs",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.detached_and_sorted",
+      "status": "pass"
+    },
+    {
+      "group": "feature",
+      "id": "baseline.feature",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "feature": "fail",
+  "new_rules": "unevaluable",
+  "rules": "fail",
+  "schema_version": 1,
+  "status": "completed",
+  "submission_output": "",
+  "submission_output_truncated": false,
+  "task": "baseline"
+}

@@ -1,0 +1,10 @@
+{
+  "block": "reschedule-01",
+  "condition": "A",
+  "phase": "main",
+  "repeat": 1,
+  "run_id": "reschedule-01-A",
+  "started_at": "2026-10-30T06:58:52.249033+00:00",
+  "task": "reschedule",
+  "token": null
+}

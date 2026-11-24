@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-28f1bb712d6e",
+  "duration_seconds": 0.8366795160000038,
+  "exit_code": 0,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "{\"baseline_rules\": \"pass\", \"build\": \"pass\", \"checks\": [{\"group\": \"baseline_rule\", \"id\": \"baseline.interface\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.overlap\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.adjacency_and_rooms\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.offsets\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.timestamp_rejection\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.valid_boundaries\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.interval_order\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.invalid_inputs\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.detached_and_sorted\", \"status\": \"pass\"}, {\"group\": \"feature\", \"id\": \"reschedule.feature\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"reschedule.self_exclusion\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"reschedule.conflict_rollback\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"reschedule.validation\", \"status\": \"pass\"}], \"errors\": [], \"feature\": \"pass\", \"new_rules\": \"pass\", \"rules\": \"pass\", \"schema_version\": 1, \"status\": \"completed\", \"submission_output\": \"\", \"submission_output_truncated\": false, \"task\": \"reschedule\"}\n",
+  "timeout": false
+}

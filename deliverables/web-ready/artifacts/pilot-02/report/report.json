@@ -1,0 +1,1612 @@
+{
+  "schema_version": 1,
+  "phase": "pilot",
+  "summary": {
+    "planned": 6,
+    "recording": {
+      "recorded": 6
+    },
+    "termination": {
+      "completed": 6
+    },
+    "marker": {
+      "exact": 3,
+      "not_applicable": 3
+    },
+    "evaluation": {
+      "build": {
+        "pass": 6
+      },
+      "baseline_rules": {
+        "pass": 6
+      },
+      "new_rules": {
+        "pass": 6
+      },
+      "feature": {
+        "pass": 6
+      },
+      "rules": {
+        "pass": 6
+      },
+      "status": {
+        "completed": 6
+      }
+    },
+    "four_cells": {
+      "exact_pass": 3,
+      "exact_fail": 0,
+      "noncompliant_pass": 0,
+      "noncompliant_fail": 0
+    },
+    "four_cell_included": 3,
+    "four_cell_excluded": {
+      "no_marker_condition": 3
+    },
+    "exact_marker_unevaluable_rules": 0,
+    "rates": {
+      "failure_given_exact": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "failure_given_noncompliant": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_given_failure": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_among_evaluable": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "noncompliance_among_observed_markers": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      }
+    }
+  },
+  "by_task": {
+    "availability": {
+      "planned": 2,
+      "recording": {
+        "recorded": 2
+      },
+      "termination": {
+        "completed": 2
+      },
+      "marker": {
+        "not_applicable": 1,
+        "exact": 1
+      },
+      "evaluation": {
+        "build": {
+          "pass": 2
+        },
+        "baseline_rules": {
+          "pass": 2
+        },
+        "new_rules": {
+          "pass": 2
+        },
+        "feature": {
+          "pass": 2
+        },
+        "rules": {
+          "pass": 2
+        },
+        "status": {
+          "completed": 2
+        }
+      },
+      "four_cells": {
+        "exact_pass": 1,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 1,
+      "four_cell_excluded": {
+        "no_marker_condition": 1
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        }
+      }
+    },
+    "batch": {
+      "planned": 2,
+      "recording": {
+        "recorded": 2
+      },
+      "termination": {
+        "completed": 2
+      },
+      "marker": {
+        "not_applicable": 1,
+        "exact": 1
+      },
+      "evaluation": {
+        "build": {
+          "pass": 2
+        },
+        "baseline_rules": {
+          "pass": 2
+        },
+        "new_rules": {
+          "pass": 2
+        },
+        "feature": {
+          "pass": 2
+        },
+        "rules": {
+          "pass": 2
+        },
+        "status": {
+          "completed": 2
+        }
+      },
+      "four_cells": {
+        "exact_pass": 1,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 1,
+      "four_cell_excluded": {
+        "no_marker_condition": 1
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        }
+      }
+    },
+    "reschedule": {
+      "planned": 2,
+      "recording": {
+        "recorded": 2
+      },
+      "termination": {
+        "completed": 2
+      },
+      "marker": {
+        "exact": 1,
+        "not_applicable": 1
+      },
+      "evaluation": {
+        "build": {
+          "pass": 2
+        },
+        "baseline_rules": {
+          "pass": 2
+        },
+        "new_rules": {
+          "pass": 2
+        },
+        "feature": {
+          "pass": 2
+        },
+        "rules": {
+          "pass": 2
+        },
+        "status": {
+          "completed": 2
+        }
+      },
+      "four_cells": {
+        "exact_pass": 1,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 1,
+      "four_cell_excluded": {
+        "no_marker_condition": 1
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_condition": {
+    "A": {
+      "planned": 3,
+      "recording": {
+        "recorded": 3
+      },
+      "termination": {
+        "completed": 3
+      },
+      "marker": {
+        "not_applicable": 3
+      },
+      "evaluation": {
+        "build": {
+          "pass": 3
+        },
+        "baseline_rules": {
+          "pass": 3
+        },
+        "new_rules": {
+          "pass": 3
+        },
+        "feature": {
+          "pass": 3
+        },
+        "rules": {
+          "pass": 3
+        },
+        "status": {
+          "completed": 3
+        }
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "no_marker_condition": 3
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      }
+    },
+    "B": {
+      "planned": 3,
+      "recording": {
+        "recorded": 3
+      },
+      "termination": {
+        "completed": 3
+      },
+      "marker": {
+        "exact": 3
+      },
+      "evaluation": {
+        "build": {
+          "pass": 3
+        },
+        "baseline_rules": {
+          "pass": 3
+        },
+        "new_rules": {
+          "pass": 3
+        },
+        "feature": {
+          "pass": 3
+        },
+        "rules": {
+          "pass": 3
+        },
+        "status": {
+          "completed": 3
+        }
+      },
+      "four_cells": {
+        "exact_pass": 3,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 3,
+      "four_cell_excluded": {},
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 3,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 3,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 3,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_task_condition": {
+    "availability": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "not_applicable": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "exact": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 1,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 1,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          }
+        }
+      }
+    },
+    "batch": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "not_applicable": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "exact": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 1,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 1,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          }
+        }
+      }
+    },
+    "reschedule": {
+      "A": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "not_applicable": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 1
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 1,
+        "recording": {
+          "recorded": 1
+        },
+        "termination": {
+          "completed": 1
+        },
+        "marker": {
+          "exact": 1
+        },
+        "evaluation": {
+          "build": {
+            "pass": 1
+          },
+          "baseline_rules": {
+            "pass": 1
+          },
+          "new_rules": {
+            "pass": 1
+          },
+          "feature": {
+            "pass": 1
+          },
+          "rules": {
+            "pass": 1
+          },
+          "status": {
+            "completed": 1
+          }
+        },
+        "four_cells": {
+          "exact_pass": 1,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 1,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 1,
+            "value": 0.0
+          }
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "reschedule-01-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-01",
+        "condition": "B",
+        "duration_seconds": 38.47260974999881,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:43:56.272100+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-363a636d96c1",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "reschedule-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "5c8917c7051f328712b966477772a96b0b2d64e89c8075812fd5ffc13be2a9cc",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "a8367165ff9b7de6f2d6a85664d7f365f0858df5cd6753bbc23f32b5436df924",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "d59c0f8cd0e6df9f",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 65280,
+          "input_tokens": 71325,
+          "output_tokens": 2278,
+          "reasoning_output_tokens": 13
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-01-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-01",
+        "condition": "A",
+        "duration_seconds": 63.21571804499763,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:46:10.499875+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-072e0c5ad6c9",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "reschedule-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "a500535ecf1a61044c219e3ff49c6d879c460dbc25aebac825c4c06254b89311",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 66432,
+          "input_tokens": 87521,
+          "output_tokens": 1981,
+          "reasoning_output_tokens": 23
+        }
+      }
+    },
+    {
+      "run_id": "availability-01-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-01",
+        "condition": "A",
+        "duration_seconds": 53.49155468800018,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:47:05.881774+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-27e8d2a154bc",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "availability-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "92e02c7fbc331e2ecc50b6decf2c3221789d3719a3ede0bef20598f5a677c36d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 42624,
+          "input_tokens": 69996,
+          "output_tokens": 1896,
+          "reasoning_output_tokens": 34
+        }
+      }
+    },
+    {
+      "run_id": "availability-01-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-01",
+        "condition": "B",
+        "duration_seconds": 61.7875944970001,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:48:09.407321+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-4e155882f079",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "availability-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "6e42063ef65672f5bda3ccbc7fd480c12593bd642abebcacaaaad2ba8532c069",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d08d4f47b34bf2b6753af162184d09c4d53cc440da1e47b5ddef869cb380947d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "84146b6a40a66556",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 55040,
+          "input_tokens": 70835,
+          "output_tokens": 2242,
+          "reasoning_output_tokens": 67
+        }
+      }
+    },
+    {
+      "run_id": "batch-01-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-01",
+        "condition": "A",
+        "duration_seconds": 57.60183141000016,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:49:09.094983+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-dcc096d6bec3",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "batch-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "4e5e09dc1eac08f1da35a0e3f844bde9814360f6ca6556b12973898f6f621d22",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 49792,
+          "input_tokens": 70900,
+          "output_tokens": 2107,
+          "reasoning_output_tokens": 35
+        }
+      }
+    },
+    {
+      "run_id": "batch-01-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-01",
+        "condition": "B",
+        "duration_seconds": 71.22726769300061,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:50:22.266845+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "pilot",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-9643cf8179af",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "batch-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "061780f0134fbd571029bb1191d8d2221e50301235de1010cb5428bc054579c6",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "bd8e35f2d34408039a8724b461817bf9c5769236ccc8842a2cf565b570eb6f25",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "1bf4d0ac20f37350",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 65152,
+          "input_tokens": 71413,
+          "output_tokens": 2329,
+          "reasoning_output_tokens": 149
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "calibration_cases_passed": 16,
+  "completed": 6,
+  "decision": "ready_for_fixed_main_cohort",
+  "environment_note": "Git is absent; runner produces the code diff independently.",
+  "instruction_evidence": "Transcripts show explicit AGENTS.md reads; automatic injection not independently observed.",
+  "pilot_attempts": 6,
+  "reviewed_at": "2026-10-30T06:54:49.505457+00:00",
+  "reviewers": [
+    "AI software engineering reviewer",
+    "AI experimental methods reviewer"
+  ],
+  "scope": "Workflow validation only; uniform marker and rule outcomes do not establish diagnostic value."
+}

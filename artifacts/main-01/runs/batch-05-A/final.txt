@@ -1,0 +1,6 @@
+Implemented `book_many` in [booking.py](/workspace/booking.py), preserving existing APIs and adding only Batch behavior. It validates list input, stages bookings atomically, and returns detached normalized records in input order.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 8 additional checks covering rollback, duplicates, conflicts, input validation, UTC timestamps, ordering, and detached records.

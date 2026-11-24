@@ -1,0 +1,4 @@
+CANARY:0681285be1e0b116
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing existing validation with atomic batch commits and detached results in input order. Existing APIs remain unchanged; no other additions implemented.
+
+Checks passed: 3 public tests and 6 focused batch tests covering rollback, duplicates, conflicts, normalization, adjacency, and detachment. Git diff checking was unavailable because Git is not installed.

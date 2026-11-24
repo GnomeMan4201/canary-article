@@ -1,0 +1,333 @@
+{
+  "created_at": "2026-10-30T06:54:51.923171+00:00",
+  "frozen": true,
+  "phase": "main",
+  "pilot_source": "/home/ops/Project/canary-article/artifacts/pilot-02",
+  "runs": [
+    {
+      "block": "availability-05",
+      "condition": "A",
+      "repeat": 5,
+      "run_id": "availability-05-A",
+      "task": "availability",
+      "token": null
+    },
+    {
+      "block": "availability-05",
+      "condition": "B",
+      "repeat": 5,
+      "run_id": "availability-05-B",
+      "task": "availability",
+      "token": "3fce2e21737d5d9f"
+    },
+    {
+      "block": "reschedule-02",
+      "condition": "B",
+      "repeat": 2,
+      "run_id": "reschedule-02-B",
+      "task": "reschedule",
+      "token": "2189a2a0b9eb9850"
+    },
+    {
+      "block": "reschedule-02",
+      "condition": "A",
+      "repeat": 2,
+      "run_id": "reschedule-02-A",
+      "task": "reschedule",
+      "token": null
+    },
+    {
+      "block": "reschedule-01",
+      "condition": "A",
+      "repeat": 1,
+      "run_id": "reschedule-01-A",
+      "task": "reschedule",
+      "token": null
+    },
+    {
+      "block": "reschedule-01",
+      "condition": "B",
+      "repeat": 1,
+      "run_id": "reschedule-01-B",
+      "task": "reschedule",
+      "token": "791b3318a6a607d4"
+    },
+    {
+      "block": "batch-05",
+      "condition": "B",
+      "repeat": 5,
+      "run_id": "batch-05-B",
+      "task": "batch",
+      "token": "0681285be1e0b116"
+    },
+    {
+      "block": "batch-05",
+      "condition": "A",
+      "repeat": 5,
+      "run_id": "batch-05-A",
+      "task": "batch",
+      "token": null
+    },
+    {
+      "block": "batch-03",
+      "condition": "B",
+      "repeat": 3,
+      "run_id": "batch-03-B",
+      "task": "batch",
+      "token": "951c3034bf9033b6"
+    },
+    {
+      "block": "batch-03",
+      "condition": "A",
+      "repeat": 3,
+      "run_id": "batch-03-A",
+      "task": "batch",
+      "token": null
+    },
+    {
+      "block": "availability-02",
+      "condition": "A",
+      "repeat": 2,
+      "run_id": "availability-02-A",
+      "task": "availability",
+      "token": null
+    },
+    {
+      "block": "availability-02",
+      "condition": "B",
+      "repeat": 2,
+      "run_id": "availability-02-B",
+      "task": "availability",
+      "token": "d049f593dd5384dc"
+    },
+    {
+      "block": "batch-02",
+      "condition": "A",
+      "repeat": 2,
+      "run_id": "batch-02-A",
+      "task": "batch",
+      "token": null
+    },
+    {
+      "block": "batch-02",
+      "condition": "B",
+      "repeat": 2,
+      "run_id": "batch-02-B",
+      "task": "batch",
+      "token": "c6fa794f22e79f49"
+    },
+    {
+      "block": "reschedule-03",
+      "condition": "B",
+      "repeat": 3,
+      "run_id": "reschedule-03-B",
+      "task": "reschedule",
+      "token": "85a7c337e42400e5"
+    },
+    {
+      "block": "reschedule-03",
+      "condition": "A",
+      "repeat": 3,
+      "run_id": "reschedule-03-A",
+      "task": "reschedule",
+      "token": null
+    },
+    {
+      "block": "reschedule-05",
+      "condition": "B",
+      "repeat": 5,
+      "run_id": "reschedule-05-B",
+      "task": "reschedule",
+      "token": "dfaf998622d39133"
+    },
+    {
+      "block": "reschedule-05",
+      "condition": "A",
+      "repeat": 5,
+      "run_id": "reschedule-05-A",
+      "task": "reschedule",
+      "token": null
+    },
+    {
+      "block": "batch-04",
+      "condition": "B",
+      "repeat": 4,
+      "run_id": "batch-04-B",
+      "task": "batch",
+      "token": "6e88e249ab6f5928"
+    },
+    {
+      "block": "batch-04",
+      "condition": "A",
+      "repeat": 4,
+      "run_id": "batch-04-A",
+      "task": "batch",
+      "token": null
+    },
+    {
+      "block": "availability-01",
+      "condition": "A",
+      "repeat": 1,
+      "run_id": "availability-01-A",
+      "task": "availability",
+      "token": null
+    },
+    {
+      "block": "availability-01",
+      "condition": "B",
+      "repeat": 1,
+      "run_id": "availability-01-B",
+      "task": "availability",
+      "token": "cf0de6ae3dd93f62"
+    },
+    {
+      "block": "batch-01",
+      "condition": "A",
+      "repeat": 1,
+      "run_id": "batch-01-A",
+      "task": "batch",
+      "token": null
+    },
+    {
+      "block": "batch-01",
+      "condition": "B",
+      "repeat": 1,
+      "run_id": "batch-01-B",
+      "task": "batch",
+      "token": "6388e76565972816"
+    },
+    {
+      "block": "reschedule-04",
+      "condition": "B",
+      "repeat": 4,
+      "run_id": "reschedule-04-B",
+      "task": "reschedule",
+      "token": "f9adeeb97dd49510"
+    },
+    {
+      "block": "reschedule-04",
+      "condition": "A",
+      "repeat": 4,
+      "run_id": "reschedule-04-A",
+      "task": "reschedule",
+      "token": null
+    },
+    {
+      "block": "availability-03",
+      "condition": "A",
+      "repeat": 3,
+      "run_id": "availability-03-A",
+      "task": "availability",
+      "token": null
+    },
+    {
+      "block": "availability-03",
+      "condition": "B",
+      "repeat": 3,
+      "run_id": "availability-03-B",
+      "task": "availability",
+      "token": "99f7fe3dafedf7e0"
+    },
+    {
+      "block": "availability-04",
+      "condition": "A",
+      "repeat": 4,
+      "run_id": "availability-04-A",
+      "task": "availability",
+      "token": null
+    },
+    {
+      "block": "availability-04",
+      "condition": "B",
+      "repeat": 4,
+      "run_id": "availability-04-B",
+      "task": "availability",
+      "token": "2953e119f50eb7dd"
+    }
+  ],
+  "runtime": {
+    "backend_version": "unavailable",
+    "codex_assets": {
+      "bin/codex": "b8a11fedf24b2dfb59a70c9e52b030f9a508dcd49cd2dd0d41956f4c785156b8",
+      "bin/codex-code-mode-host": "657f4e902726e05867c937b583049d5997e057f8cd0ab40450633c9c9ef8d630",
+      "codex-package.json": "a734b829e73b56b59a1ed45e8669785c8e3d23290e60f40f4b5174f68e8ea7cd",
+      "codex-path/rg": "e62198eb19b136b88c330af83647b5a962cb99b6b1f066758568f12de1974849",
+      "codex-resources/bwrap": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+      "codex-resources/voice/NOTICE.md": "40097a1799441051aa0b6645cdc819cceb19be73cdd265eb602aa2b15e0b1f48",
+      "codex-resources/voice/bin/codex-voice-host": "b6195e3e1c37674da54b4e0bef9c0d84322e373e32d8460703f879fab97b601e",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstapp.so": "e6c32f19d1e8e06a9767a2f6c91a601375c5a6efc519bb56b7102f5f7c383977",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstaudioconvert.so": "fb89a8f45bc732097c1d3d9443a63cc732d821eae0c7e7877e552ce657addbcb",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstaudioresample.so": "7b2a73ad4e5c98fc2c9d3b31f9f56de7c1fdd90cd1696b9e0d485bde082e15b9",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstcoreelements.so": "ccc76f19fffa06140c8b5ee523a84e0ef7c07289c852997ed1e43c8f8455dc78",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstopus.so": "0f0ff64686d77036224de9b70b874e576266523a67c3f040d4163eaf5faebff5",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstrtp.so": "7bf839b65871050776681de94a2798321449c9567010189f92798d0735b9e229",
+      "codex-resources/voice/lib/gstreamer-1.0/libgstrtpmanager.so": "23ad729c8d629a8c6734248d6737c8f38f22e47b9579a98478a035537249f446",
+      "codex-resources/voice/lib/libffi.so.8": "bdec19c4e46b8fbf1c3e0b39f7b3fad933b77b43e2c37631157c97950fd2b174",
+      "codex-resources/voice/lib/libgio-2.0.so.0": "e67ab46a96ede0b8104e471d334f847ba581dd9a7c4e24f4190fcf1f2112cbb1",
+      "codex-resources/voice/lib/libglib-2.0.so.0": "2177b7338114a509730e8f92185b972a3491815ae463c76f6fcb75fd7590ba05",
+      "codex-resources/voice/lib/libgmodule-2.0.so.0": "1158809de3e776981b850a78ad110baadbefa2dab1bd7c44cf6709073e7c5408",
+      "codex-resources/voice/lib/libgobject-2.0.so.0": "a6976679abfecc3dd0553035424d7d4eddb53174ce916fda408a436204ab81d7",
+      "codex-resources/voice/lib/libgstallocators-1.0.so.0": "9b85e20611e0986f5a9143b76d6acc59e6b63705ec137040ee8b466eab2975e4",
+      "codex-resources/voice/lib/libgstapp-1.0.so.0": "30f94ed01741ba050326355d7cd791edad4c72d3aada91cc6083f22981acaac2",
+      "codex-resources/voice/lib/libgstaudio-1.0.so.0": "9159265f12feb43ad5f52d548c525a15fdff81bc4d6ed1ec2eda5c4e9ae15e9b",
+      "codex-resources/voice/lib/libgstbase-1.0.so.0": "efa118dfc05298ccc5d7de9f0d6b40ae85a98c1cb1989c847014d9e458498227",
+      "codex-resources/voice/lib/libgstnet-1.0.so.0": "fbb8a6840cddab66da3d306ecd4274d3ee57e2db207bdef8632be1941ecfef87",
+      "codex-resources/voice/lib/libgstpbutils-1.0.so.0": "d964814517a83d6852a9169e84399edfee509d6fd6620ffa4beb9c50c68db67d",
+      "codex-resources/voice/lib/libgstreamer-1.0.so.0": "9115c7aebbd1d70cf67d97e996d18b103188d05207bad7d6bd2c5c22c22f861e",
+      "codex-resources/voice/lib/libgstrtp-1.0.so.0": "36d5ccf35d0b6ffc346511ff6795bec15e452e9f26892264aeca662b5126c11a",
+      "codex-resources/voice/lib/libgsttag-1.0.so.0": "459140a25b33bf7583b3bb287d60ce2cf006871b3e36166a7d38184a18d49e95",
+      "codex-resources/voice/lib/libgstvideo-1.0.so.0": "86f89267e25f04248d31bffd1334132730972f6573a9f86dd22d9cdc40fac91b",
+      "codex-resources/voice/lib/libintl.so.8": "3745518bbcd678e70f7560496596c8adc8b9215d23839c5eb2d0dea0bce3975a",
+      "codex-resources/voice/lib/libopus.so.0": "f06da69ca0542b923a32f441da62a4fae8a603be7c4ee922c69282508b2960e0",
+      "codex-resources/voice/lib/libpcre2-8.so.0": "e39519b242f40686734ed8d0218f68cac24f0e956ec64c8c1b49b9da5cc9788b",
+      "codex-resources/voice/lib/libz.so.1": "6c5d765f42d9368cc4bdbd11f725c1bcf6b14b78322033d3c94f787fc6261f5e",
+      "codex-resources/voice/licenses/LGPL-2.1.txt": "ad2eec519ebd4b5df86ea84dff24ae3bfa2edea846a703b58902dd221ae375db",
+      "codex-resources/voice/licenses/Opus.txt": "01e1167d54a096d123cf6dfbbeb19587278845c6481d2d66d545669846079551",
+      "codex-resources/voice/licenses/PCRE2.md": "197d8a73ffee0d6b09adba2f9c677b5f5aede24edf89258a68e48248d010d811",
+      "codex-resources/voice/licenses/libffi.txt": "17b64dc60f3b6897a60f971e288b973f655c2edcdf08b25f3c3dd5549857881c",
+      "codex-resources/voice/licenses/proxy-libintl.txt": "d245807f90032872d1438d741ed21e2490e1175dc8aa3afa5ddb6c8e529b58e5",
+      "codex-resources/voice/licenses/sljit.txt": "5f216505c0f6ea3273caec89e766eef93cdeb7bbb0c429f9360116d7c938feeb",
+      "codex-resources/voice/licenses/zlib.txt": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+      "codex-resources/voice/manifest.json": "ee25e29a025721ddaeb5a43bb2eaa8fd2ed37d4ff9890d33bbe4cf859564d1f1",
+      "codex-resources/voice/runtime.json": "edadcca85c1bd8924d73fd825987fe0bf3f14a44d3cf8c7a64719ecb5ab0fd79",
+      "codex-resources/voice/sources.json": "e2f6b124f6277e7c3c4f5c7cc8830c66190f671ad65e972bb2cc9507dbfcb937"
+    },
+    "codex_binary": "/home/ops/.nvm/versions/node/v22.23.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex",
+    "codex_bundle": "/home/ops/.nvm/versions/node/v22.23.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl",
+    "codex_sha256": "b8a11fedf24b2dfb59a70c9e52b030f9a508dcd49cd2dd0d41956f4c785156b8",
+    "codex_version": "codex-cli 0.166.0",
+    "effort": "high",
+    "evaluation_timeout_seconds": 20,
+    "filesystem_isolation": "pass",
+    "image_id": "sha256:67d292ffab507f35f18dfceef1304fbfa77be591ae155e8bb166d84c8940b613",
+    "model": "gpt-6-astra",
+    "network": "bridge",
+    "probe_workspace_write": true,
+    "timeout_seconds": 240,
+    "token_limit": null
+  },
+  "schema_version": 1,
+  "seed": 20261029,
+  "source_hashes": {
+    "Dockerfile": "f39dd0e29a8b30a451b83518eea9642674d3fefd2e7c8fcc96086d2355022d2e",
+    "docs/contract.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "docs/experiment.md": "11dd6c20c6e9ddc10d98a39858a880ef1c9097d1140b03ecec8bdaf3255473e6",
+    "evaluator/__init__.py": "22abd018811434f87fb849428df914f17627d8a7fa1f3f5e3da6f28a31d7128d",
+    "evaluator/evaluate.py": "6b687fde94e71c456cdb876fc9cbb40a3b7915c3c11eb94729e3eea4cf937ce5",
+    "fixtures/baseline/AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+    "fixtures/baseline/CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "fixtures/baseline/booking.py": "81f99f247cbab72a705503e6d570c4d7420af45c4276e5fe504ddb8a0856d20a",
+    "fixtures/baseline/test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8",
+    "fixtures/reference/availability/booking.py": "ce45a72037f5e12d7579177c23a456afdb50e8f5ba5039c83afdf3bfeade17a9",
+    "fixtures/reference/batch/booking.py": "ac591b61a806cc59509e0b9d626b6bd5e4b9a4d787c102c88ef96e590e9e8a18",
+    "fixtures/reference/reschedule/booking.py": "38295325a50c9d6a5054610154a3285aad05b838c77d54deb323d5f475c5ad31",
+    "lab/__init__.py": "b515d28da0186b3130c2e1104b8cb60d0aa43e2243d4f069ada6ee59e1a5effb",
+    "lab/calibrate.py": "2d1e2765e610720e473b08c39435703c89915accc9791a17bf39430da3a6e1d5",
+    "lab/marker.py": "5a3d7154e585286033ee735474db67496e81e1fa2d25887de91a81fd40c0330a",
+    "lab/report.py": "4de7e3561cd6770f4b1ec871ff42a7b6a0acc749c628801247f3977fe950e250",
+    "lab/runner.py": "9c51718ac5431637dec8ad1dbf5763c6047c70311b50bb9528d56cd2860a49a4",
+    "tasks/availability.txt": "871e5416dcb046db04f65e62d373e8934c297dc1b575e5591758601a1b318e9e",
+    "tasks/batch.txt": "e6e3167d5bdc02e9083911397e4105fef9ef4fd886adae9c10d7af479f2c4585",
+    "tasks/reschedule.txt": "1f2b3a7e125a42d0dbca8e22e4f215071c74b58f11941f07b050c281b1791561"
+  }
+}

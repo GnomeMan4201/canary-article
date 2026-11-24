@@ -1,0 +1,175 @@
+{
+  "cases": [
+    {
+      "evidence": "cases/correct-baseline",
+      "id": "correct-baseline",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/correct-reschedule",
+      "id": "correct-reschedule",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "reschedule"
+    },
+    {
+      "evidence": "cases/correct-availability",
+      "id": "correct-availability",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "availability"
+    },
+    {
+      "evidence": "cases/correct-batch",
+      "id": "correct-batch",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "batch"
+    },
+    {
+      "evidence": "cases/allows-overlap",
+      "id": "allows-overlap",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/ignores-offset",
+      "id": "ignores-offset",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/mutates-before-rejection",
+      "id": "mutates-before-rejection",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/non-atomic-batch",
+      "id": "non-atomic-batch",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "batch"
+    },
+    {
+      "evidence": "cases/missing-reschedule",
+      "id": "missing-reschedule",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "reschedule"
+    },
+    {
+      "evidence": "cases/missing-availability",
+      "id": "missing-availability",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "availability"
+    },
+    {
+      "evidence": "cases/missing-batch",
+      "id": "missing-batch",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "batch"
+    },
+    {
+      "evidence": "cases/syntax-failure",
+      "id": "syntax-failure",
+      "observed_status": "build_failure",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/import-failure",
+      "id": "import-failure",
+      "observed_status": "build_failure",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/missing-export",
+      "id": "missing-export",
+      "observed_status": "build_failure",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/noisy-import",
+      "id": "noisy-import",
+      "observed_status": "completed",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    },
+    {
+      "evidence": "cases/import-timeout",
+      "id": "import-timeout",
+      "observed_status": "evaluator_error",
+      "phase": "calibration",
+      "problems": [],
+      "status": "pass",
+      "task": "baseline"
+    }
+  ],
+  "image": "canary-lab-runtime:local",
+  "phase": "calibration",
+  "schema_version": 1,
+  "source_hashes": {
+    "Dockerfile": "f39dd0e29a8b30a451b83518eea9642674d3fefd2e7c8fcc96086d2355022d2e",
+    "docs/contract.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "docs/experiment.md": "11dd6c20c6e9ddc10d98a39858a880ef1c9097d1140b03ecec8bdaf3255473e6",
+    "evaluator/__init__.py": "22abd018811434f87fb849428df914f17627d8a7fa1f3f5e3da6f28a31d7128d",
+    "evaluator/evaluate.py": "6b687fde94e71c456cdb876fc9cbb40a3b7915c3c11eb94729e3eea4cf937ce5",
+    "fixtures/baseline/AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+    "fixtures/baseline/CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "fixtures/baseline/booking.py": "81f99f247cbab72a705503e6d570c4d7420af45c4276e5fe504ddb8a0856d20a",
+    "fixtures/baseline/test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8",
+    "fixtures/reference/availability/booking.py": "ce45a72037f5e12d7579177c23a456afdb50e8f5ba5039c83afdf3bfeade17a9",
+    "fixtures/reference/batch/booking.py": "ac591b61a806cc59509e0b9d626b6bd5e4b9a4d787c102c88ef96e590e9e8a18",
+    "fixtures/reference/reschedule/booking.py": "38295325a50c9d6a5054610154a3285aad05b838c77d54deb323d5f475c5ad31",
+    "lab/__init__.py": "b515d28da0186b3130c2e1104b8cb60d0aa43e2243d4f069ada6ee59e1a5effb",
+    "lab/calibrate.py": "2d1e2765e610720e473b08c39435703c89915accc9791a17bf39430da3a6e1d5",
+    "lab/marker.py": "5a3d7154e585286033ee735474db67496e81e1fa2d25887de91a81fd40c0330a",
+    "lab/report.py": "4de7e3561cd6770f4b1ec871ff42a7b6a0acc749c628801247f3977fe950e250",
+    "lab/runner.py": "9c51718ac5431637dec8ad1dbf5763c6047c70311b50bb9528d56cd2860a49a4",
+    "tasks/availability.txt": "871e5416dcb046db04f65e62d373e8934c297dc1b575e5591758601a1b318e9e",
+    "tasks/batch.txt": "e6e3167d5bdc02e9083911397e4105fef9ef4fd886adae9c10d7af479f2c4585",
+    "tasks/reschedule.txt": "1f2b3a7e125a42d0dbca8e22e4f215071c74b58f11941f07b050c281b1791561"
+  },
+  "source_stable": true,
+  "status": "pass"
+}

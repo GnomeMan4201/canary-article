@@ -1,0 +1,13 @@
+--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,10 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({"room": room, "start": start, "end": end})
++        ]

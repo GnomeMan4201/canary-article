@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canary Lab — pilot evidence</title>
+<style>
+:root{color-scheme:light;--paper:#faf8ef;--ink:#25291f;--line:#d7d8c8;--yellow:#f2d764}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:1120px;margin:auto;padding:44px 24px 72px}header{border-bottom:2px solid var(--ink);padding-bottom:28px}
+.eyebrow{display:inline-block;background:var(--yellow);padding:3px 10px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+h1{font:clamp(2rem,5vw,3.5rem)/1.1 Georgia,serif;margin:18px 0}h2{font-size:1.35rem;margin:36px 0 8px}
+p{max-width:80ch}.muted{color:#565e4b}.table-wrap{overflow-x:auto;margin:20px 0}table{border-collapse:collapse;width:100%;text-align:left;font-size:.9rem}
+caption{text-align:left;font-weight:700;margin-bottom:8px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eeeee2}
+details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:600}summary:focus-visible{outline:3px solid #766100;outline-offset:4px}
+pre{background:#efefe4;padding:16px;overflow:auto;font:13px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+footer{margin-top:40px;border-top:2px solid var(--ink);padding-top:16px;font-size:.85rem}@media print{main{padding:0}details{break-inside:avoid}}
+</style></head><body><main>
+<header><span class="eyebrow">pilot cohort</span><h1>Canary Lab evidence</h1>
+<p>Instruction markers and independently checked booking behavior, recorded separately.</p>
+<p class="muted">Pilot evidence is for validating the procedure. It is not part of the main dataset.</p></header>
+<h2>All-run accounting</h2><p>6 planned runs. Missing or invalid evidence stays visible.</p><div class="table-wrap"><table><caption>All planned runs</caption><thead><tr><th scope="col">Record status</th><th scope="col">Runs</th></tr></thead><tbody><tr><td>recorded</td><td>1</td></tr><tr><td>not attempted</td><td>4</td></tr><tr><td>interrupted</td><td>1</td></tr><tr><td>invalid evidence</td><td>0</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Separate outcome dimensions</caption><thead><tr><th scope="col">Evidence dimension</th><th scope="col">Recorded result counts</th></tr></thead><tbody><tr><td>Termination</td><td>completed: 1</td></tr><tr><td>Marker</td><td>exact: 1</td></tr><tr><td>build</td><td>pass: 1</td></tr><tr><td>baseline rules</td><td>pass: 1</td></tr><tr><td>new rules</td><td>unevaluable: 1</td></tr><tr><td>feature</td><td>fail: 1</td></tr><tr><td>rules</td><td>unevaluable: 1</td></tr><tr><td>status</td><td>completed: 1</td></tr></tbody></table></div>
+<h2>Marker and rule outcomes</h2><p>0 runs enter the four-cell table. “Pass” means the specified checks passed, not that all possible behavior is correct.</p><div class="table-wrap"><table><caption>Condition B · observed final responses and evaluable rules only</caption><thead><tr><th scope="col">Marker instruction</th><th scope="col">Rules pass</th><th scope="col">Rules fail</th></tr></thead><tbody><tr><td>Exact</td><td>0</td><td>0</td></tr><tr><td>Noncompliant (malformed or absent)</td><td>0</td><td>0</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Denominators remain visible</caption><thead><tr><th scope="col">Descriptive fraction</th><th scope="col">Count</th><th scope="col">Fraction</th></tr></thead><tbody><tr><td>Rule failures among exact markers</td><td>0/0</td><td>Undefined</td></tr><tr><td>Rule failures among noncompliant markers</td><td>0/0</td><td>Undefined</td></tr><tr><td>Noncompliant markers among rule failures</td><td>0/0</td><td>Undefined</td></tr><tr><td>Noncompliant markers among evaluable runs</td><td>0/0</td><td>Undefined</td></tr><tr><td>Noncompliant markers among observed responses</td><td>0/1</td><td>0.0%</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Exclusions · disjoint accounting categories</caption><thead><tr><th scope="col">Excluded from four-cell table</th><th scope="col">Runs</th></tr></thead><tbody><tr><td>interrupted</td><td>1</td></tr><tr><td>not attempted</td><td>4</td></tr><tr><td>unevaluable rules</td><td>1</td></tr></tbody></table></div>
+<p>Exact markers with unevaluable rules: 1. These are outside the four-cell table. Exclusion reasons are assigned in order: recording status, condition, marker observation, rule evaluation.</p>
+<p class="muted">These are descriptive final outcomes. They do not establish causation, early warning, or reliability beyond these tasks. A constant marker cannot distinguish outcomes; zero denominators are undefined.</p>
+<h2>By task and condition</h2><div class="table-wrap"><table><caption>Task and condition breakdown</caption><thead><tr><th scope="col">Task</th><th scope="col">Condition</th><th scope="col">Planned</th><th scope="col">Recorded</th><th scope="col">Rules</th><th scope="col">Feature</th><th scope="col">Four cells*</th></tr></thead><tbody><tr><td>availability</td><td>A</td><td>1</td><td>0</td><td>none</td><td>none</td><td>0 / 0 / 0 / 0</td></tr><tr><td>availability</td><td>B</td><td>1</td><td>0</td><td>none</td><td>none</td><td>0 / 0 / 0 / 0</td></tr><tr><td>batch</td><td>A</td><td>1</td><td>0</td><td>none</td><td>none</td><td>0 / 0 / 0 / 0</td></tr><tr><td>batch</td><td>B</td><td>1</td><td>0</td><td>none</td><td>none</td><td>0 / 0 / 0 / 0</td></tr><tr><td>reschedule</td><td>A</td><td>1</td><td>0</td><td>none</td><td>none</td><td>0 / 0 / 0 / 0</td></tr><tr><td>reschedule</td><td>B</td><td>1</td><td>1</td><td>unevaluable: 1</td><td>fail: 1</td><td>0 / 0 / 0 / 0</td></tr></tbody></table></div><p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Condition A has no marker and does not enter those cells.</p>
+<h2>Run evidence</h2><p>Expand a run to inspect recorded statuses, per-check evidence, errors, duration, and usage where supplied.</p><details><summary>reschedule-01-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-01&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 18.73915597299856,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;detail&quot;: &quot;missing requested method reschedule&quot;,
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;fail&quot;
+      },
+      {
+        &quot;detail&quot;: &quot;missing requested method reschedule&quot;,
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;unevaluable&quot;
+      },
+      {
+        &quot;detail&quot;: &quot;missing requested method reschedule&quot;,
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;unevaluable&quot;
+      },
+      {
+        &quot;detail&quot;: &quot;missing requested method reschedule&quot;,
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;unevaluable&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;fail&quot;,
+    &quot;new_rules&quot;: &quot;unevaluable&quot;,
+    &quot;rules&quot;: &quot;unevaluable&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T06:41:17.328627+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;pilot&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-4eaf1117a9b3&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;reschedule-01-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;e14b735b8431e71d7687116f1841cfde345c58156ca8e2f031229999ee0336da&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;81f99f247cbab72a705503e6d570c4d7420af45c4276e5fe504ddb8a0856d20a&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;fd11c73f1ba333de&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 23680,
+    &quot;input_tokens&quot;: 36035,
+    &quot;output_tokens&quot;: 275,
+    &quot;reasoning_output_tokens&quot;: 65
+  }
+}</pre></details><details><summary>reschedule-01-A · reschedule · A · interrupted</summary><pre>{
+  &quot;run_id&quot;: &quot;reschedule-01-A&quot;,
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;recording_status&quot;: &quot;interrupted&quot;,
+  &quot;result&quot;: null
+}</pre></details><details><summary>availability-01-A · availability · A · not_attempted</summary><pre>{
+  &quot;run_id&quot;: &quot;availability-01-A&quot;,
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;recording_status&quot;: &quot;not_attempted&quot;,
+  &quot;result&quot;: null
+}</pre></details><details><summary>availability-01-B · availability · B · not_attempted</summary><pre>{
+  &quot;run_id&quot;: &quot;availability-01-B&quot;,
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;recording_status&quot;: &quot;not_attempted&quot;,
+  &quot;result&quot;: null
+}</pre></details><details><summary>batch-01-A · batch · A · not_attempted</summary><pre>{
+  &quot;run_id&quot;: &quot;batch-01-A&quot;,
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;recording_status&quot;: &quot;not_attempted&quot;,
+  &quot;result&quot;: null
+}</pre></details><details><summary>batch-01-B · batch · B · not_attempted</summary><pre>{
+  &quot;run_id&quot;: &quot;batch-01-B&quot;,
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;recording_status&quot;: &quot;not_attempted&quot;,
+  &quot;result&quot;: null
+}</pre></details>
+<footer>Static report from saved cohort evidence. No model calls, external assets, or network requests are required. Machine-readable aggregate: report.json.</footer>
+</main></body></html>

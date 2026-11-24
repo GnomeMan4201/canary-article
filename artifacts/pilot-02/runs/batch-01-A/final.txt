@@ -1,0 +1,7 @@
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing `book` validation and staging changes for atomic commits. Results are detached, normalized, and returned in input order. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- All 3 public tests.
+- 4 additional tests covering rollback, duplicates, conflicts, adjacency, timestamps, input validation, and mutation isolation.
+
+`git diff --check` was unavailable because Git is not installed.

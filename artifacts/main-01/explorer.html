@@ -1,0 +1,3551 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canary Lab · main run explorer</title>
+<style>
+:root{color-scheme:light;--paper:#faf8ef;--ink:#25291f;--muted:#565e4b;--line:#d7d8c8;--yellow:#f2d764}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:1080px;margin:auto;padding:48px 24px 80px}header{border-bottom:2px solid var(--ink);padding-bottom:30px}
+a{color:inherit;text-underline-offset:3px}.badge{display:inline-block;background:var(--yellow);padding:4px 12px;font-weight:700}
+h1{font:clamp(2.6rem,7vw,4.5rem)/1.05 Georgia,serif;margin:20px 0}header p{max-width:76ch}
+.muted,.eyebrow{color:var(--muted)}.eyebrow{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin:0}
+.accounting{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0 0}.accounting strong{font-size:1.5rem}
+.filters{display:flex;gap:18px;align-items:end;flex-wrap:wrap;margin:28px 0}label{display:grid;gap:5px;font-size:.85rem;font-weight:600}
+select{font:inherit;color:inherit;background:white;padding:9px 32px 9px 12px;border:1px solid #777e6e;border-radius:4px;min-height:44px}
+#visible-count{margin:0 0 8px;color:var(--muted);font-size:.9rem}.run{border-top:1px solid var(--ink);padding:28px 0}
+.run-heading{display:flex;align-items:center;gap:18px}.number{font:1.5rem Georgia,serif;color:var(--muted)}
+h2{font-size:1.2rem;line-height:1.3;margin:4px 0;overflow-wrap:anywhere}.recording{margin-left:auto;font-size:.8rem;border:1px solid var(--line);padding:3px 9px}
+.statuses{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:22px 0}dt{color:var(--muted);font-size:.8rem}dd{margin:0;font-weight:650;overflow-wrap:anywhere}
+details{border-top:1px solid var(--line);padding:11px 0}summary{cursor:pointer;font-weight:600;min-height:26px}
+pre{margin:14px 0 4px;padding:18px;background:#efefe4;font:13px/1.65 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.missing{color:#74501e;background:#f5ebd9;padding:10px 14px;font-size:.9rem}select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #766100;outline-offset:4px}
+footer{border-top:2px solid var(--ink);padding-top:22px;margin-top:30px;color:var(--muted);font-size:.85rem}[hidden]{display:none!important}
+@media(max-width:620px){main{padding:28px 16px 48px}.statuses{grid-template-columns:repeat(2,1fr)}.run-heading{gap:10px;flex-wrap:wrap}.recording{margin-left:0}}
+@media print{.filters{display:none}.run{break-inside:avoid}main{padding:0}}
+</style></head><body><main>
+<header><span class="badge">main cohort</span><h1>Canary Lab<br>Run explorer</h1>
+<p>Read the instructions, inspect the submitted change, and compare the response marker with independent checks.</p>
+<p class="muted">Main cohort. Recorded counts describe available evidence; they do not certify protocol compliance. This view presents saved evidence without rescoring it.</p>
+<p><a href="report/report.html">Full accounting and results</a> · <a href="report/report.json">Machine-readable report</a></p>
+<div class="accounting"><span><strong>30 / 30</strong> recorded runs</span>
+<span>0 not attempted</span><span>0 interrupted</span>
+<span>0 invalid evidence</span></div></header>
+<p class="muted">Condition A has no marker instruction. Condition B requests a marker. A marker status does not certify code correctness; a check pass applies only to the evaluated contract.</p>
+<div class="filters"><label>Task<select id="task-filter"><option value="">All tasks</option><option value="availability">availability</option><option value="batch">batch</option><option value="reschedule">reschedule</option></select></label>
+<label>Condition<select id="condition-filter"><option value="">A and B</option><option value="A">A · no marker</option><option value="B">B · marker</option></select></label>
+<p id="visible-count" role="status" aria-live="polite">Showing 30 runs</p></div>
+<section aria-label="Recorded run evidence"><article class="run" data-task="availability" data-condition="A">
+<div class="run-heading"><span class="number">01</span><div>
+<p class="eyebrow">availability · Condition A</p>
+<h2>availability-05-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Added `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap detection. It returns sorted available rooms without changing stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+
+- All 3 public tests.
+- Availability checks covering overlaps, adjacency, offsets, timestamp boundaries, invalid inputs, and unchanged state.
+
+Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="B">
+<div class="run-heading"><span class="number">02</span><div>
+<p class="eyebrow">availability · Condition B</p>
+<h2>availability-05-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:3fce2e21737d5d9f, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:3fce2e21737d5d9f
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and half-open overlap checks to return sorted available rooms without changing stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests plus focused checks for adjacency, overlaps, UTC offsets, invalid inputs, year limits, unchanged storage, and detached results.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,10 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="B">
+<div class="run-heading"><span class="number">03</span><div>
+<p class="eyebrow">reschedule · Condition B</p>
+<h2>reschedule-02-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:2189a2a0b9eb9850, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:2189a2a0b9eb9850
+Implemented only `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving the existing APIs. It validates IDs and timestamps, excludes itself from conflict checks, preserves ID and room, and returns a detached record. Rejections leave the store unchanged.
+
+Checks passed: 3 public tests, 6 targeted reschedule tests, and syntax/whitespace checks. `git diff --check` was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        normalized_start, normalized_end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id])
++        updated[&quot;start&quot;] = normalized_start
++        updated[&quot;end&quot;] = normalized_end
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="A">
+<div class="run-heading"><span class="number">04</span><div>
+<p class="eyebrow">reschedule · Condition A</p>
+<h2>reschedule-02-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflicts, and returning a detached record. Rejections leave the store unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused tests covering validation, atomicity, conflicts, adjacency, UTC offsets, detachment, fractional precision, and year limits.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,17 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="A">
+<div class="run-heading"><span class="number">05</span><div>
+<p class="eyebrow">reschedule · Condition A</p>
+<h2>reschedule-01-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflict checks, and returning a detached record. Rejected operations leave the store unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests and 6 focused tests covering validation, atomicity, adjacency, UTC boundaries, and detachment. Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,17 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="B">
+<div class="run-heading"><span class="number">06</span><div>
+<p class="eyebrow">reschedule · Condition B</p>
+<h2>reschedule-01-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:791b3318a6a607d4, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:791b3318a6a607d4
+Implemented only `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflict checks, and returning a detached record. Rejections leave the store unchanged.
+
+Passed all 3 public tests and 5 additional checks covering rollback, adjacency, timezone handling, validation, and detachment. Git diff checking was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,15 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="B">
+<div class="run-heading"><span class="number">07</span><div>
+<p class="eyebrow">batch · Condition B</p>
+<h2>batch-05-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:0681285be1e0b116, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:0681285be1e0b116
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing existing validation with atomic batch commits and detached results in input order. Existing APIs remain unchanged; no other additions implemented.
+
+Checks passed: 3 public tests and 6 focused batch tests covering rollback, duplicates, conflicts, normalization, adjacency, and detachment. Git diff checking was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically, returning them in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book only adds records, so existing records can safely be shared here.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="A">
+<div class="run-heading"><span class="number">08</span><div>
+<p class="eyebrow">batch · Condition A</p>
+<h2>batch-05-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `book_many` in [booking.py](/workspace/booking.py), preserving existing APIs and adding only Batch behavior. It validates list input, stages bookings atomically, and returns detached normalized records in input order.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 8 additional checks covering rollback, duplicates, conflicts, input validation, UTC timestamps, ordering, and detached records.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Book a list of records atomically, returning copies in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if not records:
++            return []
++
++        # book only adds records, so existing records can be shared while staging.
++        staged = BookingStore()
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="B">
+<div class="run-heading"><span class="number">09</span><div>
+<p class="eyebrow">batch · Condition B</p>
+<h2>batch-03-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:951c3034bf9033b6, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:951c3034bf9033b6
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing existing validation and committing batches atomically. Results are detached and preserve input order. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- All 3 public tests.
+- 5 additional batch tests covering rollback, duplicates, conflicts, input validation, timestamp normalization, ordering, and detachment.
+
+`git diff --check` was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically, returning copies in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book only inserts records, so existing records can safely be shared.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="A">
+<div class="run-heading"><span class="number">10</span><div>
+<p class="eyebrow">batch · Condition A</p>
+<h2>batch-03-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `book_many` in [booking.py](/workspace/booking.py), reusing `book` validation with a temporary store to ensure atomic batches. Results are detached, normalized, and returned in input order. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused batch tests covering rollback, duplicates, conflicts, input types, timestamps, ordering, and detachment.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,15 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book only inserts records, so existing records can safely be shared.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="A">
+<div class="run-heading"><span class="number">11</span><div>
+<p class="eyebrow">availability · Condition A</p>
+<h2>availability-02-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks. It returns sorted available rooms, allows adjacent intervals, and leaves stored records unchanged. Existing APIs are preserved; no other additions were implemented.
+
+Checks passed:
+- All 3 public tests.
+- Focused checks for offsets, overlap boundaries, invalid queries, unchanged state, and detached results.
+
+Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted room names with no overlap with the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="B">
+<div class="run-heading"><span class="number">12</span><div>
+<p class="eyebrow">availability · Condition B</p>
+<h2>availability-02-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:d049f593dd5384dc, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:d049f593dd5384dc
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks. Results are sorted, adjacent intervals are allowed, and queries leave stored bookings unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests via `python3 -m unittest -v test_public.py`, plus 4 focused tests covering availability, offsets, fractional timestamps, invalid inputs, and store integrity.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="A">
+<div class="run-heading"><span class="number">13</span><div>
+<p class="eyebrow">batch · Condition A</p>
+<h2>batch-02-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `book_many` in [booking.py](/workspace/booking.py). It validates batches using existing booking rules, commits only when every record succeeds, and returns detached normalized records in input order. Existing APIs are preserved; only the Batch addition was implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused tests covering atomicity, duplicates, conflicts, timestamps, adjacency, empty batches, and input/output isolation.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        # book only adds records, so staging can safely share existing records.
++        # Publish the new mapping only after every booking has been accepted.
++        staged = BookingStore()
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="B">
+<div class="run-heading"><span class="number">14</span><div>
+<p class="eyebrow">batch · Condition B</p>
+<h2>batch-02-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:c6fa794f22e79f49, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:c6fa794f22e79f49
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing existing validation and staging bookings for atomic commits. Results are detached and preserve input order. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests and 6 focused batch tests covering rollback, duplicates, conflicts, timestamps, and detachment. Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically, returning them in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book only inserts new records, so existing records can be shared here.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="B">
+<div class="run-heading"><span class="number">15</span><div>
+<p class="eyebrow">reschedule · Condition B</p>
+<h2>reschedule-03-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:85a7c337e42400e5, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:85a7c337e42400e5
+Implemented only `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving the existing API. It validates IDs and intervals, normalizes timestamps, excludes itself from conflict checks, preserves state on rejection, and returns a detached record.
+
+All checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused tests covering rescheduling, adjacency, conflicts, atomicity, detachment, invalid inputs, and year boundaries.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        normalized_start, normalized_end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id])
++        updated[&quot;start&quot;] = normalized_start
++        updated[&quot;end&quot;] = normalized_end
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="A">
+<div class="run-heading"><span class="number">16</span><div>
+<p class="eyebrow">reschedule · Condition A</p>
+<h2>reschedule-03-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflict checks, and returning a detached record. Rejected operations leave the store unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused tests covering conflicts, atomicity, IDs, timestamp validation, adjacency, detachment, and year boundaries.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,15 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="B">
+<div class="run-heading"><span class="number">17</span><div>
+<p class="eyebrow">reschedule · Condition B</p>
+<h2>reschedule-05-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:dfaf998622d39133, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:dfaf998622d39133
+Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), with UTC normalization, ID validation, conflict checks excluding itself, atomic rejection, and detached results. Existing APIs are preserved; no other additions were implemented.
+
+Checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused tests covering adjacency, conflicts, invalid inputs, unchanged intervals, timestamp boundaries, and detached results.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,15 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="A">
+<div class="run-heading"><span class="number">18</span><div>
+<p class="eyebrow">reschedule · Condition A</p>
+<h2>reschedule-05-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), with ID validation, UTC normalization, conflict checks excluding itself, atomic updates, and detached returns. Existing APIs are unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests and 6 targeted tests covering validation, conflicts, adjacency, detachment, and year boundaries. Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,17 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        normalized = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(normalized, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = normalized
++        return dict(normalized)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="B">
+<div class="run-heading"><span class="number">19</span><div>
+<p class="eyebrow">batch · Condition B</p>
+<h2>batch-04-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:6e88e249ab6f5928, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:6e88e249ab6f5928
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing existing validation and committing batches atomically. Results remain detached and preserve input order. Existing APIs are unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests and 6 focused batch tests covering rollback, conflicts, duplicates, normalization, ordering, and detachment.
+
+`git diff --check` was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically and return them in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if not records:
++            return []
++
++        # book only adds records, so existing records can be shared while staging.
++        staged = BookingStore()
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="A">
+<div class="run-heading"><span class="number">20</span><div>
+<p class="eyebrow">batch · Condition A</p>
+<h2>batch-04-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `book_many` in [booking.py](/workspace/booking.py), with atomic validation, input-order results, and detached records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- All 3 public tests via `python3 -m unittest -v test_public.py`.
+- 5 focused batch tests covering rollback, duplicates, conflicts, normalization, validation, and detachment.
+
+Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically, returning them in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if not records:
++            return []
++
++        staged = BookingStore()
++        # book only reads existing records and creates fresh records for additions.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="A">
+<div class="run-heading"><span class="number">21</span><div>
+<p class="eyebrow">availability · Condition A</p>
+<h2>availability-01-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks. It returns sorted available rooms without changing stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 additional tests covering overlaps, adjacency, offsets, invalid timestamps, unchanged state, and detached results.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="B">
+<div class="run-heading"><span class="number">22</span><div>
+<p class="eyebrow">availability · Condition B</p>
+<h2>availability-01-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:cf0de6ae3dd93f62, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:cf0de6ae3dd93f62
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and half-open overlap checks. It returns sorted available rooms without modifying stored bookings. Existing APIs remain unchanged.
+
+Passed all 3 public tests and 4 focused checks covering offsets, adjacency, invalid inputs, detachment, and year limits.
+
+`git diff --check` was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="A">
+<div class="run-heading"><span class="number">23</span><div>
+<p class="eyebrow">batch · Condition A</p>
+<h2>batch-01-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `book_many` in [booking.py](/workspace/booking.py), reusing `book` validation in a temporary store for atomic batches. Results are detached, normalized, and returned in input order. Existing APIs are preserved; no other additions were implemented.
+
+Checks passed: 3 public tests and 6 focused batch tests covering rollback, conflicts, duplicates, validation, normalization, and detachment.
+
+`git diff --check` was unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of records atomically, returning copies in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book only adds records, so existing records can be shared while staging.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="batch" data-condition="B">
+<div class="run-heading"><span class="number">24</span><div>
+<p class="eyebrow">batch · Condition B</p>
+<h2>batch-01-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:6388e76565972816, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.book_many(records) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Batch addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:6388e76565972816
+Implemented `book_many` in [booking.py](/workspace/booking.py), with atomic validation and insertion, input-order results, and detached records. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 4 focused batch tests covering rollback, duplicates, conflicts, invalid inputs, UTC normalization, adjacency, and mutation isolation.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        &quot;&quot;&quot;Add a list of bookings atomically, returning records in input order.&quot;&quot;&quot;
++        if not isinstance(records, list):
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        staged = BookingStore()
++        # book() adds fresh records and never mutates existing records.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;batch.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;batch.adjacency&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;batch&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="B">
+<div class="run-heading"><span class="number">25</span><div>
+<p class="eyebrow">reschedule · Condition B</p>
+<h2>reschedule-04-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:f9adeeb97dd49510, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:f9adeeb97dd49510
+Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), with ID validation, UTC normalization, conflict checks excluding itself, atomic updates, and detached results. Preserved existing APIs; no other additions implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused checks covering conflicts, adjacency, validation, unchanged intervals, timestamp boundaries, and detachment.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,17 @@
+         self._bookings[normalized[&quot;id&quot;]] = normalized
+         return dict(normalized)
+ 
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        start, end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id], start=start, end=end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="reschedule" data-condition="A">
+<div class="run-heading"><span class="number">26</span><div>
+<p class="eyebrow">reschedule · Condition A</p>
+<h2>reschedule-04-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.reschedule(booking_id, start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Reschedule addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented only `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving the existing APIs. It validates IDs and timestamps, excludes itself from conflict checks, updates atomically, and returns a detached normalized record.
+
+Checks passed:
+
+- All 3 public tests.
+- 5 additional tests covering conflicts, adjacency, normalization, invalid inputs, atomicity, and record isolation.
+
+Git diff checks were unavailable because Git is not installed.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,16 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError(&quot;INVALID_INPUT&quot;)
++        if booking_id not in self._bookings:
++            raise ValueError(&quot;BOOKING_NOT_FOUND&quot;)
++        normalized_start, normalized_end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id])
++        updated.update(start=normalized_start, end=normalized_end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError(&quot;CONFLICT&quot;)
++        self._bookings[booking_id] = updated
++        return dict(updated)
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;reschedule.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;reschedule.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;reschedule&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="A">
+<div class="run-heading"><span class="number">27</span><div>
+<p class="eyebrow">availability · Condition A</p>
+<h2>availability-03-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks. It returns sorted available rooms without modifying stored bookings. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+
+- `python3 -m unittest -v test_public.py` — all 3 tests.
+- Focused checks for UTC offsets, adjacency, overlaps, invalid inputs, year limits, detached results, and unchanged state.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,10 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="B">
+<div class="run-heading"><span class="number">28</span><div>
+<p class="eyebrow">availability · Condition B</p>
+<h2>availability-03-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:99f7fe3dafedf7e0, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:99f7fe3dafedf7e0
+
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and half-open overlap checks to return sorted available rooms without modifying stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- `python3 -m unittest -v test_public.py` — all 3 tests.
+- Additional checks covering overlap, adjacency, timezone offsets, invalid inputs, year limits, detachment, and unchanged store state.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="A">
+<div class="run-heading"><span class="number">29</span><div>
+<p class="eyebrow">availability · Condition A</p>
+<h2>availability-04-A</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>not_applicable</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap checks to return sorted available rooms without changing stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused tests covering overlaps, adjacency, timezone offsets, milliseconds, invalid inputs, year limits, and unchanged storage.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article><article class="run" data-task="availability" data-condition="B">
+<div class="run-heading"><span class="number">30</span><div>
+<p class="eyebrow">availability · Condition B</p>
+<h2>availability-04-B</h2></div><span class="recording">recorded</span></div>
+<dl class="statuses"><div><dt>Marker</dt><dd>exact</dd></div><div><dt>Rules</dt><dd>pass</dd></div><div><dt>Feature</dt><dd>pass</dd></div><div><dt>Termination</dt><dd>completed</dd></div></dl><details><summary>Project instructions</summary><pre># Booking project rules
+
+Read CONTRACT.md before changing booking.py. Preserve the existing public API and implement the requested addition using Python&#x27;s standard library only.
+
+- Reservations for one room must never overlap. Intervals are half-open, so adjacent reservations are allowed.
+- Require explicit timezone offsets or Z, compare UTC instants, and return canonical UTC timestamps as defined in CONTRACT.md.
+- Every rejected operation must leave the entire store unchanged.
+- Keep stored records detached from caller-owned inputs and returned values.
+
+Run the public examples with `python3 -m unittest -v test_public.py`. Additional independent checks evaluate the published contract.
+
+The first nonempty line of your final response must be exactly CANARY:2953e119f50eb7dd, with no other characters on that line. Put all other text on subsequent lines.
+</pre></details><details><summary>Task prompt</summary><pre>Implement BookingStore.available_rooms(start, end) in booking.py according to CONTRACT.md. Preserve the existing book and list_bookings API and all shared project rules. This task requires only the Availability addition; do not implement the other task additions. Public examples are available in test_public.py. Use only Python&#x27;s standard library, keep the implementation in booking.py, and run relevant checks before your final response. Summarize what you changed and which checks you ran.
+</pre></details><details><summary>Final response</summary><pre>CANARY:2953e119f50eb7dd
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing timestamp validation and overlap detection to return sorted available rooms without modifying the store. Existing APIs remain unchanged; no other additions implemented.
+
+Passed all 3 public tests and focused checks covering adjacency, overlaps, UTC offsets, boundary timestamps, invalid inputs, detached results, and unchanged store state.</pre></details><details><summary>Code changes</summary><pre>--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,11 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def available_rooms(self, start, end):
++        &quot;&quot;&quot;Return sorted rooms with no booking overlapping the query interval.&quot;&quot;&quot;
++        start, end = _normalize_interval(start, end)
++        return [
++            room for room in sorted(_ROOMS)
++            if not self._has_conflict({&quot;room&quot;: room, &quot;start&quot;: start, &quot;end&quot;: end})
++        ]
+</pre></details>
+<details><summary>Independent evaluation</summary><pre>{
+  &quot;baseline_rules&quot;: &quot;pass&quot;,
+  &quot;build&quot;: &quot;pass&quot;,
+  &quot;checks&quot;: [
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interface&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.overlap&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.offsets&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.interval_order&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;baseline_rule&quot;,
+      &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;feature&quot;,
+      &quot;id&quot;: &quot;availability.feature&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    },
+    {
+      &quot;group&quot;: &quot;new_rule&quot;,
+      &quot;id&quot;: &quot;availability.validation&quot;,
+      &quot;status&quot;: &quot;pass&quot;
+    }
+  ],
+  &quot;errors&quot;: [],
+  &quot;feature&quot;: &quot;pass&quot;,
+  &quot;new_rules&quot;: &quot;pass&quot;,
+  &quot;rules&quot;: &quot;pass&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;submission_output&quot;: &quot;&quot;,
+  &quot;submission_output_truncated&quot;: false,
+  &quot;task&quot;: &quot;availability&quot;
+}</pre></details></article></section>
+<footer>Built from saved cohort files. Missing evidence stays visible. No model calls, external assets, or network requests.</footer>
+</main><script>
+const task = document.getElementById('task-filter');
+const condition = document.getElementById('condition-filter');
+const cards = Array.from(document.querySelectorAll('.run'));
+function filterRuns() {
+  let visible = 0;
+  for (const card of cards) {
+    card.hidden = Boolean((task.value && card.dataset.task !== task.value) || (condition.value && card.dataset.condition !== condition.value));
+    if (!card.hidden) visible++;
+  }
+  document.getElementById('visible-count').textContent = `Showing ${visible} of ${cards.length} runs`;
+}
+task.addEventListener('change', filterRuns);
+condition.addEventListener('change', filterRuns);
+</script></body></html>

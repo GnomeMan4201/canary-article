@@ -1,0 +1,4 @@
+CANARY:fd11c73f1ba333de
+I couldn’t access the files or run checks because the execution tool failed twice: `/usr/local/bin/codex-code-mode-host` is missing.
+
+No files were changed, and no tests ran. The tool environment needs to be restored before I can implement and verify `reschedule`.

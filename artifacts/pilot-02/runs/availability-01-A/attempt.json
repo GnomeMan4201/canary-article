@@ -1,0 +1,10 @@
+{
+  "block": "availability-01",
+  "condition": "A",
+  "phase": "pilot",
+  "repeat": 1,
+  "run_id": "availability-01-A",
+  "started_at": "2026-10-30T06:46:11.864431+00:00",
+  "task": "availability",
+  "token": null
+}

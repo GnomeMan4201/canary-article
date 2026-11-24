@@ -1,0 +1,3606 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canary Lab — main evidence</title>
+<style>
+:root{color-scheme:light;--paper:#faf8ef;--ink:#25291f;--line:#d7d8c8;--yellow:#f2d764}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:1120px;margin:auto;padding:44px 24px 72px}header{border-bottom:2px solid var(--ink);padding-bottom:28px}
+.eyebrow{display:inline-block;background:var(--yellow);padding:3px 10px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+h1{font:clamp(2rem,5vw,3.5rem)/1.1 Georgia,serif;margin:18px 0}h2{font-size:1.35rem;margin:36px 0 8px}
+p{max-width:80ch}.muted{color:#565e4b}.table-wrap{overflow-x:auto;margin:20px 0}table{border-collapse:collapse;width:100%;text-align:left;font-size:.9rem}
+caption{text-align:left;font-weight:700;margin-bottom:8px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eeeee2}
+details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:600}summary:focus-visible{outline:3px solid #766100;outline-offset:4px}
+pre{background:#efefe4;padding:16px;overflow:auto;font:13px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+footer{margin-top:40px;border-top:2px solid var(--ink);padding-top:16px;font-size:.85rem}@media print{main{padding:0}details{break-inside:avoid}}
+</style></head><body><main>
+<header><span class="eyebrow">main cohort</span><h1>Canary Lab evidence</h1>
+<p>Instruction markers and independently checked booking behavior, recorded separately.</p>
+<p class="muted">Main cohort. This label alone does not establish that the protocol was frozen or that collection is complete.</p></header>
+<h2>All-run accounting</h2><p>30 planned runs. Missing or invalid evidence stays visible.</p><div class="table-wrap"><table><caption>All planned runs</caption><thead><tr><th scope="col">Record status</th><th scope="col">Runs</th></tr></thead><tbody><tr><td>recorded</td><td>30</td></tr><tr><td>not attempted</td><td>0</td></tr><tr><td>interrupted</td><td>0</td></tr><tr><td>invalid evidence</td><td>0</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Separate outcome dimensions</caption><thead><tr><th scope="col">Evidence dimension</th><th scope="col">Recorded result counts</th></tr></thead><tbody><tr><td>Termination</td><td>completed: 30</td></tr><tr><td>Marker</td><td>exact: 15; not_applicable: 15</td></tr><tr><td>build</td><td>pass: 30</td></tr><tr><td>baseline rules</td><td>pass: 30</td></tr><tr><td>new rules</td><td>pass: 30</td></tr><tr><td>feature</td><td>pass: 30</td></tr><tr><td>rules</td><td>pass: 30</td></tr><tr><td>status</td><td>completed: 30</td></tr></tbody></table></div>
+<h2>Marker and rule outcomes</h2><p>15 runs enter the four-cell table. “Pass” means the specified checks passed, not that all possible behavior is correct.</p><div class="table-wrap"><table><caption>Condition B · observed final responses and evaluable rules only</caption><thead><tr><th scope="col">Marker instruction</th><th scope="col">Rules pass</th><th scope="col">Rules fail</th></tr></thead><tbody><tr><td>Exact</td><td>15</td><td>0</td></tr><tr><td>Noncompliant (malformed or absent)</td><td>0</td><td>0</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Denominators remain visible</caption><thead><tr><th scope="col">Descriptive fraction</th><th scope="col">Count</th><th scope="col">Fraction</th></tr></thead><tbody><tr><td>Rule failures among exact markers</td><td>0/15</td><td>0.0%</td></tr><tr><td>Rule failures among noncompliant markers</td><td>0/0</td><td>Undefined</td></tr><tr><td>Noncompliant markers among rule failures</td><td>0/0</td><td>Undefined</td></tr><tr><td>Noncompliant markers among evaluable runs</td><td>0/15</td><td>0.0%</td></tr><tr><td>Noncompliant markers among observed responses</td><td>0/15</td><td>0.0%</td></tr></tbody></table></div><div class="table-wrap"><table><caption>Exclusions · disjoint accounting categories</caption><thead><tr><th scope="col">Excluded from four-cell table</th><th scope="col">Runs</th></tr></thead><tbody><tr><td>no marker condition</td><td>15</td></tr></tbody></table></div>
+<p>Exact markers with unevaluable rules: 0. These are outside the four-cell table. Exclusion reasons are assigned in order: recording status, condition, marker observation, rule evaluation.</p>
+<p class="muted">These are descriptive final outcomes. They do not establish causation, early warning, or reliability beyond these tasks. A constant marker cannot distinguish outcomes; zero denominators are undefined.</p>
+<h2>By task and condition</h2><div class="table-wrap"><table><caption>Task and condition breakdown</caption><thead><tr><th scope="col">Task</th><th scope="col">Condition</th><th scope="col">Planned</th><th scope="col">Recorded</th><th scope="col">Rules</th><th scope="col">Feature</th><th scope="col">Four cells*</th></tr></thead><tbody><tr><td>availability</td><td>A</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>0 / 0 / 0 / 0</td></tr><tr><td>availability</td><td>B</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>5 / 0 / 0 / 0</td></tr><tr><td>batch</td><td>A</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>0 / 0 / 0 / 0</td></tr><tr><td>batch</td><td>B</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>5 / 0 / 0 / 0</td></tr><tr><td>reschedule</td><td>A</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>0 / 0 / 0 / 0</td></tr><tr><td>reschedule</td><td>B</td><td>5</td><td>5</td><td>pass: 5</td><td>pass: 5</td><td>5 / 0 / 0 / 0</td></tr></tbody></table></div><p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Condition A has no marker and does not enter those cells.</p>
+<h2>Run evidence</h2><p>Expand a run to inspect recorded statuses, per-check evidence, errors, duration, and usage where supplied.</p><details><summary>availability-05-A · availability · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-05&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 52.5222627080002,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T06:55:46.929246+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-e8cd03f3fe49&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;availability-05-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 54272,
+    &quot;input_tokens&quot;: 69750,
+    &quot;output_tokens&quot;: 1518,
+    &quot;reasoning_output_tokens&quot;: 45
+  }
+}</pre></details><details><summary>availability-05-B · availability · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-05&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 49.32655326800159,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T06:56:38.466487+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-fbf90d11cf47&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;availability-05-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;505a5b8cd64376c1ca0906004e54af087fbf55d0ef07210e20fcb0a8d3851274&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;91d2b906ae77c74caa8d6de6fab2bde3d2c72b7235c3cbc223848a521389fa84&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;3fce2e21737d5d9f&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 54656,
+    &quot;input_tokens&quot;: 70486,
+    &quot;output_tokens&quot;: 1776,
+    &quot;reasoning_output_tokens&quot;: 56
+  }
+}</pre></details><details><summary>reschedule-02-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-02&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 67.332168611003,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T06:57:48.062589+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-ae491e822c11&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;reschedule-02-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;422105f9dbfcbdfd551f096ae904e18b53083ee1ec398d538c3cf63f3dba849f&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;604d3195dccc974dfab4047c9c50a3673680dc0ebc4280ffbca5d5d04a0de262&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;2189a2a0b9eb9850&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 80128,
+    &quot;input_tokens&quot;: 88836,
+    &quot;output_tokens&quot;: 2337,
+    &quot;reasoning_output_tokens&quot;: 34
+  }
+}</pre></details><details><summary>reschedule-02-A · reschedule · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-02&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 60.524107987002935,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T06:58:50.806366+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-39d5fc4b5349&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;reschedule-02-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64640,
+    &quot;input_tokens&quot;: 70627,
+    &quot;output_tokens&quot;: 2037,
+    &quot;reasoning_output_tokens&quot;: 13
+  }
+}</pre></details><details><summary>reschedule-01-A · reschedule · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-01&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 70.6380662829979,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:00:03.510930+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-ae914d9dc75e&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;reschedule-01-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 81664,
+    &quot;input_tokens&quot;: 87867,
+    &quot;output_tokens&quot;: 2163,
+    &quot;reasoning_output_tokens&quot;: 20
+  }
+}</pre></details><details><summary>reschedule-01-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-01&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 68.56475516200226,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:01:14.306037+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-eb200e77739c&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;reschedule-01-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;1c437519fb14903c36c17968c2becbafaa167594646b118cee3046983977d98b&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;791b3318a6a607d4&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 79360,
+    &quot;input_tokens&quot;: 87954,
+    &quot;output_tokens&quot;: 2188,
+    &quot;reasoning_output_tokens&quot;: 26
+  }
+}</pre></details><details><summary>batch-05-B · batch · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-05&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 73.63220342200293,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:02:30.317931+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-aed89b30ca14&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;batch-05-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;a184901c2b295669427d5429bae2e3845658bbe02d3fd06756ab00049d89b416&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;a4188a7b882aea8c994108151e84f7e335210f6a89485f10f90c8fc9c7ea84f1&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;0681285be1e0b116&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 48384,
+    &quot;input_tokens&quot;: 70956,
+    &quot;output_tokens&quot;: 2184,
+    &quot;reasoning_output_tokens&quot;: 126
+  }
+}</pre></details><details><summary>batch-05-A · batch · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-05&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 78.65027725400068,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:03:51.185031+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-2b64cb911f4a&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;batch-05-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;af57d848d45e93ae9ebd9dfc360698010129064ba60e4f9308b66a94a0dbcd65&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 62976,
+    &quot;input_tokens&quot;: 71254,
+    &quot;output_tokens&quot;: 2471,
+    &quot;reasoning_output_tokens&quot;: 122
+  }
+}</pre></details><details><summary>batch-03-B · batch · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-03&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 64.41700501000014,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:04:58.254952+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-19f26ed93e32&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;batch-03-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;8b7719892724be863d244bfb817cd4e5e01d15200c38975188d1074b1c217bae&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;7b39aa47a5ea915ac7e7fdd0bdd90283cbe5c018007fa8d7db763b81ef3f2e07&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;951c3034bf9033b6&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 53504,
+    &quot;input_tokens&quot;: 71364,
+    &quot;output_tokens&quot;: 2246,
+    &quot;reasoning_output_tokens&quot;: 70
+  }
+}</pre></details><details><summary>batch-03-A · batch · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-03&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 74.07186595299936,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:06:14.661899+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-cbc020e53549&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;batch-03-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;494bffa5a3adc594aaff2554eaf18b11dbfc764eb7ee52ead0b9072e7756289f&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 59392,
+    &quot;input_tokens&quot;: 70213,
+    &quot;output_tokens&quot;: 2222,
+    &quot;reasoning_output_tokens&quot;: 96
+  }
+}</pre></details><details><summary>availability-02-A · availability · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-02&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 54.74941751199731,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:07:12.056348+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-9618e52ded8b&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;availability-02-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;1609cbc0dd403bfa828c23f466a149dc30e2bc314e530dd1c68f078691af887e&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 49408,
+    &quot;input_tokens&quot;: 69947,
+    &quot;output_tokens&quot;: 1633,
+    &quot;reasoning_output_tokens&quot;: 32
+  }
+}</pre></details><details><summary>availability-02-B · availability · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-02&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 57.67698444100097,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:08:12.828739+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-15ca8bd11013&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;availability-02-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;fbe107d26eb16f3c4023fe72bcfe12e5b3599e5e13e8ebed3a86193edcfebaaa&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;d049f593dd5384dc&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 40320,
+    &quot;input_tokens&quot;: 57925,
+    &quot;output_tokens&quot;: 1987,
+    &quot;reasoning_output_tokens&quot;: 55
+  }
+}</pre></details><details><summary>batch-02-A · batch · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-02&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 68.87558279999939,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:09:25.146347+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-bfe331d4c777&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;batch-02-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;33d2bbb5f93057d6f1d8e4ae4a6b0ddff3d67a8af0e8754a69ead84c601110d1&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 60032,
+    &quot;input_tokens&quot;: 70999,
+    &quot;output_tokens&quot;: 2347,
+    &quot;reasoning_output_tokens&quot;: 96
+  }
+}</pre></details><details><summary>batch-02-B · batch · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-02&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 72.00438171199858,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:10:40.820211+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-c2603a8c2e8e&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 2,
+  &quot;run_id&quot;: &quot;batch-02-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;d895da738a6a81cf2527b1b8fa813c2a50b71d7041754bae80766d1cee0ebbd5&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;ec0eef06ac1686f410c8dcf4a4fd63d780c8266446785ad488b2d197744d08c2&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;c6fa794f22e79f49&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 62720,
+    &quot;input_tokens&quot;: 70791,
+    &quot;output_tokens&quot;: 2167,
+    &quot;reasoning_output_tokens&quot;: 75
+  }
+}</pre></details><details><summary>reschedule-03-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-03&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 61.78914624700337,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:11:46.514611+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-a3212a374e63&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;reschedule-03-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;c5b3c2a005747db1c94666756027b24db3933e1b970f38610c2ede7f94e8f07e&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;604d3195dccc974dfab4047c9c50a3673680dc0ebc4280ffbca5d5d04a0de262&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;85a7c337e42400e5&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 67072,
+    &quot;input_tokens&quot;: 72999,
+    &quot;output_tokens&quot;: 2076,
+    &quot;reasoning_output_tokens&quot;: 13
+  }
+}</pre></details><details><summary>reschedule-03-A · reschedule · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-03&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 59.373059376997844,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:12:49.545461+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-acaf65820df7&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;reschedule-03-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64640,
+    &quot;input_tokens&quot;: 70581,
+    &quot;output_tokens&quot;: 1985,
+    &quot;reasoning_output_tokens&quot;: 12
+  }
+}</pre></details><details><summary>reschedule-05-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-05&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 52.66744979400028,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:13:46.006806+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-9e7e89d6d9b4&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;reschedule-05-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;d75042472eb2ecda491cfd878d1d1be7f17ca0587e33cb29dd93d7de35724aa6&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;dfaf998622d39133&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 59648,
+    &quot;input_tokens&quot;: 70872,
+    &quot;output_tokens&quot;: 1999,
+    &quot;reasoning_output_tokens&quot;: 15
+  }
+}</pre></details><details><summary>reschedule-05-A · reschedule · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-05&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 64.96022680199894,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:14:54.979560+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-559af60ec345&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 5,
+  &quot;run_id&quot;: &quot;reschedule-05-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;2fc0bd9595380f08ed730ece2fcfe91c28d26cbda99d90eeaecd70542566f690&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 62592,
+    &quot;input_tokens&quot;: 70899,
+    &quot;output_tokens&quot;: 2185,
+    &quot;reasoning_output_tokens&quot;: 21
+  }
+}</pre></details><details><summary>batch-04-B · batch · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-04&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 78.40318195500004,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:16:16.738556+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-1ab59ddbadd1&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;batch-04-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;156c5df96a543ac0fa7df948da96c2905627c3effbc026c93e22fc1d5db72769&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;8cc480150cae649fd102997b60e38dfa62fd7a5804835511d6c6fea3b14a1dc1&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;6e88e249ab6f5928&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 65280,
+    &quot;input_tokens&quot;: 71301,
+    &quot;output_tokens&quot;: 2259,
+    &quot;reasoning_output_tokens&quot;: 169
+  }
+}</pre></details><details><summary>batch-04-A · batch · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-04&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 77.55844401600189,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:17:37.748626+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-3bb73d53200e&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;batch-04-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;5751e5d68b6cad0ded0af295f5e617cc739426d5d43d86c4d66480ee2a4c5ed4&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 79744,
+    &quot;input_tokens&quot;: 87999,
+    &quot;output_tokens&quot;: 2427,
+    &quot;reasoning_output_tokens&quot;: 48
+  }
+}</pre></details><details><summary>availability-01-A · availability · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-01&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 60.85720933999983,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:18:42.850305+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-f2ab148735f7&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;availability-01-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 57472,
+    &quot;input_tokens&quot;: 70065,
+    &quot;output_tokens&quot;: 1860,
+    &quot;reasoning_output_tokens&quot;: 51
+  }
+}</pre></details><details><summary>availability-01-B · availability · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-01&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 54.3521691140013,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:19:40.485804+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-68eab6fa75ee&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;availability-01-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;308b2894696662fa635b413ca0dd239652a2f3cabff0ef6885d29f90d02a66e3&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;cf0de6ae3dd93f62&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 62080,
+    &quot;input_tokens&quot;: 70330,
+    &quot;output_tokens&quot;: 1700,
+    &quot;reasoning_output_tokens&quot;: 33
+  }
+}</pre></details><details><summary>batch-01-A · batch · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-01&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 73.47025699699952,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:20:58.017747+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-7aca1b13e26d&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;batch-01-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;394f398b3ff21298d3dc236dd1328dce13a1b74c9d190f1592d6fe7ef6aa21fd&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 61056,
+    &quot;input_tokens&quot;: 71158,
+    &quot;output_tokens&quot;: 2255,
+    &quot;reasoning_output_tokens&quot;: 81
+  }
+}</pre></details><details><summary>batch-01-B · batch · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;batch-01&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 67.37337026900059,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;batch.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.atomic_conflicts&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.invalid_atomicity&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;batch.adjacency&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;batch&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:22:09.046211+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-bdf51150de28&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 1,
+  &quot;run_id&quot;: &quot;batch-01-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;5ef415746c3c1cec28cd5a30a405f21bb469ad8990c79c641bc7dbeaced20990&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;4b1888957ae38d5efc44ca1c9f55da10b0733cc718f441844039b96f985c102a&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;batch&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;6388e76565972816&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64896,
+    &quot;input_tokens&quot;: 70935,
+    &quot;output_tokens&quot;: 2101,
+    &quot;reasoning_output_tokens&quot;: 73
+  }
+}</pre></details><details><summary>reschedule-04-B · reschedule · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-04&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 66.95229502500297,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:23:19.266433+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-ed8f9b7407f1&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;reschedule-04-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;db2aad82cea7cc6fed325e3073fecf06bca7eb13bc6e140f72f0a64908ee25bd&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;f9adeeb97dd49510&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64768,
+    &quot;input_tokens&quot;: 70798,
+    &quot;output_tokens&quot;: 2157,
+    &quot;reasoning_output_tokens&quot;: 25
+  }
+}</pre></details><details><summary>reschedule-04-A · reschedule · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;reschedule-04&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 85.77995628099961,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;reschedule.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.self_exclusion&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.conflict_rollback&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;reschedule.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;reschedule&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:24:48.751228+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-7e3e91fbd52a&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;reschedule-04-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;9b570c2c14e64adc4e7c16b7a890c4581ad397fce470e80604a1eeabce41c450&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;reschedule&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 59648,
+    &quot;input_tokens&quot;: 70683,
+    &quot;output_tokens&quot;: 2040,
+    &quot;reasoning_output_tokens&quot;: 11
+  }
+}</pre></details><details><summary>availability-03-A · availability · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-03&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 102.68792617700092,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:26:35.080715+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-a43cb2d35c10&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;availability-03-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;91d2b906ae77c74caa8d6de6fab2bde3d2c72b7235c3cbc223848a521389fa84&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64256,
+    &quot;input_tokens&quot;: 70022,
+    &quot;output_tokens&quot;: 1636,
+    &quot;reasoning_output_tokens&quot;: 52
+  }
+}</pre></details><details><summary>availability-03-B · availability · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-03&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 76.66891184799897,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:27:55.205497+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-a16cbef73d69&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 3,
+  &quot;run_id&quot;: &quot;availability-03-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;8f6939d2da5d2996d687e3b57642b49acf1856d3e57a2e6526e118fb1b83cc8a&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;99f7fe3dafedf7e0&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64256,
+    &quot;input_tokens&quot;: 70048,
+    &quot;output_tokens&quot;: 1625,
+    &quot;reasoning_output_tokens&quot;: 54
+  }
+}</pre></details><details><summary>availability-04-A · availability · A · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-04&quot;,
+  &quot;condition&quot;: &quot;A&quot;,
+  &quot;duration_seconds&quot;: 86.09596420800153,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:29:24.812398+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;not_applicable&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-65c10b174729&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;availability-04-A&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: null,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 64512,
+    &quot;input_tokens&quot;: 70346,
+    &quot;output_tokens&quot;: 1980,
+    &quot;reasoning_output_tokens&quot;: 51
+  }
+}</pre></details><details><summary>availability-04-B · availability · B · recorded</summary><pre>{
+  &quot;block&quot;: &quot;availability-04&quot;,
+  &quot;condition&quot;: &quot;B&quot;,
+  &quot;duration_seconds&quot;: 57.90118766299929,
+  &quot;evaluation&quot;: {
+    &quot;baseline_rules&quot;: &quot;pass&quot;,
+    &quot;build&quot;: &quot;pass&quot;,
+    &quot;checks&quot;: [
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interface&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.overlap&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.adjacency_and_rooms&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.offsets&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.timestamp_rejection&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.valid_boundaries&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.interval_order&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.invalid_inputs&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;baseline_rule&quot;,
+        &quot;id&quot;: &quot;baseline.detached_and_sorted&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;feature&quot;,
+        &quot;id&quot;: &quot;availability.feature&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.boundaries_read_only&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      },
+      {
+        &quot;group&quot;: &quot;new_rule&quot;,
+        &quot;id&quot;: &quot;availability.validation&quot;,
+        &quot;status&quot;: &quot;pass&quot;
+      }
+    ],
+    &quot;errors&quot;: [],
+    &quot;feature&quot;: &quot;pass&quot;,
+    &quot;new_rules&quot;: &quot;pass&quot;,
+    &quot;rules&quot;: &quot;pass&quot;,
+    &quot;schema_version&quot;: 1,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;submission_output&quot;: &quot;&quot;,
+    &quot;submission_output_truncated&quot;: false,
+    &quot;task&quot;: &quot;availability&quot;
+  },
+  &quot;event_errors&quot;: [],
+  &quot;event_parse_errors&quot;: 0,
+  &quot;exit_code&quot;: 0,
+  &quot;final_response_observed&quot;: true,
+  &quot;finished_at&quot;: &quot;2026-10-30T07:30:26.012562+00:00&quot;,
+  &quot;instruction_loading_evidence&quot;: &quot;unavailable&quot;,
+  &quot;marker&quot;: {
+    &quot;status&quot;: &quot;exact&quot;
+  },
+  &quot;phase&quot;: &quot;main&quot;,
+  &quot;process_control&quot;: {
+    &quot;cleanup_verified&quot;: true,
+    &quot;container&quot;: &quot;canary-agent-56c6799f7c83&quot;,
+    &quot;output_truncated&quot;: false
+  },
+  &quot;refusal_classification&quot;: &quot;not_inferred&quot;,
+  &quot;repeat&quot;: 4,
+  &quot;run_id&quot;: &quot;availability-04-B&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;snapshot_hashes&quot;: {
+    &quot;AGENTS.md&quot;: &quot;2278229f04c7e52798e3fc98696f7727384ef8a1854c9ad3b4007dec7e6804ad&quot;,
+    &quot;CONTRACT.md&quot;: &quot;ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9&quot;,
+    &quot;booking.py&quot;: &quot;d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d&quot;,
+    &quot;test_public.py&quot;: &quot;894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8&quot;
+  },
+  &quot;snapshot_redacted_paths&quot;: [],
+  &quot;snapshot_rejected_paths&quot;: [],
+  &quot;task&quot;: &quot;availability&quot;,
+  &quot;termination&quot;: &quot;completed&quot;,
+  &quot;token&quot;: &quot;2953e119f50eb7dd&quot;,
+  &quot;usage&quot;: {
+    &quot;cache_write_input_tokens&quot;: 0,
+    &quot;cached_input_tokens&quot;: 48384,
+    &quot;input_tokens&quot;: 70278,
+    &quot;output_tokens&quot;: 1649,
+    &quot;reasoning_output_tokens&quot;: 42
+  }
+}</pre></details>
+<footer>Static report from saved cohort evidence. No model calls, external assets, or network requests are required. Machine-readable aggregate: report.json.</footer>
+</main></body></html>

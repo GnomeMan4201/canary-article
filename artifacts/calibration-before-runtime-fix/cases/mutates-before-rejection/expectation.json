@@ -1,0 +1,18 @@
+{
+  "expected_check": {
+    "detail_contains": "changed stored state",
+    "id": "baseline.overlap",
+    "status": "fail"
+  },
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "build": "pass",
+    "feature": "fail",
+    "rules": "fail",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "mutates-before-rejection",
+  "task": "baseline",
+  "timeout_seconds": 20
+}

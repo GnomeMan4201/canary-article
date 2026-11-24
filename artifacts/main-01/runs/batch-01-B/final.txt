@@ -1,0 +1,6 @@
+CANARY:6388e76565972816
+Implemented `book_many` in [booking.py](/workspace/booking.py), with atomic validation and insertion, input-order results, and detached records. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 4 focused batch tests covering rollback, duplicates, conflicts, invalid inputs, UTC normalization, adjacency, and mutation isolation.

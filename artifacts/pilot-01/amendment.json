@@ -1,0 +1,5 @@
+{
+  "status": "stopped_runtime_defect",
+  "reason": "Native Codex execution helper was absent. First completed attempt could not execute tools. The next attempt was interrupted. Neither is eligible for main-study results.",
+  "replacement_cohort": "pilot-02"
+}

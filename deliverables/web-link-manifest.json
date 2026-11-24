@@ -1,0 +1,66 @@
+{
+  "status": "prepared locally; not hosted",
+  "local_article_links": 12,
+  "files": [
+    {
+      "article_target": "assets/canary-cover-psychedelic.png",
+      "web_path": "/article/assets/canary-cover-psychedelic.png",
+      "sha256": "fe47946dc3848d00b6eb80cb56dcfdc9a1f64b87504c694dc044271880c53b98"
+    },
+    {
+      "article_target": "../artifacts/pilot-01/runs/reschedule-01-B/final.txt",
+      "web_path": "/artifacts/pilot-01/runs/reschedule-01-B/final.txt",
+      "sha256": "0e5c80a58468790561c3b36d2876441048738e7f21d84a1e8b86324cce152a66"
+    },
+    {
+      "article_target": "../artifacts/pilot-01/runs/reschedule-01-B/result.json",
+      "web_path": "/artifacts/pilot-01/runs/reschedule-01-B/result.json",
+      "sha256": "8f4b651b1ca1f0ba16e2e06f533cd3bdd7dab97847f9110f16c820b1be67fb3f"
+    },
+    {
+      "article_target": "../artifacts/pilot-01/amendment.json",
+      "web_path": "/artifacts/pilot-01/amendment.json",
+      "sha256": "fdadda3c3c45a7812194f0c57f1f89688ecb1dc076e03491a867c464ceaa5ed8"
+    },
+    {
+      "article_target": "../docs/contract.md",
+      "web_path": "/docs/contract.md",
+      "sha256": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9"
+    },
+    {
+      "article_target": "../artifacts/calibration/summary.json",
+      "web_path": "/artifacts/calibration/summary.json",
+      "sha256": "2f7dd0b11fd815e40c4078443d3924fb4d1d17168283bd74982d7b69b6e95c2c"
+    },
+    {
+      "article_target": "../artifacts/pilot-02/report/report.html",
+      "web_path": "/artifacts/pilot-02/report/report.html",
+      "sha256": "5048bf7b0a8e54420a3e22e951cd52e66b85fb2b35959378f63636bf2545c46a"
+    },
+    {
+      "article_target": "../docs/experiment.md",
+      "web_path": "/docs/experiment.md",
+      "sha256": "11dd6c20c6e9ddc10d98a39858a880ef1c9097d1140b03ecec8bdaf3255473e6"
+    },
+    {
+      "article_target": "../artifacts/main-01/report/report.html",
+      "web_path": "/artifacts/main-01/report/report.html",
+      "sha256": "c27dba7ce4b3e934c34f109e89d043b1f049666958a5ed59d21e95fcc56f40e1"
+    },
+    {
+      "article_target": "../artifacts/main-01/runs/reschedule-01-B/result.json",
+      "web_path": "/artifacts/main-01/runs/reschedule-01-B/result.json",
+      "sha256": "778a366f6511f7ee62ef9e8229cef7b4d928032341874249ff822986aa5d32ab"
+    },
+    {
+      "article_target": "../artifacts/main-01/explorer.html",
+      "web_path": "/artifacts/main-01/explorer.html",
+      "sha256": "e0a986563942ad248cf60ba2ed8ffdb3a1f875c4d7e86251372cdd1ffeb0b84d"
+    },
+    {
+      "article_target": "../docs/running.md",
+      "web_path": "/docs/running.md",
+      "sha256": "207c1ff2ac525e2b792c84d8bc02aca14c5608b067e1ea2e9af2958df6a429da"
+    }
+  ]
+}

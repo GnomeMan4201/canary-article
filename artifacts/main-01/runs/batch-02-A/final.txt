@@ -1,0 +1,6 @@
+Implemented `book_many` in [booking.py](/workspace/booking.py). It validates batches using existing booking rules, commits only when every record succeeds, and returns detached normalized records in input order. Existing APIs are preserved; only the Batch addition was implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused tests covering atomicity, duplicates, conflicts, timestamps, adjacency, empty batches, and input/output isolation.

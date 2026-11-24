@@ -1,0 +1,16 @@
+{
+  "expected_check": null,
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "feature": "fail",
+    "new_rules": "unevaluable",
+    "rules": "unevaluable",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "missing-batch",
+  "task": "batch",
+  "timeout_seconds": 20
+}

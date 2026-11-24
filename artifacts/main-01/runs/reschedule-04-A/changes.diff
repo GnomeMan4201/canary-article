@@ -1,0 +1,19 @@
+--- baseline/booking.py
++++ submission/booking.py
+@@ -85,3 +85,16 @@
+ 
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]
++
++    def reschedule(self, booking_id, start, end):
++        if not isinstance(booking_id, str) or not booking_id:
++            raise ValueError("INVALID_INPUT")
++        if booking_id not in self._bookings:
++            raise ValueError("BOOKING_NOT_FOUND")
++        normalized_start, normalized_end = _normalize_interval(start, end)
++        updated = dict(self._bookings[booking_id])
++        updated.update(start=normalized_start, end=normalized_end)
++        if self._has_conflict(updated, exclude_id=booking_id):
++            raise ValueError("CONFLICT")
++        self._bookings[booking_id] = updated
++        return dict(updated)

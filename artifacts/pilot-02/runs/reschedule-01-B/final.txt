@@ -1,0 +1,4 @@
+CANARY:d59c0f8cd0e6df9f
+Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflict checks, and returning detached records. Rejections leave the store unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed: all 3 public tests and 7 focused rescheduling tests. Git diff checks were unavailable because Git is not installed.

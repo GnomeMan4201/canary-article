@@ -1,0 +1,22 @@
+--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,19 @@
+         self._bookings[normalized["id"]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        """Add a list of bookings atomically, returning them in input order."""
++        if not isinstance(records, list):
++            raise ValueError("INVALID_INPUT")
++        if not records:
++            return []
++
++        staged = BookingStore()
++        # book only reads existing records and creates fresh records for additions.
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]

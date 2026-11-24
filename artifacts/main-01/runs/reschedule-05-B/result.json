@@ -1,0 +1,122 @@
+{
+  "block": "reschedule-05",
+  "condition": "B",
+  "duration_seconds": 52.66744979400028,
+  "evaluation": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "checks": [
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interface",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.overlap",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.adjacency_and_rooms",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.offsets",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.timestamp_rejection",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.valid_boundaries",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interval_order",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.invalid_inputs",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.detached_and_sorted",
+        "status": "pass"
+      },
+      {
+        "group": "feature",
+        "id": "reschedule.feature",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "reschedule.self_exclusion",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "reschedule.conflict_rollback",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "reschedule.validation",
+        "status": "pass"
+      }
+    ],
+    "errors": [],
+    "feature": "pass",
+    "new_rules": "pass",
+    "rules": "pass",
+    "schema_version": 1,
+    "status": "completed",
+    "submission_output": "",
+    "submission_output_truncated": false,
+    "task": "reschedule"
+  },
+  "event_errors": [],
+  "event_parse_errors": 0,
+  "exit_code": 0,
+  "final_response_observed": true,
+  "finished_at": "2026-10-30T07:13:46.006806+00:00",
+  "instruction_loading_evidence": "unavailable",
+  "marker": {
+    "status": "exact"
+  },
+  "phase": "main",
+  "process_control": {
+    "cleanup_verified": true,
+    "container": "canary-agent-9e7e89d6d9b4",
+    "output_truncated": false
+  },
+  "refusal_classification": "not_inferred",
+  "repeat": 5,
+  "run_id": "reschedule-05-B",
+  "schema_version": 1,
+  "snapshot_hashes": {
+    "AGENTS.md": "d75042472eb2ecda491cfd878d1d1be7f17ca0587e33cb29dd93d7de35724aa6",
+    "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "booking.py": "5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc",
+    "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+  },
+  "snapshot_redacted_paths": [],
+  "snapshot_rejected_paths": [],
+  "task": "reschedule",
+  "termination": "completed",
+  "token": "dfaf998622d39133",
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 59648,
+    "input_tokens": 70872,
+    "output_tokens": 1999,
+    "reasoning_output_tokens": 15
+  }
+}

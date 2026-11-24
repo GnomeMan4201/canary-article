@@ -1,0 +1,7 @@
+CANARY:f9adeeb97dd49510
+Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), with ID validation, UTC normalization, conflict checks excluding itself, atomic updates, and detached results. Preserved existing APIs; no other additions implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused checks covering conflicts, adjacency, validation, unchanged intervals, timestamp boundaries, and detachment.

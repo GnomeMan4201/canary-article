@@ -1,0 +1,19 @@
+--- baseline/booking.py
++++ submission/booking.py
+@@ -83,5 +83,16 @@
+         self._bookings[normalized["id"]] = normalized
+         return dict(normalized)
+ 
++    def book_many(self, records):
++        if not isinstance(records, list):
++            raise ValueError("INVALID_INPUT")
++        # book only adds records, so staging can safely share existing records.
++        # Publish the new mapping only after every booking has been accepted.
++        staged = BookingStore()
++        staged._bookings = self._bookings.copy()
++        results = [staged.book(record) for record in records]
++        self._bookings = staged._bookings
++        return results
++
+     def list_bookings(self):
+         return [dict(self._bookings[key]) for key in sorted(self._bookings)]

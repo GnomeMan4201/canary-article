@@ -1,0 +1,4644 @@
+{
+  "schema_version": 1,
+  "phase": "main",
+  "summary": {
+    "planned": 30,
+    "recording": {
+      "recorded": 30
+    },
+    "termination": {
+      "completed": 30
+    },
+    "marker": {
+      "not_applicable": 15,
+      "exact": 15
+    },
+    "evaluation": {
+      "build": {
+        "pass": 30
+      },
+      "baseline_rules": {
+        "pass": 30
+      },
+      "new_rules": {
+        "pass": 30
+      },
+      "feature": {
+        "pass": 30
+      },
+      "rules": {
+        "pass": 30
+      },
+      "status": {
+        "completed": 30
+      }
+    },
+    "four_cells": {
+      "exact_pass": 15,
+      "exact_fail": 0,
+      "noncompliant_pass": 0,
+      "noncompliant_fail": 0
+    },
+    "four_cell_included": 15,
+    "four_cell_excluded": {
+      "no_marker_condition": 15
+    },
+    "exact_marker_unevaluable_rules": 0,
+    "rates": {
+      "failure_given_exact": {
+        "numerator": 0,
+        "denominator": 15,
+        "value": 0.0
+      },
+      "failure_given_noncompliant": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_given_failure": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "noncompliance_among_evaluable": {
+        "numerator": 0,
+        "denominator": 15,
+        "value": 0.0
+      },
+      "noncompliance_among_observed_markers": {
+        "numerator": 0,
+        "denominator": 15,
+        "value": 0.0
+      }
+    }
+  },
+  "by_task": {
+    "availability": {
+      "planned": 10,
+      "recording": {
+        "recorded": 10
+      },
+      "termination": {
+        "completed": 10
+      },
+      "marker": {
+        "not_applicable": 5,
+        "exact": 5
+      },
+      "evaluation": {
+        "build": {
+          "pass": 10
+        },
+        "baseline_rules": {
+          "pass": 10
+        },
+        "new_rules": {
+          "pass": 10
+        },
+        "feature": {
+          "pass": 10
+        },
+        "rules": {
+          "pass": 10
+        },
+        "status": {
+          "completed": 10
+        }
+      },
+      "four_cells": {
+        "exact_pass": 5,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 5,
+      "four_cell_excluded": {
+        "no_marker_condition": 5
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        }
+      }
+    },
+    "batch": {
+      "planned": 10,
+      "recording": {
+        "recorded": 10
+      },
+      "termination": {
+        "completed": 10
+      },
+      "marker": {
+        "exact": 5,
+        "not_applicable": 5
+      },
+      "evaluation": {
+        "build": {
+          "pass": 10
+        },
+        "baseline_rules": {
+          "pass": 10
+        },
+        "new_rules": {
+          "pass": 10
+        },
+        "feature": {
+          "pass": 10
+        },
+        "rules": {
+          "pass": 10
+        },
+        "status": {
+          "completed": 10
+        }
+      },
+      "four_cells": {
+        "exact_pass": 5,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 5,
+      "four_cell_excluded": {
+        "no_marker_condition": 5
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        }
+      }
+    },
+    "reschedule": {
+      "planned": 10,
+      "recording": {
+        "recorded": 10
+      },
+      "termination": {
+        "completed": 10
+      },
+      "marker": {
+        "exact": 5,
+        "not_applicable": 5
+      },
+      "evaluation": {
+        "build": {
+          "pass": 10
+        },
+        "baseline_rules": {
+          "pass": 10
+        },
+        "new_rules": {
+          "pass": 10
+        },
+        "feature": {
+          "pass": 10
+        },
+        "rules": {
+          "pass": 10
+        },
+        "status": {
+          "completed": 10
+        }
+      },
+      "four_cells": {
+        "exact_pass": 5,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 5,
+      "four_cell_excluded": {
+        "no_marker_condition": 5
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_condition": {
+    "A": {
+      "planned": 15,
+      "recording": {
+        "recorded": 15
+      },
+      "termination": {
+        "completed": 15
+      },
+      "marker": {
+        "not_applicable": 15
+      },
+      "evaluation": {
+        "build": {
+          "pass": 15
+        },
+        "baseline_rules": {
+          "pass": 15
+        },
+        "new_rules": {
+          "pass": 15
+        },
+        "feature": {
+          "pass": 15
+        },
+        "rules": {
+          "pass": 15
+        },
+        "status": {
+          "completed": 15
+        }
+      },
+      "four_cells": {
+        "exact_pass": 0,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 0,
+      "four_cell_excluded": {
+        "no_marker_condition": 15
+      },
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      }
+    },
+    "B": {
+      "planned": 15,
+      "recording": {
+        "recorded": 15
+      },
+      "termination": {
+        "completed": 15
+      },
+      "marker": {
+        "exact": 15
+      },
+      "evaluation": {
+        "build": {
+          "pass": 15
+        },
+        "baseline_rules": {
+          "pass": 15
+        },
+        "new_rules": {
+          "pass": 15
+        },
+        "feature": {
+          "pass": 15
+        },
+        "rules": {
+          "pass": 15
+        },
+        "status": {
+          "completed": 15
+        }
+      },
+      "four_cells": {
+        "exact_pass": 15,
+        "exact_fail": 0,
+        "noncompliant_pass": 0,
+        "noncompliant_fail": 0
+      },
+      "four_cell_included": 15,
+      "four_cell_excluded": {},
+      "exact_marker_unevaluable_rules": 0,
+      "rates": {
+        "failure_given_exact": {
+          "numerator": 0,
+          "denominator": 15,
+          "value": 0.0
+        },
+        "failure_given_noncompliant": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_given_failure": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 15,
+          "value": 0.0
+        },
+        "noncompliance_among_observed_markers": {
+          "numerator": 0,
+          "denominator": 15,
+          "value": 0.0
+        }
+      }
+    }
+  },
+  "by_task_condition": {
+    "availability": {
+      "A": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "not_applicable": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 5
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "exact": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 5,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 5,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          }
+        }
+      }
+    },
+    "batch": {
+      "A": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "not_applicable": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 5
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "exact": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 5,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 5,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          }
+        }
+      }
+    },
+    "reschedule": {
+      "A": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "not_applicable": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 0,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 0,
+        "four_cell_excluded": {
+          "no_marker_condition": 5
+        },
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          }
+        }
+      },
+      "B": {
+        "planned": 5,
+        "recording": {
+          "recorded": 5
+        },
+        "termination": {
+          "completed": 5
+        },
+        "marker": {
+          "exact": 5
+        },
+        "evaluation": {
+          "build": {
+            "pass": 5
+          },
+          "baseline_rules": {
+            "pass": 5
+          },
+          "new_rules": {
+            "pass": 5
+          },
+          "feature": {
+            "pass": 5
+          },
+          "rules": {
+            "pass": 5
+          },
+          "status": {
+            "completed": 5
+          }
+        },
+        "four_cells": {
+          "exact_pass": 5,
+          "exact_fail": 0,
+          "noncompliant_pass": 0,
+          "noncompliant_fail": 0
+        },
+        "four_cell_included": 5,
+        "four_cell_excluded": {},
+        "exact_marker_unevaluable_rules": 0,
+        "rates": {
+          "failure_given_exact": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "failure_given_noncompliant": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_given_failure": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          },
+          "noncompliance_among_observed_markers": {
+            "numerator": 0,
+            "denominator": 5,
+            "value": 0.0
+          }
+        }
+      }
+    }
+  },
+  "runs": [
+    {
+      "run_id": "availability-05-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-05",
+        "condition": "A",
+        "duration_seconds": 52.5222627080002,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:55:46.929246+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-e8cd03f3fe49",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "availability-05-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 54272,
+          "input_tokens": 69750,
+          "output_tokens": 1518,
+          "reasoning_output_tokens": 45
+        }
+      }
+    },
+    {
+      "run_id": "availability-05-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-05",
+        "condition": "B",
+        "duration_seconds": 49.32655326800159,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:56:38.466487+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-fbf90d11cf47",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "availability-05-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "505a5b8cd64376c1ca0906004e54af087fbf55d0ef07210e20fcb0a8d3851274",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "91d2b906ae77c74caa8d6de6fab2bde3d2c72b7235c3cbc223848a521389fa84",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "3fce2e21737d5d9f",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 54656,
+          "input_tokens": 70486,
+          "output_tokens": 1776,
+          "reasoning_output_tokens": 56
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-02-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-02",
+        "condition": "B",
+        "duration_seconds": 67.332168611003,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:57:48.062589+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-ae491e822c11",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "reschedule-02-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "422105f9dbfcbdfd551f096ae904e18b53083ee1ec398d538c3cf63f3dba849f",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "604d3195dccc974dfab4047c9c50a3673680dc0ebc4280ffbca5d5d04a0de262",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "2189a2a0b9eb9850",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 80128,
+          "input_tokens": 88836,
+          "output_tokens": 2337,
+          "reasoning_output_tokens": 34
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-02-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-02",
+        "condition": "A",
+        "duration_seconds": 60.524107987002935,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T06:58:50.806366+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-39d5fc4b5349",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "reschedule-02-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64640,
+          "input_tokens": 70627,
+          "output_tokens": 2037,
+          "reasoning_output_tokens": 13
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-01-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-01",
+        "condition": "A",
+        "duration_seconds": 70.6380662829979,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:00:03.510930+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-ae914d9dc75e",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "reschedule-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 81664,
+          "input_tokens": 87867,
+          "output_tokens": 2163,
+          "reasoning_output_tokens": 20
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-01-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-01",
+        "condition": "B",
+        "duration_seconds": 68.56475516200226,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:01:14.306037+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-eb200e77739c",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "reschedule-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "1c437519fb14903c36c17968c2becbafaa167594646b118cee3046983977d98b",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "791b3318a6a607d4",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 79360,
+          "input_tokens": 87954,
+          "output_tokens": 2188,
+          "reasoning_output_tokens": 26
+        }
+      }
+    },
+    {
+      "run_id": "batch-05-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-05",
+        "condition": "B",
+        "duration_seconds": 73.63220342200293,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:02:30.317931+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-aed89b30ca14",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "batch-05-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "a184901c2b295669427d5429bae2e3845658bbe02d3fd06756ab00049d89b416",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "a4188a7b882aea8c994108151e84f7e335210f6a89485f10f90c8fc9c7ea84f1",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "0681285be1e0b116",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 48384,
+          "input_tokens": 70956,
+          "output_tokens": 2184,
+          "reasoning_output_tokens": 126
+        }
+      }
+    },
+    {
+      "run_id": "batch-05-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-05",
+        "condition": "A",
+        "duration_seconds": 78.65027725400068,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:03:51.185031+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-2b64cb911f4a",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "batch-05-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "af57d848d45e93ae9ebd9dfc360698010129064ba60e4f9308b66a94a0dbcd65",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 62976,
+          "input_tokens": 71254,
+          "output_tokens": 2471,
+          "reasoning_output_tokens": 122
+        }
+      }
+    },
+    {
+      "run_id": "batch-03-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-03",
+        "condition": "B",
+        "duration_seconds": 64.41700501000014,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:04:58.254952+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-19f26ed93e32",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "batch-03-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "8b7719892724be863d244bfb817cd4e5e01d15200c38975188d1074b1c217bae",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "7b39aa47a5ea915ac7e7fdd0bdd90283cbe5c018007fa8d7db763b81ef3f2e07",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "951c3034bf9033b6",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 53504,
+          "input_tokens": 71364,
+          "output_tokens": 2246,
+          "reasoning_output_tokens": 70
+        }
+      }
+    },
+    {
+      "run_id": "batch-03-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-03",
+        "condition": "A",
+        "duration_seconds": 74.07186595299936,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:06:14.661899+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-cbc020e53549",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "batch-03-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "494bffa5a3adc594aaff2554eaf18b11dbfc764eb7ee52ead0b9072e7756289f",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 59392,
+          "input_tokens": 70213,
+          "output_tokens": 2222,
+          "reasoning_output_tokens": 96
+        }
+      }
+    },
+    {
+      "run_id": "availability-02-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-02",
+        "condition": "A",
+        "duration_seconds": 54.74941751199731,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:07:12.056348+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-9618e52ded8b",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "availability-02-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "1609cbc0dd403bfa828c23f466a149dc30e2bc314e530dd1c68f078691af887e",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 49408,
+          "input_tokens": 69947,
+          "output_tokens": 1633,
+          "reasoning_output_tokens": 32
+        }
+      }
+    },
+    {
+      "run_id": "availability-02-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-02",
+        "condition": "B",
+        "duration_seconds": 57.67698444100097,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:08:12.828739+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-15ca8bd11013",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "availability-02-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "fbe107d26eb16f3c4023fe72bcfe12e5b3599e5e13e8ebed3a86193edcfebaaa",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "d049f593dd5384dc",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 40320,
+          "input_tokens": 57925,
+          "output_tokens": 1987,
+          "reasoning_output_tokens": 55
+        }
+      }
+    },
+    {
+      "run_id": "batch-02-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-02",
+        "condition": "A",
+        "duration_seconds": 68.87558279999939,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:09:25.146347+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-bfe331d4c777",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "batch-02-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "33d2bbb5f93057d6f1d8e4ae4a6b0ddff3d67a8af0e8754a69ead84c601110d1",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 60032,
+          "input_tokens": 70999,
+          "output_tokens": 2347,
+          "reasoning_output_tokens": 96
+        }
+      }
+    },
+    {
+      "run_id": "batch-02-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-02",
+        "condition": "B",
+        "duration_seconds": 72.00438171199858,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:10:40.820211+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-c2603a8c2e8e",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 2,
+        "run_id": "batch-02-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "d895da738a6a81cf2527b1b8fa813c2a50b71d7041754bae80766d1cee0ebbd5",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "ec0eef06ac1686f410c8dcf4a4fd63d780c8266446785ad488b2d197744d08c2",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "c6fa794f22e79f49",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 62720,
+          "input_tokens": 70791,
+          "output_tokens": 2167,
+          "reasoning_output_tokens": 75
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-03-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-03",
+        "condition": "B",
+        "duration_seconds": 61.78914624700337,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:11:46.514611+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-a3212a374e63",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "reschedule-03-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "c5b3c2a005747db1c94666756027b24db3933e1b970f38610c2ede7f94e8f07e",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "604d3195dccc974dfab4047c9c50a3673680dc0ebc4280ffbca5d5d04a0de262",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "85a7c337e42400e5",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 67072,
+          "input_tokens": 72999,
+          "output_tokens": 2076,
+          "reasoning_output_tokens": 13
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-03-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-03",
+        "condition": "A",
+        "duration_seconds": 59.373059376997844,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:12:49.545461+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-acaf65820df7",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "reschedule-03-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64640,
+          "input_tokens": 70581,
+          "output_tokens": 1985,
+          "reasoning_output_tokens": 12
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-05-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-05",
+        "condition": "B",
+        "duration_seconds": 52.66744979400028,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:13:46.006806+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-9e7e89d6d9b4",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "reschedule-05-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "d75042472eb2ecda491cfd878d1d1be7f17ca0587e33cb29dd93d7de35724aa6",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "5cb92c7e61c259783a09e8750763c68e170078fa4fd866f97fe12fbd22afb4dc",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "dfaf998622d39133",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 59648,
+          "input_tokens": 70872,
+          "output_tokens": 1999,
+          "reasoning_output_tokens": 15
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-05-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-05",
+        "condition": "A",
+        "duration_seconds": 64.96022680199894,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:14:54.979560+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-559af60ec345",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 5,
+        "run_id": "reschedule-05-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "2fc0bd9595380f08ed730ece2fcfe91c28d26cbda99d90eeaecd70542566f690",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 62592,
+          "input_tokens": 70899,
+          "output_tokens": 2185,
+          "reasoning_output_tokens": 21
+        }
+      }
+    },
+    {
+      "run_id": "batch-04-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-04",
+        "condition": "B",
+        "duration_seconds": 78.40318195500004,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:16:16.738556+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-1ab59ddbadd1",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "batch-04-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "156c5df96a543ac0fa7df948da96c2905627c3effbc026c93e22fc1d5db72769",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "8cc480150cae649fd102997b60e38dfa62fd7a5804835511d6c6fea3b14a1dc1",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "6e88e249ab6f5928",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 65280,
+          "input_tokens": 71301,
+          "output_tokens": 2259,
+          "reasoning_output_tokens": 169
+        }
+      }
+    },
+    {
+      "run_id": "batch-04-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-04",
+        "condition": "A",
+        "duration_seconds": 77.55844401600189,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:17:37.748626+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-3bb73d53200e",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "batch-04-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "5751e5d68b6cad0ded0af295f5e617cc739426d5d43d86c4d66480ee2a4c5ed4",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 79744,
+          "input_tokens": 87999,
+          "output_tokens": 2427,
+          "reasoning_output_tokens": 48
+        }
+      }
+    },
+    {
+      "run_id": "availability-01-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-01",
+        "condition": "A",
+        "duration_seconds": 60.85720933999983,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:18:42.850305+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-f2ab148735f7",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "availability-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 57472,
+          "input_tokens": 70065,
+          "output_tokens": 1860,
+          "reasoning_output_tokens": 51
+        }
+      }
+    },
+    {
+      "run_id": "availability-01-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-01",
+        "condition": "B",
+        "duration_seconds": 54.3521691140013,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:19:40.485804+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-68eab6fa75ee",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "availability-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "308b2894696662fa635b413ca0dd239652a2f3cabff0ef6885d29f90d02a66e3",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "cf0de6ae3dd93f62",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 62080,
+          "input_tokens": 70330,
+          "output_tokens": 1700,
+          "reasoning_output_tokens": 33
+        }
+      }
+    },
+    {
+      "run_id": "batch-01-A",
+      "task": "batch",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-01",
+        "condition": "A",
+        "duration_seconds": 73.47025699699952,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:20:58.017747+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-7aca1b13e26d",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "batch-01-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "394f398b3ff21298d3dc236dd1328dce13a1b74c9d190f1592d6fe7ef6aa21fd",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 61056,
+          "input_tokens": 71158,
+          "output_tokens": 2255,
+          "reasoning_output_tokens": 81
+        }
+      }
+    },
+    {
+      "run_id": "batch-01-B",
+      "task": "batch",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "batch-01",
+        "condition": "B",
+        "duration_seconds": 67.37337026900059,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "batch.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.atomic_conflicts",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.invalid_atomicity",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "batch.adjacency",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "batch"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:22:09.046211+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-bdf51150de28",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 1,
+        "run_id": "batch-01-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "5ef415746c3c1cec28cd5a30a405f21bb469ad8990c79c641bc7dbeaced20990",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "4b1888957ae38d5efc44ca1c9f55da10b0733cc718f441844039b96f985c102a",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "batch",
+        "termination": "completed",
+        "token": "6388e76565972816",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64896,
+          "input_tokens": 70935,
+          "output_tokens": 2101,
+          "reasoning_output_tokens": 73
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-04-B",
+      "task": "reschedule",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-04",
+        "condition": "B",
+        "duration_seconds": 66.95229502500297,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:23:19.266433+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-ed8f9b7407f1",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "reschedule-04-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "db2aad82cea7cc6fed325e3073fecf06bca7eb13bc6e140f72f0a64908ee25bd",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "4af8644d10a0263ab6dae0f2a4c9cb97388b1b194df1aa749347dc3630c56cc9",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": "f9adeeb97dd49510",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64768,
+          "input_tokens": 70798,
+          "output_tokens": 2157,
+          "reasoning_output_tokens": 25
+        }
+      }
+    },
+    {
+      "run_id": "reschedule-04-A",
+      "task": "reschedule",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "reschedule-04",
+        "condition": "A",
+        "duration_seconds": 85.77995628099961,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "reschedule.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.self_exclusion",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.conflict_rollback",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "reschedule.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "reschedule"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:24:48.751228+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-7e3e91fbd52a",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "reschedule-04-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "9b570c2c14e64adc4e7c16b7a890c4581ad397fce470e80604a1eeabce41c450",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "reschedule",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 59648,
+          "input_tokens": 70683,
+          "output_tokens": 2040,
+          "reasoning_output_tokens": 11
+        }
+      }
+    },
+    {
+      "run_id": "availability-03-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-03",
+        "condition": "A",
+        "duration_seconds": 102.68792617700092,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:26:35.080715+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-a43cb2d35c10",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "availability-03-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "91d2b906ae77c74caa8d6de6fab2bde3d2c72b7235c3cbc223848a521389fa84",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64256,
+          "input_tokens": 70022,
+          "output_tokens": 1636,
+          "reasoning_output_tokens": 52
+        }
+      }
+    },
+    {
+      "run_id": "availability-03-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-03",
+        "condition": "B",
+        "duration_seconds": 76.66891184799897,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:27:55.205497+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-a16cbef73d69",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 3,
+        "run_id": "availability-03-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "8f6939d2da5d2996d687e3b57642b49acf1856d3e57a2e6526e118fb1b83cc8a",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "99f7fe3dafedf7e0",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64256,
+          "input_tokens": 70048,
+          "output_tokens": 1625,
+          "reasoning_output_tokens": 54
+        }
+      }
+    },
+    {
+      "run_id": "availability-04-A",
+      "task": "availability",
+      "condition": "A",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-04",
+        "condition": "A",
+        "duration_seconds": 86.09596420800153,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:29:24.812398+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "not_applicable"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-65c10b174729",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "availability-04-A",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "57bbb9e3b92155d9c067a3a6bbfcddda88c4f3f9c7fbebd33b00b32ed84df34c",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": null,
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 64512,
+          "input_tokens": 70346,
+          "output_tokens": 1980,
+          "reasoning_output_tokens": 51
+        }
+      }
+    },
+    {
+      "run_id": "availability-04-B",
+      "task": "availability",
+      "condition": "B",
+      "recording_status": "recorded",
+      "result": {
+        "block": "availability-04",
+        "condition": "B",
+        "duration_seconds": 57.90118766299929,
+        "evaluation": {
+          "baseline_rules": "pass",
+          "build": "pass",
+          "checks": [
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interface",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.overlap",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.adjacency_and_rooms",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.offsets",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.timestamp_rejection",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.valid_boundaries",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.interval_order",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.invalid_inputs",
+              "status": "pass"
+            },
+            {
+              "group": "baseline_rule",
+              "id": "baseline.detached_and_sorted",
+              "status": "pass"
+            },
+            {
+              "group": "feature",
+              "id": "availability.feature",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.boundaries_read_only",
+              "status": "pass"
+            },
+            {
+              "group": "new_rule",
+              "id": "availability.validation",
+              "status": "pass"
+            }
+          ],
+          "errors": [],
+          "feature": "pass",
+          "new_rules": "pass",
+          "rules": "pass",
+          "schema_version": 1,
+          "status": "completed",
+          "submission_output": "",
+          "submission_output_truncated": false,
+          "task": "availability"
+        },
+        "event_errors": [],
+        "event_parse_errors": 0,
+        "exit_code": 0,
+        "final_response_observed": true,
+        "finished_at": "2026-10-30T07:30:26.012562+00:00",
+        "instruction_loading_evidence": "unavailable",
+        "marker": {
+          "status": "exact"
+        },
+        "phase": "main",
+        "process_control": {
+          "cleanup_verified": true,
+          "container": "canary-agent-56c6799f7c83",
+          "output_truncated": false
+        },
+        "refusal_classification": "not_inferred",
+        "repeat": 4,
+        "run_id": "availability-04-B",
+        "schema_version": 1,
+        "snapshot_hashes": {
+          "AGENTS.md": "2278229f04c7e52798e3fc98696f7727384ef8a1854c9ad3b4007dec7e6804ad",
+          "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+          "booking.py": "d92781ebde27fd227cd4d194242a7ab37d338de3d7da6623732dbdcf15ff768d",
+          "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+        },
+        "snapshot_redacted_paths": [],
+        "snapshot_rejected_paths": [],
+        "task": "availability",
+        "termination": "completed",
+        "token": "2953e119f50eb7dd",
+        "usage": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 48384,
+          "input_tokens": 70278,
+          "output_tokens": 1649,
+          "reasoning_output_tokens": 42
+        }
+      }
+    }
+  ]
+}

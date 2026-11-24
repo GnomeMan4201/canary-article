@@ -1,0 +1,5 @@
+Implemented `BookingStore.reschedule` in [booking.py](/workspace/booking.py), preserving ID and room, normalizing timestamps, excluding itself from conflicts, and returning a detached record. Rejections leave the store unchanged. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 6 focused tests covering validation, atomicity, conflicts, adjacency, UTC offsets, detachment, fractional precision, and year limits.

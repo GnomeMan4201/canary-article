@@ -1,0 +1,7 @@
+CANARY:84146b6a40a66556
+
+Implemented `available_rooms(start, end)` in [booking.py](/workspace/booking.py), reusing UTC validation and overlap checks to return sorted available rooms without changing stored records. Existing APIs remain unchanged; no other additions were implemented.
+
+Checks passed:
+- `python3 -m unittest -v test_public.py`: 3 tests.
+- 6 focused tests covering overlaps, adjacency, offsets, invalid inputs, year boundaries, and data detachment.

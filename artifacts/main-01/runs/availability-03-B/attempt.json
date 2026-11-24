@@ -1,0 +1,10 @@
+{
+  "block": "availability-03",
+  "condition": "B",
+  "phase": "main",
+  "repeat": 3,
+  "run_id": "availability-03-B",
+  "started_at": "2026-10-30T07:26:37.803255+00:00",
+  "task": "availability",
+  "token": "99f7fe3dafedf7e0"
+}

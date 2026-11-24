@@ -1,0 +1,117 @@
+{
+  "block": "availability-01",
+  "condition": "B",
+  "duration_seconds": 61.7875944970001,
+  "evaluation": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "checks": [
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interface",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.overlap",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.adjacency_and_rooms",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.offsets",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.timestamp_rejection",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.valid_boundaries",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interval_order",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.invalid_inputs",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.detached_and_sorted",
+        "status": "pass"
+      },
+      {
+        "group": "feature",
+        "id": "availability.feature",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "availability.boundaries_read_only",
+        "status": "pass"
+      },
+      {
+        "group": "new_rule",
+        "id": "availability.validation",
+        "status": "pass"
+      }
+    ],
+    "errors": [],
+    "feature": "pass",
+    "new_rules": "pass",
+    "rules": "pass",
+    "schema_version": 1,
+    "status": "completed",
+    "submission_output": "",
+    "submission_output_truncated": false,
+    "task": "availability"
+  },
+  "event_errors": [],
+  "event_parse_errors": 0,
+  "exit_code": 0,
+  "final_response_observed": true,
+  "finished_at": "2026-10-30T06:48:09.407321+00:00",
+  "instruction_loading_evidence": "unavailable",
+  "marker": {
+    "status": "exact"
+  },
+  "phase": "pilot",
+  "process_control": {
+    "cleanup_verified": true,
+    "container": "canary-agent-4e155882f079",
+    "output_truncated": false
+  },
+  "refusal_classification": "not_inferred",
+  "repeat": 1,
+  "run_id": "availability-01-B",
+  "schema_version": 1,
+  "snapshot_hashes": {
+    "AGENTS.md": "6e42063ef65672f5bda3ccbc7fd480c12593bd642abebcacaaaad2ba8532c069",
+    "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "booking.py": "d08d4f47b34bf2b6753af162184d09c4d53cc440da1e47b5ddef869cb380947d",
+    "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+  },
+  "snapshot_redacted_paths": [],
+  "snapshot_rejected_paths": [],
+  "task": "availability",
+  "termination": "completed",
+  "token": "84146b6a40a66556",
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 55040,
+    "input_tokens": 70835,
+    "output_tokens": 2242,
+    "reasoning_output_tokens": 67
+  }
+}

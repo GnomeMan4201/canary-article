@@ -1,0 +1,67 @@
+{
+  "baseline_rules": "fail",
+  "build": "pass",
+  "checks": [
+    {
+      "group": "baseline_rule",
+      "id": "baseline.interface",
+      "status": "pass"
+    },
+    {
+      "detail": "expected ValueError(CONFLICT); operation succeeded",
+      "group": "baseline_rule",
+      "id": "baseline.overlap",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.adjacency_and_rooms",
+      "status": "pass"
+    },
+    {
+      "detail": "expected ValueError(CONFLICT); operation succeeded",
+      "group": "baseline_rule",
+      "id": "baseline.offsets",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.timestamp_rejection",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.valid_boundaries",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.interval_order",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.invalid_inputs",
+      "status": "pass"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.detached_and_sorted",
+      "status": "pass"
+    },
+    {
+      "group": "feature",
+      "id": "baseline.feature",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "feature": "fail",
+  "new_rules": "unevaluable",
+  "rules": "fail",
+  "schema_version": 1,
+  "status": "completed",
+  "submission_output": "",
+  "submission_output_truncated": false,
+  "task": "baseline"
+}

@@ -1,0 +1,18 @@
+{
+  "expected_check": null,
+  "expected_diagnostic": "timeout",
+  "expected_fields": {
+    "baseline_rules": "unevaluable",
+    "build": "unevaluable",
+    "feature": "unevaluable",
+    "new_rules": "unevaluable",
+    "rules": "unevaluable",
+    "status": "evaluator_error"
+  },
+  "expected_raw": {
+    "timeout": true
+  },
+  "id": "import-timeout",
+  "task": "baseline",
+  "timeout_seconds": 2
+}

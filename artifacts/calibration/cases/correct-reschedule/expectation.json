@@ -1,0 +1,16 @@
+{
+  "expected_check": null,
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "feature": "pass",
+    "new_rules": "pass",
+    "rules": "pass",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "correct-reschedule",
+  "task": "reschedule",
+  "timeout_seconds": 20
+}

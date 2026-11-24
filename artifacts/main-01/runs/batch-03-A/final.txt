@@ -1,0 +1,6 @@
+Implemented `book_many` in [booking.py](/workspace/booking.py), reusing `book` validation with a temporary store to ensure atomic batches. Results are detached, normalized, and returned in input order. Existing APIs remain unchanged; no other additions were implemented.
+
+All checks passed:
+
+- `python3 -m unittest -v test_public.py` — 3 tests.
+- 5 focused batch tests covering rollback, duplicates, conflicts, input types, timestamps, ordering, and detachment.

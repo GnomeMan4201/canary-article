@@ -1,0 +1,70 @@
+{
+  "baseline_rules": "fail",
+  "build": "pass",
+  "checks": [
+    {
+      "group": "baseline_rule",
+      "id": "baseline.interface",
+      "status": "pass"
+    },
+    {
+      "detail": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got []",
+      "group": "baseline_rule",
+      "id": "baseline.overlap",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.adjacency_and_rooms",
+      "status": "pass"
+    },
+    {
+      "detail": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.100Z', 'end': '2026-01-02T11:00:00.120Z'}], got []",
+      "group": "baseline_rule",
+      "id": "baseline.offsets",
+      "status": "fail"
+    },
+    {
+      "detail": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got []",
+      "group": "baseline_rule",
+      "id": "baseline.timestamp_rejection",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.valid_boundaries",
+      "status": "pass"
+    },
+    {
+      "detail": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got []",
+      "group": "baseline_rule",
+      "id": "baseline.interval_order",
+      "status": "fail"
+    },
+    {
+      "detail": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got []",
+      "group": "baseline_rule",
+      "id": "baseline.invalid_inputs",
+      "status": "fail"
+    },
+    {
+      "group": "baseline_rule",
+      "id": "baseline.detached_and_sorted",
+      "status": "pass"
+    },
+    {
+      "group": "feature",
+      "id": "baseline.feature",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "feature": "fail",
+  "new_rules": "unevaluable",
+  "rules": "fail",
+  "schema_version": 1,
+  "status": "completed",
+  "submission_output": "",
+  "submission_output_truncated": false,
+  "task": "baseline"
+}

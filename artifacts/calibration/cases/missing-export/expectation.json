@@ -1,0 +1,16 @@
+{
+  "expected_check": null,
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "baseline_rules": "unevaluable",
+    "build": "fail",
+    "feature": "fail",
+    "new_rules": "unevaluable",
+    "rules": "unevaluable",
+    "status": "build_failure"
+  },
+  "expected_raw": {},
+  "id": "missing-export",
+  "task": "baseline",
+  "timeout_seconds": 20
+}

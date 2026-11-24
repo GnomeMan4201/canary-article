@@ -1,0 +1,7 @@
+{
+  "phase": "pilot",
+  "reason": "The native Codex execution helper was not mounted. pilot-01 was stopped and preserved; pilot-02 mounted and fingerprinted the full native runtime bundle. No task difficulty or scoring requirement changed.",
+  "recorded_at": "2026-10-30T06:54:49.505184+00:00",
+  "replacement": "pilot-02",
+  "supplements": "amendment.json"
+}
