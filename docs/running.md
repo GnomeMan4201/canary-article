@@ -61,6 +61,16 @@ python3 -m lab.runner run artifacts/main-example
 python3 -m lab.runner report artifacts/main-example
 ```
 
+`freeze-main` checks calibration from `artifacts/calibration` by default, which is the record main-01 was frozen against. For a later cohort, calibrate the current code into a new directory immediately before freezing, and name it with `--calibration`:
+
+```sh
+python3 -m lab.calibrate --image canary-lab-runtime:local --output artifacts/calibration-main-02a
+python3 -m lab.runner freeze-main artifacts/main-02a --pilot artifacts/pilot-02a \
+  --calibration artifacts/calibration-main-02a --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort high --timeout 240
+```
+
+Calibration must match the current source fingerprint, so any change to `lab/`, `evaluator/`, `fixtures/`, `tasks/`, the contract, the protocol or the Dockerfile needs a fresh calibration. The plan records which calibration file it used and that file's hash.
+
 The plan records the randomized schedule, unique marker tokens, runtime identifiers, and source hashes. Each cohort archives the source bytes used by the evaluator and controller. Source or runtime-asset changes prevent continuing that cohort. The 30 planned main attempts are fixed; an amendment or replacement cohort must remain visibly separate. The local freeze is not a public preregistration.
 
 ## Follow-up options: condition C and negative controls

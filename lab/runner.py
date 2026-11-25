@@ -199,7 +199,8 @@ def doctor(binary, image):
     return info
 
 
-def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=None, conditions='AB'):
+def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=None, conditions='AB',
+              calibration=None):
     output = output.resolve()
     if output.exists():
         raise FileExistsError('Cohort directory already exists; choose a new directory')
@@ -234,10 +235,14 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
                 raise ValueError('Pilot infrastructure/runtime validation incomplete')
             if result.get('final_response_observed') is not True or result.get('event_parse_errors', 0):
                 raise ValueError('Pilot terminal-response compatibility not validated')
-        calibration_path = ROOT / 'artifacts' / 'calibration' / 'summary.json'
-        calibration = json.loads(calibration_path.read_text())
-        if calibration.get('status') != 'pass' or calibration.get('source_hashes') != versions:
+        # Default stays artifacts/calibration (the published main-01 record); later cohorts pass their own.
+        calibration_dir = Path(calibration) if calibration is not None else ROOT / 'artifacts' / 'calibration'
+        calibration_path = (calibration_dir if calibration_dir.is_absolute() else ROOT / calibration_dir) / 'summary.json'
+        calibration_record = json.loads(calibration_path.read_text())
+        if calibration_record.get('status') != 'pass' or calibration_record.get('source_hashes') != versions:
             raise ValueError('Current calibration evidence required before main freeze')
+        calibration_used = {'path': str(calibration_path.relative_to(ROOT)) if calibration_path.is_relative_to(ROOT) else str(calibration_path),
+                            'sha256': sha(calibration_path)}
     rng = random.Random(seed)
     blocks = [(task, repeat) for task in TASKS for repeat in range(1, (5 if phase == 'main' else 1)+1)]
     rng.shuffle(blocks)
@@ -257,6 +262,8 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
                         'network': 'bridge', 'backend_version': 'unavailable',
                         'workspace': 'read-only' if phase == 'control' else 'writable'},
             'pilot_source': str(pilot.resolve()) if pilot else None}
+    if phase == 'main':
+        plan['calibration'] = calibration_used
     output.mkdir(parents=True)
     for relative in versions:
         target = output / 'source' / relative
@@ -436,6 +443,8 @@ def main():
             p.add_argument('--conditions', default='AB', choices=sorted(CONDITION_SETS))
         if name == 'freeze-main':
             p.add_argument('--pilot', type=Path, required=True)
+            p.add_argument('--calibration', type=Path,
+                           help='calibration directory holding summary.json (default: artifacts/calibration)')
     p = sub.add_parser('run')
     p.add_argument('cohort', type=Path)
     p.add_argument('--auth-file', type=Path, default=Path.home()/'.codex/auth.json')
@@ -452,7 +461,7 @@ def main():
         phase = {'plan-pilot': 'pilot', 'freeze-main': 'main', 'plan-control': 'control'}[args.command]
         plan = make_plan(args.output, phase, args.binary, args.image, args.model, args.effort,
                          args.timeout, args.seed, getattr(args, 'pilot', None),
-                         getattr(args, 'conditions', 'AB'))
+                         getattr(args, 'conditions', 'AB'), getattr(args, 'calibration', None))
         print(json.dumps({'phase':plan['phase'], 'runs':len(plan['runs']), 'output':str(args.output)}))
     elif args.command == 'run':
         if args.limit is not None and args.limit < 1:

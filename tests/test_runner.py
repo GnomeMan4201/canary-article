@@ -273,6 +273,26 @@ class RunnerEvidenceTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "Infrastructure"):
                 runner.run_cohort(self.base / "pilot", auth)
 
+    def test_main_uses_a_named_calibration_directory_and_records_it(self):
+        pilot, previous = self.completed_pilot()
+        self.calibration({"unrelated": "hash"})  # stale default must not matter
+        runner.write_json(self.root / "artifacts/calibration-step0/summary.json",
+                          {"status": "pass", "source_hashes": previous["source_hashes"]})
+        plan = self.plan("main", "main", pilot, calibration=Path("artifacts/calibration-step0"))
+        self.assertEqual(plan["calibration"]["path"], "artifacts/calibration-step0/summary.json")
+        self.assertRegex(plan["calibration"]["sha256"], r"^[0-9a-f]{64}$")
+        with self.assertRaises(ValueError):
+            self.plan("main-default", "main", pilot)
+        with self.assertRaises(FileNotFoundError):
+            self.plan("main-missing", "main", pilot, calibration=Path("artifacts/no-such-calibration"))
+
+    def test_default_calibration_is_recorded_on_main_plans(self):
+        pilot, previous = self.completed_pilot()
+        self.calibration(previous["source_hashes"])
+        plan = self.plan("main", "main", pilot)
+        self.assertEqual(plan["calibration"]["path"], "artifacts/calibration/summary.json")
+        self.assertNotIn("calibration", self.plan("another-pilot"))
+
     def save_snapshot(self):
         plan = self.plan()
         row = plan["runs"][0]

@@ -124,7 +124,7 @@ Report everything main-01 reports. In addition:
 
 ## Prerequisites before any 02 collection
 
-1. ~~Step 0's hardened evaluator, with its planted-bug kill count published, and the main-01 re-score reported.~~ Done; see Step 0 results. `freeze-main` still reads `artifacts/calibration/summary.json`, which the published article links to, so it needs an option to use `artifacts/calibration-step0` before a 02 freeze.
+1. ~~Step 0's hardened evaluator, with its planted-bug kill count published, and the main-01 re-score reported.~~ Done; see Step 0 results. `freeze-main --calibration` now takes a calibration directory and records which one it used. Because later code changes alter the fingerprint, each 02 freeze uses a fresh calibration run just before freezing, not `calibration-step0`, which documents Step 0 itself.
 2. Changes to `lab/` alter the source fingerprint. The post-publication report change already does this. Every arm therefore needs a new six-run pilot and fresh calibration before `freeze-main`, as the runner enforces.
 3. ~~Condition C support in runner, report, and tests.~~ Done.
 4. ~~The negative-control mode in the runner, with a test.~~ Done (`plan-control`, read-only workspace).
