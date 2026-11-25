@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 .runtime/
-.smesh-mcp/.fastembed_cache/
+.smesh-mcp/
+.fastembed_cache/
