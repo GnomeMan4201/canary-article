@@ -43,7 +43,7 @@ A marker, a completed feature, and passing rule checks remain separate observati
 
 All thirty main attempts completed with observable final responses and evaluable behavior. No failed attempt was replaced. The fifteen control runs have no marker and are excluded only from the marker/rule comparison table.
 
-The [stopped runtime pilot](artifacts/pilot-01/amendment-dated.json), [six corrected pilots](artifacts/pilot-02/report/report.html), and [sixteen calibration cases](artifacts/calibration/summary.json) remain separate datasets. The stopped pilot emitted a marker while a missing execution helper prevented implementation. It is not a main-study booking-rule failure.
+The [stopped runtime pilot](artifacts/pilot-01/amendment-dated.json), [six corrected pilots](artifacts/pilot-02/report/report.html), and [sixteen calibration cases](artifacts/calibration/summary.json) remain separate datasets. The stopped pilot emitted a marker while a missing execution helper prevented implementation. It is not a main-study booking-rule failure. The report's signal-versus-work table records it as an exact marker with incomplete work.
 
 ## Run locally
 
@@ -62,7 +62,8 @@ Report generation and replay require no model calls. Replay verifies the saved s
 
 - [API contract](docs/contract.md) and [precollection protocol](docs/experiment.md).
 - [Frozen main plan](artifacts/main-01/plan.json), including source and runtime hashes.
-- [Engineering, methods, and editorial review decisions](docs/review.md).
+- [Engineering, methods, and editorial review decisions](docs/review.md), including post-publication changes.
+- [Draft follow-up protocol (main-02)](docs/follow-up-protocol.md) and [replication guide](docs/replicating.md).
 - [Article fragments](notes/fragments.md) and [cover prompts](article/assets/README.md).
 
 The protocol text preserves the design written before collection; the frozen plan and readiness record identify the version actually run. The evidence viewer was added as a presentation layer without changing the frozen evaluator or scoring. Raw artifacts are ignored by Git and included separately in the local delivery bundle.

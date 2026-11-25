@@ -61,4 +61,19 @@ Engineering and experimental-methods reviewers independently inspected the corre
 
 All thirty planned main attempts completed; all independent feature and rule checks passed, and all fifteen marker-enabled responses matched exactly. The [final methods audit](results-audit.md) reproduced response and marker scores and verified the archived source and submission hashes. The editorial review confirmed that the article separates the failed runtime pilot from main evidence and does not infer diagnostic value from uniform passing outcomes.
 
-The evidence explorer was added after collection as a separate presentation layer. It does not alter the frozen controller, evaluator, or run records. The article remains an unpublished local draft with publication-link preparation documented separately.
+The evidence explorer was added after collection as a separate presentation layer. It does not alter the frozen controller, evaluator, or run records. The article was later published on dev.to on 2026-11-24.
+
+## Post-publication feedback
+
+Reader comments raised several points, and each change below responds to one of them. Replies go in the comment thread, not in an article edit. None alters the frozen controller, evaluator, scoring, or saved run records.
+
+| Feedback | Change |
+| --- | --- |
+| A canary present while work is blocked should be classified separately. | The report adds a **signal-versus-work** table: marker status × feature completion for every recorded condition B run, including runs whose rules are unevaluable. The four-cell rule table excludes those runs. Report schema version 2. pilot-01 is the one observed case: exact marker, feature incomplete. main-01 has 0 of 15. |
+| 30/30 green says nothing about failure. What comes next: a different model or harder tasks? | [Draft follow-up protocol](follow-up-protocol.md) with one factor per arm (effort, then model, then tasks), an equal-length neutral-instruction condition, and a runtime negative control. Not frozen; no data collected. |
+| The marker instruction itself might change behavior. | Condition C (`--conditions ABC`): a neutral instruction matched to the marker's length that asks for no observable output. Runner, report, explorer, and tests. |
+| Use a negative control so "canary present, work blocked" is caught on purpose. | `plan-control`: one marker run per task with a read-only workspace. The report fails the control if any run counts as complete work. |
+| Interest in independent replication and extension. | [Replication guide](replicating.md). |
+| CONTRIBUTING said the canary "WORKS". | Reworded to the narrower claim: the marker format was followed in 15 of 15 runs. |
+
+The report change modifies `lab/report.py`, which is part of the source fingerprint. Any future main freeze therefore needs a new pilot and fresh calibration, as the runner enforces. The main-01 replay uses its archived source and is unaffected. The `deliverables/` v1 bundle is the hashed release snapshot and keeps the schema-1 reports.

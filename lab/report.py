@@ -13,6 +13,11 @@ from typing import Any
 MARKER_STATUSES = {"exact", "malformed", "absent", "unobserved", "not_applicable"}
 EVALUATION_FIELDS = ("build", "baseline_rules", "new_rules", "feature", "rules", "status")
 CELL_NAMES = ("exact_pass", "exact_fail", "noncompliant_pass", "noncompliant_fail")
+# Signal versus work: marker observation against feature completion. Unlike the
+# four-cell rule table, this keeps runs whose rules were unevaluable, which is
+# where a present marker with blocked work appears (see pilot-01).
+SIGNAL_MARKERS = ("exact", "noncompliant", "unobserved")
+WORK_OUTCOMES = ("complete", "incomplete", "unevaluable")
 
 
 def _rate(numerator: int, denominator: int) -> dict[str, Any]:
@@ -31,6 +36,7 @@ def _summarize(runs: list[dict[str, Any]]) -> dict[str, Any]:
     markers: Counter[str] = Counter()
     evaluations = {field: Counter() for field in EVALUATION_FIELDS}
     exact_unevaluable = 0
+    signal_work = {marker: dict.fromkeys(WORK_OUTCOMES, 0) for marker in SIGNAL_MARKERS}
     for run in runs:
         recording[run["recording_status"]] += 1
         if run["recording_status"] != "recorded":
@@ -46,6 +52,11 @@ def _summarize(runs: list[dict[str, Any]]) -> dict[str, Any]:
         rules = evaluation.get("rules")
         if marker == "exact" and rules not in {"pass", "fail"}:
             exact_unevaluable += 1
+        if run["condition"] == "B":
+            signal = "exact" if marker == "exact" else "noncompliant" if marker in {"malformed", "absent"} else "unobserved"
+            feature = evaluation.get("feature")
+            work = "complete" if feature == "pass" else "incomplete" if feature == "fail" else "unevaluable"
+            signal_work[signal][work] += 1
         # Reasons are disjoint. Separate counters above retain overlapping facts.
         if run["condition"] != "B":
             exclusions["no_marker_condition"] += 1
@@ -69,11 +80,17 @@ def _summarize(runs: list[dict[str, Any]]) -> dict[str, Any]:
         "four_cell_included": exact + noncompliant,
         "four_cell_excluded": dict(exclusions),
         "exact_marker_unevaluable_rules": exact_unevaluable,
+        "signal_work": signal_work,
+        "marker_present_work_blocked": signal_work["exact"]["incomplete"] + signal_work["exact"]["unevaluable"],
         "rates": {
             "failure_given_exact": _rate(cells["exact_fail"], exact),
             "failure_given_noncompliant": _rate(cells["noncompliant_fail"], noncompliant),
             "noncompliance_given_failure": _rate(cells["noncompliant_fail"], failures),
             "noncompliance_among_evaluable": _rate(noncompliant, exact + noncompliant),
+            "work_blocked_given_exact": _rate(
+                signal_work["exact"]["incomplete"] + signal_work["exact"]["unevaluable"],
+                sum(signal_work["exact"].values()),
+            ),
             "noncompliance_among_observed_markers": _rate(
                 markers["malformed"] + markers["absent"],
                 markers["exact"] + markers["malformed"] + markers["absent"],
@@ -83,8 +100,8 @@ def _summarize(runs: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def _read_runs(cohort_dir: Path, plan: dict[str, Any]) -> list[dict[str, Any]]:
-    if plan.get("phase") not in {"pilot", "main"} or not isinstance(plan.get("runs"), list):
-        raise ValueError("plan.json must declare phase pilot or main and a runs list")
+    if plan.get("phase") not in {"pilot", "main", "control"} or not isinstance(plan.get("runs"), list):
+        raise ValueError("plan.json must declare phase pilot, main, or control and a runs list")
     runs = []
     seen = set()
     for planned in plan["runs"]:
@@ -94,7 +111,7 @@ def _read_runs(cohort_dir: Path, plan: dict[str, Any]) -> list[dict[str, Any]]:
         if run_id in seen:
             raise ValueError(f"Duplicate run_id: {run_id}")
         seen.add(run_id)
-        if planned.get("condition") not in {"A", "B"} or not isinstance(planned.get("task"), str):
+        if planned.get("condition") not in {"A", "B", "C"} or not isinstance(planned.get("task"), str):
             raise ValueError(f"Invalid condition or task for {run_id}")
         run = {key: planned[key] for key in ("run_id", "task", "condition")}
         folder = cohort_dir / "runs" / run_id
@@ -115,8 +132,8 @@ def _read_runs(cohort_dir: Path, plan: dict[str, Any]) -> list[dict[str, Any]]:
                 marker = result.get("marker")
                 if not isinstance(marker, dict) or marker.get("status") not in MARKER_STATUSES:
                     raise ValueError("unknown or missing marker status")
-                if run["condition"] == "A" and marker["status"] != "not_applicable":
-                    raise ValueError("condition A marker must be not_applicable")
+                if run["condition"] in {"A", "C"} and marker["status"] != "not_applicable":
+                    raise ValueError(f"condition {run['condition']} marker must be not_applicable")
                 if run["condition"] == "B" and marker["status"] == "not_applicable":
                     raise ValueError("condition B marker cannot be not_applicable")
                 evaluation = result.get("evaluation")
@@ -153,7 +170,10 @@ def _counts(counts: dict[str, int]) -> str:
 
 def _render(report: dict[str, Any]) -> str:
     summary = report["summary"]
-    pilot_note = "Pilot evidence is for validating the procedure. It is not part of the main dataset." if report["phase"] == "pilot" else "Main cohort. This label alone does not establish that the protocol was frozen or that collection is complete."
+    pilot_note = {
+        "pilot": "Pilot evidence is for validating the procedure. It is not part of the main dataset.",
+        "control": "Negative-control cohort: the workspace was read-only, so no run can complete its feature. It validates the report, not the agent, and never enters main tables.",
+    }.get(report["phase"], "Main cohort. This label alone does not establish that the protocol was frozen or that collection is complete.")
     accounting = _table(["Record status", "Runs"], [
         [name.replace("_", " "), summary["recording"].get(name, 0)]
         for name in ("recorded", "not_attempted", "interrupted", "invalid_evidence")
@@ -168,6 +188,7 @@ def _render(report: dict[str, Any]) -> str:
         "failure_given_noncompliant": "Rule failures among noncompliant markers",
         "noncompliance_given_failure": "Noncompliant markers among rule failures",
         "noncompliance_among_evaluable": "Noncompliant markers among evaluable runs",
+        "work_blocked_given_exact": "Incomplete or unevaluable work among exact markers",
         "noncompliance_among_observed_markers": "Noncompliant markers among observed responses",
     }
     rate_rows = []
@@ -175,6 +196,11 @@ def _render(report: dict[str, Any]) -> str:
         value = "Undefined" if rate["value"] is None else f'{rate["value"]:.1%}'
         rate_rows.append([rate_labels[key], f'{rate["numerator"]}/{rate["denominator"]}', value])
     rates = _table(["Descriptive fraction", "Count", "Fraction"], rate_rows, "Denominators remain visible")
+    sw = summary["signal_work"]
+    signal_table = _table(["Marker instruction", "Feature complete", "Feature incomplete", "Unevaluable"], [
+        [label, sw[key]["complete"], sw[key]["incomplete"], sw[key]["unevaluable"]]
+        for key, label in (("exact", "Exact"), ("noncompliant", "Noncompliant (malformed or absent)"), ("unobserved", "Unobserved final response"))
+    ], "Condition B · signal versus work, all recorded runs")
     exclusions = _table(["Excluded from four-cell table", "Runs"], [
         [key.replace("_", " "), value] for key, value in sorted(summary["four_cell_excluded"].items())
     ], "Exclusions · disjoint accounting categories")
@@ -189,6 +215,11 @@ def _render(report: dict[str, Any]) -> str:
                 _counts(group["evaluation"]["rules"]), _counts(group["evaluation"]["feature"]),
                 " / ".join(str(group["four_cells"][cell]) for cell in CELL_NAMES),
             ])
+    control_html = ""
+    if report.get("negative_control"):
+        nc = report["negative_control"]
+        verdict = "Pass: no run was classified as complete work." if nc["status"] == "pass" else f'FAIL: runs classified as complete work despite a read-only workspace: {", ".join(nc["violations"])}. Stop and inspect the evaluator and report.'
+        control_html = f"<h2>Negative control</h2><p>{_html(verdict)}</p>"
     breakdown = _table(["Task", "Condition", "Planned", "Recorded", "Rules", "Feature", "Four cells*"], breakdown_rows, "Task and condition breakdown")
     details = []
     for run in report["runs"]:
@@ -218,7 +249,9 @@ footer{{margin-top:40px;border-top:2px solid var(--ink);padding-top:16px;font-si
 <h2>Marker and rule outcomes</h2><p>{summary["four_cell_included"]} runs enter the four-cell table. “Pass” means the specified checks passed, not that all possible behavior is correct.</p>{matrix}{rates}{exclusions}
 <p>Exact markers with unevaluable rules: {summary["exact_marker_unevaluable_rules"]}. These are outside the four-cell table. Exclusion reasons are assigned in order: recording status, condition, marker observation, rule evaluation.</p>
 <p class="muted">These are descriptive final outcomes. They do not establish causation, early warning, or reliability beyond these tasks. A constant marker cannot distinguish outcomes; zero denominators are undefined.</p>
-<h2>By task and condition</h2>{breakdown}<p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Condition A has no marker and does not enter those cells.</p>
+<h2>Signal versus work</h2><p>A marker shows only that the final response followed one instruction. This table sets it against feature completion for every recorded marker-enabled run, including runs whose rules could not be evaluated. Exact markers with incomplete or unevaluable work: {summary["marker_present_work_blocked"]}.</p>{signal_table}
+<p class="muted">“Feature incomplete” means the independent feature check failed. It does not identify why: a broken runtime, a refusal, and an unfinished implementation all land in the same cell.</p>
+{control_html}<h2>By task and condition</h2>{breakdown}<p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Conditions A and C have no marker and do not enter those cells. C adds a neutral instruction of matched length.</p>
 <h2>Run evidence</h2><p>Expand a run to inspect recorded statuses, per-check evidence, errors, duration, and usage where supplied.</p>{''.join(details)}
 <footer>Static report from saved cohort evidence. No model calls, external assets, or network requests are required. Machine-readable aggregate: report.json.</footer>
 </main></body></html>'''
@@ -230,18 +263,24 @@ def build_report(cohort_dir: Path, output_dir: Path) -> dict[str, Any]:
     plan = json.loads((cohort_dir / "plan.json").read_text(encoding="utf-8"))
     runs = _read_runs(cohort_dir, plan)
     tasks = sorted({run["task"] for run in runs})
+    conditions = plan.get("conditions") or ["A", "B"]
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "phase": plan["phase"],
         "summary": _summarize(runs),
         "by_task": {task: _summarize([run for run in runs if run["task"] == task]) for task in tasks},
-        "by_condition": {condition: _summarize([run for run in runs if run["condition"] == condition]) for condition in ("A", "B")},
+        "by_condition": {condition: _summarize([run for run in runs if run["condition"] == condition]) for condition in conditions},
         "by_task_condition": {
-            task: {condition: _summarize([run for run in runs if run["task"] == task and run["condition"] == condition]) for condition in ("A", "B")}
+            task: {condition: _summarize([run for run in runs if run["task"] == task and run["condition"] == condition]) for condition in conditions}
             for task in tasks
         },
         "runs": runs,
     }
+    if plan["phase"] == "control":
+        violations = [run["run_id"] for run in runs if run["recording_status"] == "recorded"
+                      and (run["result"].get("evaluation") or {}).get("feature") == "pass"]
+        report["negative_control"] = {"expected": "no complete work", "violations": violations,
+                                      "status": "fail" if violations else "pass"}
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (output_dir / "report.html").write_text(_render(report), encoding="utf-8")

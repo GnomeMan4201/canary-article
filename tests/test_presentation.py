@@ -46,6 +46,16 @@ class PresentationTests(unittest.TestCase):
         for name, original in originals.items():
             self.assertEqual((self.folder / name).read_bytes(), original)
 
+    def test_condition_filter_lists_only_planned_conditions(self):
+        document = build(self.root).read_text()
+        self.assertIn('<option value="">A and B</option>', document)
+        self.assertNotIn("C · neutral instruction", document)
+        self.plan["conditions"] = ["A", "B", "C"]
+        self.save_plan()
+        document = build(self.root).read_text()
+        self.assertIn('<option value="">All conditions</option>', document)
+        self.assertIn('<option value="C">C · neutral instruction</option>', document)
+
     def test_missing_final_and_empty_diff_are_labeled(self):
         (self.folder / "changes.diff").write_text("")
         document = build(self.root).read_text()

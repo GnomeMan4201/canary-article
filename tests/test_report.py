@@ -65,6 +65,58 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(report["by_condition"]["A"]["four_cell_included"], 0)
         self.assertEqual(json.loads((self.output / "report.json").read_text()), report)
 
+    def test_signal_versus_work_keeps_unevaluable_rules(self):
+        # pilot-01 shape: exact marker, feature missing, new rules unevaluable.
+        self.add_run("blocked", rules="unevaluable", evaluation={
+            "build": "pass", "baseline_rules": "pass", "new_rules": "unevaluable",
+            "feature": "fail", "rules": "unevaluable", "status": "completed"})
+        self.add_run("done")
+        self.add_run("absent_done", marker="absent")
+        self.add_run("silent", marker="unobserved", evaluation=None)
+        self.add_run("control", marker="not_applicable", condition="A", rules="fail")
+        report = self.build()
+        summary = report["summary"]
+        self.assertEqual(summary["four_cell_included"], 2)
+        self.assertEqual(summary["signal_work"], {
+            "exact": {"complete": 1, "incomplete": 1, "unevaluable": 0},
+            "noncompliant": {"complete": 1, "incomplete": 0, "unevaluable": 0},
+            "unobserved": {"complete": 0, "incomplete": 0, "unevaluable": 1},
+        })
+        self.assertEqual(summary["marker_present_work_blocked"], 1)
+        rate = summary["rates"]["work_blocked_given_exact"]
+        self.assertEqual((rate["numerator"], rate["denominator"]), (1, 2))
+        self.assertEqual(report["schema_version"], 2)
+        self.assertIn("Signal versus work", (self.output / "report.html").read_text())
+
+    def test_condition_c_is_reported_without_a_marker(self):
+        self.plan["conditions"] = ["A", "B", "C"]
+        self.add_run("a", marker="not_applicable", condition="A")
+        self.add_run("b")
+        self.add_run("c", marker="not_applicable", condition="C", rules="fail")
+        self.add_run("c-bad", marker="exact", condition="C")
+        report = self.build()
+        self.assertEqual(set(report["by_condition"]), {"A", "B", "C"})
+        self.assertEqual(report["by_condition"]["C"]["evaluation"]["rules"], {"fail": 1})
+        self.assertEqual(report["summary"]["four_cell_included"], 1)
+        self.assertEqual(report["runs"][3]["recording_status"], "invalid_evidence")
+        self.assertIn("condition C marker", report["runs"][3]["error"])
+
+    def test_negative_control_flags_completed_work(self):
+        self.plan["phase"] = "control"
+        self.add_run("blocked", phase="control", evaluation={"feature": "fail", "rules": "unevaluable"})
+        report = self.build()
+        self.assertEqual(report["negative_control"]["status"], "pass")
+        self.assertIn("Negative control", (self.output / "report.html").read_text())
+        self.setUp()
+        self.plan["phase"] = "control"
+        self.add_run("leaked", phase="control")
+        report = self.build()
+        self.assertEqual(report["negative_control"], {"expected": "no complete work", "violations": ["leaked"], "status": "fail"})
+
+    def test_non_control_reports_have_no_negative_control_section(self):
+        self.add_run("ok")
+        self.assertNotIn("negative_control", self.build())
+
     def test_empty_denominators_are_null(self):
         report = self.build()
         for rate in report["summary"]["rates"].values():

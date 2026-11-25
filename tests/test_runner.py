@@ -199,6 +199,80 @@ class RunnerEvidenceTests(unittest.TestCase):
             self.assertEqual(rows[index]["block"], rows[index + 1]["block"])
             self.assertEqual({rows[index]["condition"], rows[index + 1]["condition"]}, {"A", "B"})
 
+    def test_condition_c_is_length_matched_and_requests_no_marker(self):
+        token = "0123456789abcdef"
+        marker = runner.marker_instruction(token)
+        neutral = runner.NEUTRAL_INSTRUCTION
+        self.assertLessEqual(abs(len(neutral) - len(marker)) / len(marker), 0.05)
+        self.assertNotIn("CANARY", neutral)
+        self.assertNotIn("final response", neutral)
+        base = "Rules.\n"
+        self.assertEqual(runner.build_instructions(base, "A", None), base)
+        self.assertEqual(runner.build_instructions(base, "B", token), base + marker)
+        self.assertEqual(runner.build_instructions(base, "C", None), base + neutral)
+
+    def test_abc_pilot_and_main_use_triple_blocks(self):
+        plan = self.plan(conditions="ABC")
+        self.assertEqual(plan["conditions"], ["A", "B", "C"])
+        self.assertEqual(len(plan["runs"]), 9)
+        for index in range(0, 9, 3):
+            block = plan["runs"][index:index + 3]
+            self.assertEqual(len({row["block"] for row in block}), 1)
+            self.assertEqual({row["condition"] for row in block}, {"A", "B", "C"})
+        for row in plan["runs"]:
+            self.assertEqual(row["token"] is not None, row["condition"] == "B")
+        pilot = self.base / "pilot"
+        for row in plan["runs"]:
+            folder = pilot / "runs" / row["run_id"]
+            runner.write_json(folder / "result.json", {
+                **row, "phase": "pilot", "termination": "completed", "evaluation": evaluation(row["task"]),
+                "final_response_observed": True, "event_parse_errors": 0})
+        self.calibration(plan["source_hashes"])
+        with self.assertRaisesRegex(ValueError, "same conditions"):
+            self.plan("main-ab", "main", pilot)
+        main = self.plan("main", "main", pilot, conditions="ABC")
+        self.assertEqual(len(main["runs"]), 45)
+        for task in runner.TASKS:
+            for condition in "ABC":
+                self.assertEqual(sum(r["task"] == task and r["condition"] == condition for r in main["runs"]), 5)
+
+    def test_legacy_pilot_without_conditions_field_still_freezes_ab(self):
+        pilot, plan = self.completed_pilot()
+        del plan["conditions"]
+        runner.write_json(pilot / "plan.json", plan)
+        self.calibration(plan["source_hashes"])
+        self.assertEqual(len(self.plan("main", "main", pilot)["runs"]), 30)
+
+    def test_unknown_conditions_or_phase_are_rejected(self):
+        with self.assertRaises(ValueError):
+            self.plan("bad-conditions", conditions="AC")
+        with self.assertRaises(ValueError):
+            self.plan("bad-phase", "trial")
+
+    def test_control_plan_is_one_marker_run_per_task_with_read_only_workspace(self):
+        plan = self.plan("control", "control")
+        self.assertEqual(plan["phase"], "control")
+        self.assertFalse(plan["frozen"])
+        self.assertEqual(plan["runtime"]["workspace"], "read-only")
+        self.assertEqual(sorted(r["task"] for r in plan["runs"]), sorted(runner.TASKS))
+        self.assertTrue(all(r["condition"] == "B" and r["token"] for r in plan["runs"]))
+        self.assertEqual(self.plan()["runtime"]["workspace"], "writable")
+
+    def test_control_cohort_continues_past_expected_runtime_errors(self):
+        plan = self.plan("control", "control")
+        auth = self.base / "test-auth.json"
+        auth.write_text("{}")
+        results = [{**row, "termination": "runtime_error", "marker": {"status": "exact"},
+                    "duration_seconds": 1, "evaluation": {**evaluation(row["task"]), "feature": "fail"}}
+                   for row in plan["runs"]]
+        with patch.object(runner, "run_one", side_effect=results) as run_one, redirect_stdout(io.StringIO()):
+            runner.run_cohort(self.base / "control", auth)
+        self.assertEqual(run_one.call_count, 3)
+        pilot = self.plan()
+        with patch.object(runner, "run_one", return_value={**results[0], **pilot["runs"][0]}), redirect_stdout(io.StringIO()):
+            with self.assertRaisesRegex(RuntimeError, "Infrastructure"):
+                runner.run_cohort(self.base / "pilot", auth)
+
     def save_snapshot(self):
         plan = self.plan()
         row = plan["runs"][0]

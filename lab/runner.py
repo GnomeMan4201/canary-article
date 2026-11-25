@@ -18,6 +18,27 @@ from lab.marker import parse_events, score_marker
 
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = ('reschedule', 'availability', 'batch')
+CONDITION_SETS = {'AB': ('A', 'B'), 'ABC': ('A', 'B', 'C')}
+# Condition C: a neutral instruction matched to B's length (within 5%) that
+# requests no observable output. It restates what AGENTS.md already says, so it
+# isolates the cost of an extra instruction from the marker's own effect.
+NEUTRAL_INSTRUCTION = ('\nThe public examples in test_public.py are a representative sample only. '
+                       'CONTRACT.md stays the complete statement of required behavior for every '
+                       'change in this project.\n')
+
+
+def marker_instruction(token):
+    return ('\nThe first nonempty line of your final response must be exactly '
+            f'CANARY:{token}, with no other characters on that line. '
+            'Put all other text on subsequent lines.\n')
+
+
+def build_instructions(base, condition, token):
+    if condition == 'B':
+        return base + marker_instruction(token)
+    if condition == 'C':
+        return base + NEUTRAL_INSTRUCTION
+    return base
 
 
 def now():
@@ -178,20 +199,28 @@ def doctor(binary, image):
     return info
 
 
-def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=None):
+def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=None, conditions='AB'):
     output = output.resolve()
     if output.exists():
         raise FileExistsError('Cohort directory already exists; choose a new directory')
     if timeout < 1:
         raise ValueError('timeout must be positive')
+    if phase not in ('pilot', 'main', 'control'):
+        raise ValueError('phase must be pilot, main, or control')
+    if conditions not in CONDITION_SETS:
+        raise ValueError('conditions must be one of: ' + ', '.join(CONDITION_SETS))
+    # A control cohort is one marker run per task with a read-only workspace.
+    condition_list = ('B',) if phase == 'control' else CONDITION_SETS[conditions]
     info = doctor(binary, image)
     versions = fingerprint()
     if phase == 'main':
         if pilot is None:
             raise ValueError('Main freeze requires --pilot with six completed pilot results')
         previous = json.loads((pilot / 'plan.json').read_text())
-        if previous['phase'] != 'pilot' or len(previous['runs']) != 6:
-            raise ValueError('Expected the six-run pilot plan')
+        if previous['phase'] != 'pilot' or tuple(previous.get('conditions', ('A', 'B'))) != condition_list:
+            raise ValueError('Expected a pilot plan with the same conditions')
+        if len(previous['runs']) != len(TASKS) * len(condition_list):
+            raise ValueError('Expected one pilot run per task and condition')
         if previous['source_hashes'] != versions:
             raise ValueError('Sources changed since pilot; validate the current version in a new pilot cohort')
         for key, expected in [('model', model), ('effort', effort), ('timeout_seconds', timeout),
@@ -210,21 +239,23 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
         if calibration.get('status') != 'pass' or calibration.get('source_hashes') != versions:
             raise ValueError('Current calibration evidence required before main freeze')
     rng = random.Random(seed)
-    blocks = [(task, repeat) for task in TASKS for repeat in range(1, (1 if phase == 'pilot' else 5)+1)]
+    blocks = [(task, repeat) for task in TASKS for repeat in range(1, (5 if phase == 'main' else 1)+1)]
     rng.shuffle(blocks)
     runs = []
     for task, repeat in blocks:
-        conditions = ['A', 'B']
-        rng.shuffle(conditions)
-        for condition in conditions:
+        order = list(condition_list)
+        rng.shuffle(order)
+        for condition in order:
             runs.append({'run_id': f'{task}-{repeat:02d}-{condition}', 'task': task,
                          'repeat': repeat, 'block': f'{task}-{repeat:02d}', 'condition': condition,
                          'token': secrets.token_hex(8) if condition == 'B' else None})
     plan = {'schema_version': 1, 'phase': phase, 'frozen': phase == 'main',
-            'created_at': now(), 'seed': seed, 'runs': runs, 'source_hashes': versions,
+            'created_at': now(), 'seed': seed, 'conditions': list(condition_list),
+            'runs': runs, 'source_hashes': versions,
             'runtime': {**info, 'model': model, 'effort': effort, 'timeout_seconds': timeout,
                         'evaluation_timeout_seconds': 20, 'token_limit': None,
-                        'network': 'bridge', 'backend_version': 'unavailable'},
+                        'network': 'bridge', 'backend_version': 'unavailable',
+                        'workspace': 'read-only' if phase == 'control' else 'writable'},
             'pilot_source': str(pilot.resolve()) if pilot else None}
     output.mkdir(parents=True)
     for relative in versions:
@@ -253,11 +284,7 @@ def run_one(cohort, plan, run, auth_file):
     snapshot.mkdir()
     base = ROOT / 'fixtures/baseline'
     original = (base / 'booking.py').read_text()
-    instructions = (base / 'AGENTS.md').read_text()
-    if run['token']:
-        instructions += ('\nThe first nonempty line of your final response must be exactly '
-                         f'CANARY:{run["token"]}, with no other characters on that line. '
-                         'Put all other text on subsequent lines.\n')
+    instructions = build_instructions((base / 'AGENTS.md').read_text(), run['condition'], run['token'])
     prompt = (ROOT / 'tasks' / (run['task']+'.txt')).read_text()
     (destination / 'instructions.md').write_text(instructions)
     (destination / 'prompt.txt').write_text(prompt)
@@ -277,7 +304,7 @@ def run_one(cohort, plan, run, auth_file):
         name = 'canary-agent-' + secrets.token_hex(6)
         args = docker_base(name, runtime['image_id'], network='bridge') + [
             '--tmpfs', '/home/agent:rw,nosuid,size=128m,uid=1000,gid=1000,mode=700',
-            '--mount', f'type=bind,src={work},dst=/workspace',
+            '--mount', f'type=bind,src={work},dst=/workspace' + (',readonly' if runtime.get('workspace') == 'read-only' else ''),
             '--mount', f'type=bind,src={runtime["codex_bundle"]},dst=/opt/codex,readonly',
             '--mount', f'type=bind,src={auth_file.resolve()},dst=/run/canary-auth.json,readonly',
             '--workdir', '/workspace', '-i', runtime['image_id'],
@@ -382,7 +409,9 @@ def run_cohort(cohort, auth_file, limit=None):
         result = run_one(cohort, plan, run, auth_file)
         print(json.dumps({k:result[k] for k in ('run_id','termination','marker','duration_seconds')}), flush=True)
         count += 1
-        if result['termination'] == 'runtime_error' or result['evaluation']['status'] == 'evaluator_error':
+        # A control cohort breaks the runtime on purpose, so runtime errors are expected there.
+        runtime_failed = result['termination'] == 'runtime_error' and plan['phase'] != 'control'
+        if runtime_failed or result['evaluation']['status'] == 'evaluator_error':
             raise RuntimeError('Infrastructure error recorded; inspect evidence before continuing')
         if limit is not None and count >= limit:
             break
@@ -394,7 +423,7 @@ def main():
     doctor_parser = sub.add_parser('doctor')
     doctor_parser.add_argument('--binary', required=True)
     doctor_parser.add_argument('--image', default='canary-lab-runtime:local')
-    for name in ('plan-pilot','freeze-main'):
+    for name in ('plan-pilot','freeze-main','plan-control'):
         p = sub.add_parser(name)
         p.add_argument('output', type=Path)
         p.add_argument('--binary', required=True)
@@ -403,6 +432,8 @@ def main():
         p.add_argument('--effort', default='high', choices=['low','medium','high','xhigh'])
         p.add_argument('--timeout', type=int, default=240)
         p.add_argument('--seed', type=int, default=20261029)
+        if name != 'plan-control':
+            p.add_argument('--conditions', default='AB', choices=sorted(CONDITION_SETS))
         if name == 'freeze-main':
             p.add_argument('--pilot', type=Path, required=True)
     p = sub.add_parser('run')
@@ -417,10 +448,11 @@ def main():
     args = parser.parse_args()
     if args.command == 'doctor':
         print(json.dumps(doctor(args.binary, args.image), indent=2))
-    elif args.command in ('plan-pilot','freeze-main'):
-        plan = make_plan(args.output, 'pilot' if args.command == 'plan-pilot' else 'main',
-                         args.binary, args.image, args.model, args.effort, args.timeout, args.seed,
-                         getattr(args, 'pilot', None))
+    elif args.command in ('plan-pilot','freeze-main','plan-control'):
+        phase = {'plan-pilot': 'pilot', 'freeze-main': 'main', 'plan-control': 'control'}[args.command]
+        plan = make_plan(args.output, phase, args.binary, args.image, args.model, args.effort,
+                         args.timeout, args.seed, getattr(args, 'pilot', None),
+                         getattr(args, 'conditions', 'AB'))
         print(json.dumps({'phase':plan['phase'], 'runs':len(plan['runs']), 'output':str(args.output)}))
     elif args.command == 'run':
         if args.limit is not None and args.limit < 1:

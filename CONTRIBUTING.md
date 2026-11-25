@@ -22,16 +22,16 @@ The evaluator was calibrated against 16 known cases: correct implementations, de
 ## What this repo is NOT
 
 - A benchmark. 30 runs on one model prove nothing general.
-- A canary design recommendation. This experiment shows that the canary WORKS (100% compliance), but the uniform-green result means we can't measure its diagnostic value.
+- A canary design recommendation. This experiment shows that the marker format was followed in 15 of 15 runs. That is all. With no omissions and no checked failures, it can't measure whether the marker signals anything else.
 - A tool you should run without understanding. The experiment is small and inspectable by design. Read the [experiment protocol](docs/experiment.md) before running your own.
 
 ## Extending the study
 
-The article identifies the key limitation: uniform success means no failure to correlate against. To measure the canary's diagnostic value, you would need:
+The article identifies the key limitation: uniform success means no failure to correlate against.
 
-- Longer sessions where context drifts.
-- Multi-file architectural changes where intermediate state can be lost.
-- A task hard enough that the agent sometimes fails a checked rule — then check whether canary omission precedes the failure.
+- [docs/replicating.md](docs/replicating.md) explains how to run an independent replication or a one-factor extension and report it as a separate cohort.
+- [docs/follow-up-protocol.md](docs/follow-up-protocol.md) is the draft main-02 design. It changes one factor per arm, adds an equal-length neutral-instruction control, and adds a runtime negative control.
+- Early-warning and drift questions need multi-turn sessions with checks after every edit. That is a separate longitudinal design.
 
 ## License
 

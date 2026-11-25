@@ -52,6 +52,26 @@ python3 -m lab.runner report artifacts/main-example
 
 The plan records the randomized schedule, unique marker tokens, runtime identifiers, and source hashes. Each cohort archives the source bytes used by the evaluator and controller. Source or runtime-asset changes prevent continuing that cohort. The 30 planned main attempts are fixed; an amendment or replacement cohort must remain visibly separate. The local freeze is not a public preregistration.
 
+## Follow-up options: condition C and negative controls
+
+These options support the [draft follow-up protocol](follow-up-protocol.md). They don't change how main-01 was collected or scored.
+
+`--conditions ABC` on `plan-pilot` and `freeze-main` adds condition C. C appends a neutral instruction, matched to the marker instruction's length within 5%, that asks for no observable output. Blocks then hold one A, one B, and one C run, so a pilot has 9 runs and a main cohort has 45. `freeze-main` refuses a pilot planned with different conditions.
+
+```sh
+python3 -m lab.runner plan-pilot artifacts/pilot-abc-01 --conditions ABC \
+  --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort low --timeout 240
+```
+
+`plan-control` creates a negative-control cohort with one marker run per task and the agent's workspace mounted read-only. No run can complete its feature. Runtime errors are expected, so they don't halt collection. Evaluator errors still do. The report adds a negative-control verdict that fails if any run is classified as complete work. Control cohorts never enter main tables.
+
+```sh
+python3 -m lab.runner plan-control artifacts/control-01 \
+  --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort low --timeout 240
+python3 -m lab.runner run artifacts/control-01
+python3 -m lab.runner report artifacts/control-01
+```
+
 ## Inspect and replay evidence
 
 Open `artifacts/<cohort>/report/report.html` for the standalone report. It retains every planned row and separates marker status, feature completion, checked behavior, and missing evidence. Expand a row for per-check results. Its adjacent `report.json` contains the aggregate and run records.

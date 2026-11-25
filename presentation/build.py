@@ -44,6 +44,16 @@ def evidence_pane(cohort, run_id, title, filename):
     return f'<details><summary>{html(title)}</summary>{body}</details>'
 
 
+CONDITION_LABELS = {"A": "A · no marker", "B": "B · marker", "C": "C · neutral instruction"}
+
+
+def condition_options(report):
+    conditions = list(report.get("by_condition") or ("A", "B"))
+    everything = " and ".join(conditions) if len(conditions) == 2 else "All conditions"
+    return f'<option value="">{html(everything)}</option>' + "".join(
+        f'<option value="{html(c)}">{html(CONDITION_LABELS.get(c, c))}</option>' for c in conditions)
+
+
 def run_card(cohort, run, index):
     result = run["result"] or {}
     evaluation = result.get("evaluation") or {}
@@ -107,7 +117,7 @@ footer{{border-top:2px solid var(--ink);padding-top:22px;margin-top:30px;color:v
 <span>{counts.get('invalid_evidence', 0)} invalid evidence</span></div></header>
 <p class="muted">Condition A has no marker instruction. Condition B requests a marker. A marker status does not certify code correctness; a check pass applies only to the evaluated contract.</p>
 <div class="filters"><label>Task<select id="task-filter"><option value="">All tasks</option>{options}</select></label>
-<label>Condition<select id="condition-filter"><option value="">A and B</option><option value="A">A · no marker</option><option value="B">B · marker</option></select></label>
+<label>Condition<select id="condition-filter">{condition_options(report)}</select></label>
 <p id="visible-count" role="status" aria-live="polite">Showing {planned} runs</p></div>
 <section aria-label="Recorded run evidence">{cards}</section>
 <footer>Built from saved cohort files. Missing evidence stays visible. No model calls, external assets, or network requests.</footer>

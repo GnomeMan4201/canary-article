@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "phase": "pilot",
   "summary": {
     "planned": 6,
@@ -47,6 +47,24 @@
       "not_attempted": 4
     },
     "exact_marker_unevaluable_rules": 1,
+    "signal_work": {
+      "exact": {
+        "complete": 0,
+        "incomplete": 1,
+        "unevaluable": 0
+      },
+      "noncompliant": {
+        "complete": 0,
+        "incomplete": 0,
+        "unevaluable": 0
+      },
+      "unobserved": {
+        "complete": 0,
+        "incomplete": 0,
+        "unevaluable": 0
+      }
+    },
+    "marker_present_work_blocked": 1,
     "rates": {
       "failure_given_exact": {
         "numerator": 0,
@@ -67,6 +85,11 @@
         "numerator": 0,
         "denominator": 0,
         "value": null
+      },
+      "work_blocked_given_exact": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       },
       "noncompliance_among_observed_markers": {
         "numerator": 0,
@@ -102,6 +125,24 @@
         "not_attempted": 2
       },
       "exact_marker_unevaluable_rules": 0,
+      "signal_work": {
+        "exact": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "noncompliant": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "unobserved": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        }
+      },
+      "marker_present_work_blocked": 0,
       "rates": {
         "failure_given_exact": {
           "numerator": 0,
@@ -119,6 +160,11 @@
           "value": null
         },
         "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "work_blocked_given_exact": {
           "numerator": 0,
           "denominator": 0,
           "value": null
@@ -156,6 +202,24 @@
         "not_attempted": 2
       },
       "exact_marker_unevaluable_rules": 0,
+      "signal_work": {
+        "exact": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "noncompliant": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "unobserved": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        }
+      },
+      "marker_present_work_blocked": 0,
       "rates": {
         "failure_given_exact": {
           "numerator": 0,
@@ -173,6 +237,11 @@
           "value": null
         },
         "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "work_blocked_given_exact": {
           "numerator": 0,
           "denominator": 0,
           "value": null
@@ -228,6 +297,24 @@
         "interrupted": 1
       },
       "exact_marker_unevaluable_rules": 1,
+      "signal_work": {
+        "exact": {
+          "complete": 0,
+          "incomplete": 1,
+          "unevaluable": 0
+        },
+        "noncompliant": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "unobserved": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        }
+      },
+      "marker_present_work_blocked": 1,
       "rates": {
         "failure_given_exact": {
           "numerator": 0,
@@ -248,6 +335,11 @@
           "numerator": 0,
           "denominator": 0,
           "value": null
+        },
+        "work_blocked_given_exact": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
         },
         "noncompliance_among_observed_markers": {
           "numerator": 0,
@@ -286,6 +378,24 @@
         "not_attempted": 2
       },
       "exact_marker_unevaluable_rules": 0,
+      "signal_work": {
+        "exact": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "noncompliant": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "unobserved": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        }
+      },
+      "marker_present_work_blocked": 0,
       "rates": {
         "failure_given_exact": {
           "numerator": 0,
@@ -303,6 +413,11 @@
           "value": null
         },
         "noncompliance_among_evaluable": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "work_blocked_given_exact": {
           "numerator": 0,
           "denominator": 0,
           "value": null
@@ -358,6 +473,24 @@
         "not_attempted": 2
       },
       "exact_marker_unevaluable_rules": 1,
+      "signal_work": {
+        "exact": {
+          "complete": 0,
+          "incomplete": 1,
+          "unevaluable": 0
+        },
+        "noncompliant": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        },
+        "unobserved": {
+          "complete": 0,
+          "incomplete": 0,
+          "unevaluable": 0
+        }
+      },
+      "marker_present_work_blocked": 1,
       "rates": {
         "failure_given_exact": {
           "numerator": 0,
@@ -378,6 +511,11 @@
           "numerator": 0,
           "denominator": 0,
           "value": null
+        },
+        "work_blocked_given_exact": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
         },
         "noncompliance_among_observed_markers": {
           "numerator": 0,
@@ -415,6 +553,24 @@
           "not_attempted": 1
         },
         "exact_marker_unevaluable_rules": 0,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 0,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -432,6 +588,11 @@
             "value": null
           },
           "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "work_blocked_given_exact": {
             "numerator": 0,
             "denominator": 0,
             "value": null
@@ -469,6 +630,24 @@
           "not_attempted": 1
         },
         "exact_marker_unevaluable_rules": 0,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 0,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -486,6 +665,11 @@
             "value": null
           },
           "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "work_blocked_given_exact": {
             "numerator": 0,
             "denominator": 0,
             "value": null
@@ -525,6 +709,24 @@
           "not_attempted": 1
         },
         "exact_marker_unevaluable_rules": 0,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 0,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -542,6 +744,11 @@
             "value": null
           },
           "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "work_blocked_given_exact": {
             "numerator": 0,
             "denominator": 0,
             "value": null
@@ -579,6 +786,24 @@
           "not_attempted": 1
         },
         "exact_marker_unevaluable_rules": 0,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 0,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -596,6 +821,11 @@
             "value": null
           },
           "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "work_blocked_given_exact": {
             "numerator": 0,
             "denominator": 0,
             "value": null
@@ -635,6 +865,24 @@
           "interrupted": 1
         },
         "exact_marker_unevaluable_rules": 0,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 0,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -652,6 +900,11 @@
             "value": null
           },
           "noncompliance_among_evaluable": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "work_blocked_given_exact": {
             "numerator": 0,
             "denominator": 0,
             "value": null
@@ -705,6 +958,24 @@
           "unevaluable_rules": 1
         },
         "exact_marker_unevaluable_rules": 1,
+        "signal_work": {
+          "exact": {
+            "complete": 0,
+            "incomplete": 1,
+            "unevaluable": 0
+          },
+          "noncompliant": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          },
+          "unobserved": {
+            "complete": 0,
+            "incomplete": 0,
+            "unevaluable": 0
+          }
+        },
+        "marker_present_work_blocked": 1,
         "rates": {
           "failure_given_exact": {
             "numerator": 0,
@@ -725,6 +996,11 @@
             "numerator": 0,
             "denominator": 0,
             "value": null
+          },
+          "work_blocked_given_exact": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1.0
           },
           "noncompliance_among_observed_markers": {
             "numerator": 0,
