@@ -14,6 +14,8 @@ from pathlib import Path
 import sys
 from typing import Callable
 
+from evaluator import randomized
+
 
 TASKS = ("baseline", "reschedule", "availability", "batch")
 METHODS = {"reschedule": "reschedule", "availability": "available_rooms", "batch": "book_many"}
@@ -242,6 +244,14 @@ def reschedule_self(factory):
     equal(method(store, "list_bookings"), [normalized(start="2026-01-02T10:30:00.000Z", end="2026-01-02T11:30:00.000Z")])
 
 
+def reschedule_room(factory):
+    store = call(factory)
+    method(store, "book", record("m", "maple"))
+    equal(method(store, "reschedule", "m", "2026-01-02T12:00:00Z", "2026-01-02T13:00:00Z"),
+          normalized("m", "maple", "2026-01-02T12:00:00.000Z", "2026-01-02T13:00:00.000Z"), "reschedule must keep the room")
+    equal(method(store, "list_bookings"), [normalized("m", "maple", "2026-01-02T12:00:00.000Z", "2026-01-02T13:00:00.000Z")])
+
+
 def reschedule_conflict(factory):
     store = seeded(factory)
     method(store, "book", record("b", start="2026-01-02T12:00:00Z", end="2026-01-02T13:00:00Z"))
@@ -330,6 +340,15 @@ def batch_adjacency(factory):
     equal([item["id"] for item in method(store, "list_bookings")], ["a", "b", "c", "d"])
 
 
+def randomized_differential(task: str):
+    """Seeded stateful sequences compared step by step with the trusted oracle."""
+    def run(factory):
+        message = randomized.check(factory, task)
+        if message:
+            raise ContractFailure(message)
+    return run
+
+
 BASELINE_CHECKS = [
     ("baseline.interface", "baseline_rule", baseline_interface),
     ("baseline.overlap", "baseline_rule", baseline_overlap),
@@ -340,12 +359,13 @@ BASELINE_CHECKS = [
     ("baseline.interval_order", "baseline_rule", baseline_intervals),
     ("baseline.invalid_inputs", "baseline_rule", baseline_inputs),
     ("baseline.detached_and_sorted", "baseline_rule", baseline_detached),
+    ("baseline.randomized_differential", "baseline_rule", randomized_differential("baseline")),
 ]
 TASK_CHECKS = {
     "baseline": [("baseline.feature", "feature", baseline_interface)],
-    "reschedule": [("reschedule.feature", "feature", reschedule_feature), ("reschedule.self_exclusion", "new_rule", reschedule_self), ("reschedule.conflict_rollback", "new_rule", reschedule_conflict), ("reschedule.validation", "new_rule", reschedule_invalid)],
-    "availability": [("availability.feature", "feature", availability_feature), ("availability.boundaries_read_only", "new_rule", availability_boundaries), ("availability.validation", "new_rule", availability_invalid)],
-    "batch": [("batch.feature", "feature", batch_feature), ("batch.atomic_conflicts", "new_rule", batch_conflicts), ("batch.invalid_atomicity", "new_rule", batch_invalid), ("batch.adjacency", "new_rule", batch_adjacency)],
+    "reschedule": [("reschedule.feature", "feature", reschedule_feature), ("reschedule.self_exclusion", "new_rule", reschedule_self), ("reschedule.preserves_room", "new_rule", reschedule_room), ("reschedule.conflict_rollback", "new_rule", reschedule_conflict), ("reschedule.validation", "new_rule", reschedule_invalid), ("reschedule.randomized_differential", "new_rule", randomized_differential("reschedule"))],
+    "availability": [("availability.feature", "feature", availability_feature), ("availability.boundaries_read_only", "new_rule", availability_boundaries), ("availability.validation", "new_rule", availability_invalid), ("availability.randomized_differential", "new_rule", randomized_differential("availability"))],
+    "batch": [("batch.feature", "feature", batch_feature), ("batch.atomic_conflicts", "new_rule", batch_conflicts), ("batch.invalid_atomicity", "new_rule", batch_invalid), ("batch.adjacency", "new_rule", batch_adjacency), ("batch.randomized_differential", "new_rule", randomized_differential("batch"))],
 }
 
 

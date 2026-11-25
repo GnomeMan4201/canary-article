@@ -9,7 +9,7 @@ The main study is complete: **30 attempts, all feature and rule checks passed; a
 - [Article draft](article/devto.md), with the psychedelic canary cover.
 - [Evidence explorer](artifacts/main-01/explorer.html): instructions, task, response, code diff, and check results for each run.
 - [Standalone statistical report](artifacts/main-01/report/report.html) and [machine-readable report](artifacts/main-01/report/report.json).
-- [Independent results audit](docs/results-audit.md).
+- [Independent results audit](docs/results-audit.md), and a [re-score with the hardened evaluator](artifacts/main-01-rescore-step0/summary.json): still 30/30.
 - [Run guide](docs/running.md) and [publishing notes](article/PUBLISHING.md).
 
 The article is published on [dev.to](https://dev.to/copyleftdev/the-art-of-the-canary-in-the-age-of-ai). The article draft in this repo (`article/devto.md`) is the source of truth.

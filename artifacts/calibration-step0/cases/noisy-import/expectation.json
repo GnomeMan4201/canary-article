@@ -1,0 +1,16 @@
+{
+  "expected_check": null,
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "feature": "pass",
+    "rules": "pass",
+    "status": "completed",
+    "submission_output_truncated": true
+  },
+  "expected_raw": {},
+  "id": "noisy-import",
+  "task": "baseline",
+  "timeout_seconds": 20
+}

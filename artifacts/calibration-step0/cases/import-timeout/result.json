@@ -1,0 +1,18 @@
+{
+  "baseline_rules": "unevaluable",
+  "build": "unevaluable",
+  "checks": [],
+  "errors": [
+    {
+      "kind": "timeout",
+      "message": "Evaluator did not return valid evidence",
+      "stage": "evaluation"
+    }
+  ],
+  "feature": "unevaluable",
+  "new_rules": "unevaluable",
+  "rules": "unevaluable",
+  "schema_version": 1,
+  "status": "evaluator_error",
+  "task": "baseline"
+}

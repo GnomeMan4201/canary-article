@@ -1,0 +1,652 @@
+{
+  "schema_version": 1,
+  "mutants": 32,
+  "equivalent": [
+    "offset-hour-24"
+  ],
+  "scored": 31,
+  "killed": 31,
+  "killed_by_fixed_checks": 31,
+  "killed_by_randomized_checks": 31,
+  "killed_only_by_randomized_checks": [],
+  "survivors": [],
+  "equivalent_but_killed": [],
+  "evaluator_errors": [],
+  "references_pass": true,
+  "reference_failures": {},
+  "duration_seconds": 2.69,
+  "outcomes": [
+    {
+      "id": "touching-start",
+      "task": "baseline",
+      "risk_point": "half-open overlap: start",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.adjacency_and_rooms",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.adjacency_and_rooms": "unexpected submission exception: ValueError: CONFLICT",
+        "baseline.randomized_differential": "seed 1: rejected a valid operation with 'CONFLICT'. Minimal sequence (2 steps): book({'id': 'a', 'room': 'cedar', 'start': '2026-01-02T06:30:00-05:00', 'end': '2026-01-02T15:00:00+02:00'},); book({'id': 'b', 'room': 'cedar', 'start': '2026-01-02T15:00:00+02:00', 'end': '2026-01-02T15:30:00+02:00'},)"
+      }
+    },
+    {
+      "id": "touching-end",
+      "task": "baseline",
+      "risk_point": "half-open overlap: end",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.adjacency_and_rooms",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.adjacency_and_rooms": "unexpected submission exception: ValueError: CONFLICT",
+        "baseline.randomized_differential": "seed 2: rejected a valid operation with 'CONFLICT'. Minimal sequence (2 steps): book({'id': 'c', 'room': 'cedar', 'start': '2026-01-02T12:30:00+02:00', 'end': '2026-01-02T16:30:00+05:30'},); book({'id': 'b', 'room': 'cedar', 'start': '2026-01-02T09:30:00Z', 'end': '2026-01-02T16:00:00+05:30'},)"
+      }
+    },
+    {
+      "id": "ignore-room",
+      "task": "baseline",
+      "risk_point": "same-room condition",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.adjacency_and_rooms",
+        "baseline.detached_and_sorted",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.adjacency_and_rooms": "unexpected submission exception: ValueError: CONFLICT",
+        "baseline.detached_and_sorted": "unexpected submission exception: ValueError: CONFLICT",
+        "baseline.randomized_differential": "seed 0: rejected a valid operation with 'CONFLICT'. Minimal sequence (2 steps): book({'id': 'f', 'room': 'cedar', 'start': '2026-01-02T10:30:00Z', 'end': '2026-01-02T12:00:00Z'},); book({'id': 'a', 'room': 'maple', 'start': '2026-01-02T09:30:00Z', 'end': '2026-01-02T13:00:00+02:00'},)"
+      }
+    },
+    {
+      "id": "offset-sign",
+      "task": "baseline",
+      "risk_point": "offset sign",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.offsets",
+        "baseline.timestamp_rejection",
+        "baseline.valid_boundaries",
+        "baseline.interval_order",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.offsets": "unexpected submission exception: ValueError: INVALID_INPUT",
+        "baseline.timestamp_rejection": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.valid_boundaries": "unexpected result; expected {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T00:00:00.000Z', 'end': '2026-01-02T00:01:00.000Z'}, got {'id': 'a', 'room': 'cedar', 'start': '2026-01-03T23:58:00.000Z', 'end': '2026-01-03T23:59:00.000Z'}",
+        "baseline.interval_order": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 0: returned {'id': 'b', 'room': 'maple', 'start': '2026-01-01T22:00:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}, expected {'id': 'b', 'room': 'maple', 'start': '2026-01-02T08:00:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}. Minimal sequence (1 steps): book({'id': 'b', 'room': 'maple', 'start': '2026-01-02T03:00:00-05:00', 'end': '2026-01-02T09:30:00Z'},)"
+      }
+    },
+    {
+      "id": "offset-hour-24",
+      "task": "baseline",
+      "risk_point": "offset hour range",
+      "equivalent": "Python's timezone() rejects offsets of 24 hours or more, so +24:00 still raises INVALID_INPUT.",
+      "killed": false,
+      "killed_by_fixed_checks": false,
+      "killed_by_randomized_checks": false,
+      "failed_checks": [],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {}
+    },
+    {
+      "id": "offset-minute-60",
+      "task": "baseline",
+      "risk_point": "offset minute range",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.timestamp_rejection",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.timestamp_rejection": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 9: accepted an operation that must fail with one of ['INVALID_INPUT']; returned {'id': 'd', 'room': 'maple', 'start': '2026-01-02T09:00:00.000Z', 'end': '2026-01-02T11:00:00.500Z'}. Minimal sequence (1 steps): book({'id': 'd', 'room': 'maple', 'start': '2026-01-02T10:00:00+00:60', 'end': '2026-01-02T06:00:00.5-05:00'},)"
+      }
+    },
+    {
+      "id": "fraction-pad",
+      "task": "baseline",
+      "risk_point": "fraction normalization",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.offsets",
+        "baseline.valid_boundaries",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.offsets": "unexpected result; expected {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.100Z', 'end': '2026-01-02T11:00:00.120Z'}, got {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}",
+        "baseline.valid_boundaries": "unexpected result; expected {'id': 'a', 'room': 'cedar', 'start': '0001-01-01T00:00:00.000Z', 'end': '0001-01-01T00:00:00.001Z'}, got {'id': 'a', 'room': 'cedar', 'start': '0001-01-01T00:00:00.000Z', 'end': '0001-01-01T00:00:00.000Z'}",
+        "baseline.randomized_differential": "seed 0: returned {'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}, expected {'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00.000Z', 'end': '2026-01-02T09:30:00.250Z'}. Minimal sequence (1 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},)"
+      }
+    },
+    {
+      "id": "fraction-4-digits",
+      "task": "baseline",
+      "risk_point": "fraction digits",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.timestamp_rejection",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.timestamp_rejection": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 7: accepted an operation that must fail with one of ['INVALID_INPUT']; returned {'id': 'd', 'room': 'maple', 'start': '2026-01-02T10:00:00.123Z', 'end': '2026-01-02T13:00:00.000Z'}. Minimal sequence (1 steps): book({'id': 'd', 'room': 'maple', 'start': '2026-01-02T10:00:00.1234Z', 'end': '2026-01-02T08:00:00-05:00'},)"
+      }
+    },
+    {
+      "id": "empty-interval",
+      "task": "baseline",
+      "risk_point": "end strictly after start",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.interval_order",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.interval_order": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 0: accepted an operation that must fail with one of ['INVALID_INPUT']; returned {'id': 'i', 'room': 'maple', 'start': '2026-01-02T13:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}. Minimal sequence (1 steps): book({'id': 'i', 'room': 'maple', 'start': '2026-01-02T15:00:00+02:00', 'end': '2026-01-02T15:00:00+02:00'},)"
+      }
+    },
+    {
+      "id": "ignore-offset",
+      "task": "baseline",
+      "risk_point": "UTC conversion",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.offsets",
+        "baseline.timestamp_rejection",
+        "baseline.valid_boundaries",
+        "baseline.interval_order",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.offsets": "unexpected submission exception: ValueError: INVALID_INPUT",
+        "baseline.timestamp_rejection": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.valid_boundaries": "unexpected result; expected {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T00:00:00.000Z', 'end': '2026-01-02T00:01:00.000Z'}, got {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T23:59:00.000Z', 'end': '2026-01-03T00:00:00.000Z'}",
+        "baseline.interval_order": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 0: returned {'id': 'b', 'room': 'maple', 'start': '2026-01-02T03:00:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}, expected {'id': 'b', 'room': 'maple', 'start': '2026-01-02T08:00:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}. Minimal sequence (1 steps): book({'id': 'b', 'room': 'maple', 'start': '2026-01-02T03:00:00-05:00', 'end': '2026-01-02T09:30:00Z'},)"
+      }
+    },
+    {
+      "id": "unsorted-list",
+      "task": "baseline",
+      "risk_point": "list order",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.detached_and_sorted",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.detached_and_sorted": "unexpected result; expected ['a', 'z'], got ['z', 'a']",
+        "baseline.randomized_differential": "seed 0: stored bookings differ from the oracle after this step. Minimal sequence (2 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},); book({'id': 'g', 'room': 'cedar', 'start': '2026-01-02T14:30:00+02:00', 'end': '2026-01-02T13:00:00Z'},)"
+      }
+    },
+    {
+      "id": "aliased-book-result",
+      "task": "baseline",
+      "risk_point": "detached results",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.detached_and_sorted",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.detached_and_sorted": "unexpected result; expected [{'id': 'z', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'z', 'room': 'changed result', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "baseline.randomized_differential": "seed 0: stored bookings changed after the caller mutated inputs or returned values. Minimal sequence (1 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},)"
+      }
+    },
+    {
+      "id": "aliased-list",
+      "task": "baseline",
+      "risk_point": "detached listing",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.detached_and_sorted",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.detached_and_sorted": "unexpected result; expected [{'id': 'z', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'changed list item', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "baseline.randomized_differential": "seed 0: stored bookings changed after the caller mutated a list_bookings result. Minimal sequence (1 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},)"
+      }
+    },
+    {
+      "id": "no-duplicate-check",
+      "task": "baseline",
+      "risk_point": "duplicate IDs",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.invalid_inputs",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.invalid_inputs": "expected ValueError(DUPLICATE_ID); operation succeeded",
+        "baseline.randomized_differential": "seed 0: accepted an operation that must fail with one of ['DUPLICATE_ID']; returned {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T08:00:00.000Z', 'end': '2026-01-02T09:00:00.000Z'}. Minimal sequence (2 steps): book({'id': 'a', 'room': 'maple', 'start': '2026-01-02T09:30:00Z', 'end': '2026-01-02T13:00:00+02:00'},); book({'id': 'a', 'room': 'cedar', 'start': '2026-01-02T03:00:00-05:00', 'end': '2026-01-02T14:30:00+05:30'},)"
+      }
+    },
+    {
+      "id": "empty-id-allowed",
+      "task": "baseline",
+      "risk_point": "ID validation",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.invalid_inputs",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.invalid_inputs": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 25: accepted an operation that must fail with one of ['INVALID_INPUT']; returned {'id': '', 'room': 'cedar', 'start': '2026-01-02T13:00:00.000Z', 'end': '2026-01-02T14:30:00.000Z'}. Minimal sequence (1 steps): book({'id': '', 'room': 'cedar', 'start': '2026-01-02T18:30:00+05:30', 'end': '2026-01-02T09:30:00-05:00'},)"
+      }
+    },
+    {
+      "id": "extra-fields-allowed",
+      "task": "baseline",
+      "risk_point": "record shape",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.invalid_inputs",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.invalid_inputs": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "baseline.randomized_differential": "seed 1: accepted an operation that must fail with one of ['INVALID_INPUT']; returned {'id': 'h', 'room': 'cedar', 'start': '2026-01-02T10:30:00.000Z', 'end': '2026-01-02T11:30:00.125Z'}. Minimal sequence (1 steps): book({'id': 'h', 'room': 'cedar', 'start': '2026-01-02T10:30:00Z', 'end': '2026-01-02T06:30:00.125-05:00', 'extra': 1},)"
+      }
+    },
+    {
+      "id": "store-before-conflict",
+      "task": "baseline",
+      "risk_point": "rejected book leaves store unchanged",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "baseline.overlap",
+        "baseline.offsets",
+        "baseline.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "baseline.overlap": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'b', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "baseline.offsets": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.100Z', 'end': '2026-01-02T11:00:00.120Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.100Z', 'end': '2026-01-02T11:00:00.120Z'}, {'id': 'b', 'room': 'cedar', 'start': '2026-01-02T10:30:00.000Z', 'end': '2026-01-02T11:30:00.000Z'}]",
+        "baseline.randomized_differential": "seed 0: stored bookings differ from the oracle after this step. Minimal sequence (2 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},); book({'id': 'b', 'room': 'maple', 'start': '2026-01-02T03:00:00-05:00', 'end': '2026-01-02T09:30:00Z'},)"
+      }
+    },
+    {
+      "id": "no-self-exclusion",
+      "task": "reschedule",
+      "risk_point": "exclude the booking being changed",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.self_exclusion",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.self_exclusion": "unexpected submission exception: ValueError: CONFLICT",
+        "reschedule.randomized_differential": "seed 1: rejected a valid operation with 'CONFLICT'. Minimal sequence (2 steps): book({'id': 'f', 'room': 'maple', 'start': '2026-01-02T12:30:00+02:00', 'end': '2026-01-02T17:00:00+05:30'},); reschedule('f', '2026-01-02T11:00:00Z', '2026-01-02T13:30:00+02:00')"
+      }
+    },
+    {
+      "id": "reschedule-before-conflict",
+      "task": "reschedule",
+      "risk_point": "rejected reschedule leaves store unchanged",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.conflict_rollback",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.conflict_rollback": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'b', 'room': 'cedar', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T12:30:00.000Z', 'end': '2026-01-02T13:30:00.000Z'}, {'id': 'b', 'room': 'cedar', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}]",
+        "reschedule.randomized_differential": "seed 0: stored bookings differ from the oracle after this step. Minimal sequence (3 steps): book({'id': 'c', 'room': 'maple', 'start': '2026-01-02T12:30:00+02:00', 'end': '2026-01-02T13:30:00+02:00'},); book({'id': 'e', 'room': 'maple', 'start': '2026-01-02T04:00:00-05:00', 'end': '2026-01-02T11:30:00+02:00'},); reschedule('c', '2026-01-02T14:00:00+05:30', '2026-01-02T04:30:00-05:00')"
+      }
+    },
+    {
+      "id": "not-found-code",
+      "task": "reschedule",
+      "risk_point": "unknown ID error code",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.validation",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.validation": "wrong ValueError code; expected 'BOOKING_NOT_FOUND', got 'INVALID_INPUT'",
+        "reschedule.randomized_differential": "seed 0: wrong error code 'INVALID_INPUT'; permitted ['BOOKING_NOT_FOUND']. Minimal sequence (1 steps): reschedule('i', '2026-01-02T07:00:00-05:00', '2026-01-02T15:00:00+02:00')"
+      }
+    },
+    {
+      "id": "aliased-reschedule-result",
+      "task": "reschedule",
+      "risk_point": "detached result",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.feature",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.feature": "reschedule result aliases stored data; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}], got [{'id': 'a', 'room': 'maple', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}]",
+        "reschedule.randomized_differential": "seed 0: stored bookings changed after the caller mutated inputs or returned values. Minimal sequence (2 steps): book({'id': 'a', 'room': 'cedar', 'start': '2026-01-02T16:00:00+05:30', 'end': '2026-01-02T11:00:00Z'},); reschedule('a', '2026-01-02T18:00:00+05:30', '2026-01-02T08:30:00-05:00')"
+      }
+    },
+    {
+      "id": "reschedule-changes-room",
+      "task": "reschedule",
+      "risk_point": "room preserved",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.preserves_room",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.preserves_room": "reschedule must keep the room; expected {'id': 'm', 'room': 'maple', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}, got {'id': 'm', 'room': 'cedar', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}",
+        "reschedule.randomized_differential": "seed 0: returned {'id': 'i', 'room': 'cedar', 'start': '2026-01-02T12:00:00.500Z', 'end': '2026-01-02T13:30:00.000Z'}, expected {'id': 'i', 'room': 'maple', 'start': '2026-01-02T12:00:00.500Z', 'end': '2026-01-02T13:30:00.000Z'}. Minimal sequence (2 steps): book({'id': 'i', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T12:00:00.5+02:00'},); reschedule('i', '2026-01-02T17:30:00.5+05:30', '2026-01-02T19:00:00+05:30')"
+      }
+    },
+    {
+      "id": "reschedule-empty-id",
+      "task": "reschedule",
+      "risk_point": "empty ID is INVALID_INPUT",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "reschedule.validation",
+        "reschedule.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "reschedule.validation": "wrong ValueError code; expected 'INVALID_INPUT', got 'BOOKING_NOT_FOUND'",
+        "reschedule.randomized_differential": "seed 4: wrong error code 'BOOKING_NOT_FOUND'; permitted ['INVALID_INPUT']. Minimal sequence (1 steps): reschedule('', '2026-01-02T03:30:00.25-05:00', '2026-01-02T11:30:00+02:00')"
+      }
+    },
+    {
+      "id": "rooms-unsorted",
+      "task": "availability",
+      "risk_point": "sorted room list",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "availability.feature",
+        "availability.boundaries_read_only",
+        "availability.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "availability.feature": "unexpected result; expected ['cedar', 'maple'], got ['maple', 'cedar']",
+        "availability.boundaries_read_only": "unexpected result; expected ['cedar', 'maple'], got ['maple', 'cedar']",
+        "availability.randomized_differential": "seed 0: returned ['maple', 'cedar'], expected ['cedar', 'maple']. Minimal sequence (1 steps): available_rooms('2026-01-02T05:30:00.125-05:00', '2026-01-02T06:00:00-05:00')"
+      }
+    },
+    {
+      "id": "availability-ignores-room",
+      "task": "availability",
+      "risk_point": "per-room availability",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "availability.feature",
+        "availability.boundaries_read_only",
+        "availability.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "availability.feature": "unexpected result; expected ['maple'], got []",
+        "availability.boundaries_read_only": "unexpected result; expected ['maple'], got []",
+        "availability.randomized_differential": "seed 0: returned ['cedar', 'maple'], expected ['cedar']. Minimal sequence (2 steps): book({'id': 'c', 'room': 'maple', 'start': '2026-01-02T11:00:00Z', 'end': '2026-01-02T07:30:00-05:00'},); available_rooms('2026-01-02T13:30:00+02:00', '2026-01-02T08:00:00-05:00')"
+      }
+    },
+    {
+      "id": "availability-no-validation",
+      "task": "availability",
+      "risk_point": "query validation",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "availability.feature",
+        "availability.boundaries_read_only",
+        "availability.validation",
+        "availability.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "availability.feature": "unexpected result; expected ['maple'], got ['cedar', 'maple']",
+        "availability.boundaries_read_only": "unexpected result; expected ['cedar', 'maple'], got ['maple']",
+        "availability.validation": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "availability.randomized_differential": "seed 0: returned ['cedar'], expected ['cedar', 'maple']. Minimal sequence (2 steps): book({'id': 'c', 'room': 'maple', 'start': '2026-01-02T11:00:00Z', 'end': '2026-01-02T07:30:00-05:00'},); available_rooms('2026-01-02T07:30:00-05:00', '2026-01-02T15:00:00+02:00')"
+      }
+    },
+    {
+      "id": "availability-inverted",
+      "task": "availability",
+      "risk_point": "free vs booked",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "availability.feature",
+        "availability.boundaries_read_only",
+        "availability.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "availability.feature": "unexpected result; expected ['cedar', 'maple'], got []",
+        "availability.boundaries_read_only": "unexpected result; expected ['cedar', 'maple'], got []",
+        "availability.randomized_differential": "seed 0: returned [], expected ['cedar', 'maple']. Minimal sequence (1 steps): available_rooms('2026-01-02T05:30:00.125-05:00', '2026-01-02T06:00:00-05:00')"
+      }
+    },
+    {
+      "id": "non-atomic-batch",
+      "task": "batch",
+      "risk_point": "atomic batch",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "batch.atomic_conflicts",
+        "batch.invalid_atomicity",
+        "batch.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "batch.atomic_conflicts": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'b', 'room': 'maple', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "batch.invalid_atomicity": "rejected operation changed stored state; expected [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'b', 'room': 'maple', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "batch.randomized_differential": "seed 1: stored bookings differ from the oracle after this step. Minimal sequence (1 steps): book_many([{'id': 'g', 'room': 'cedar', 'start': '2026-01-02T12:30:00Z', 'end': '2026-01-02T14:00:00Z'}, {'id': 'e', 'room': 'oak', 'start': '2026-01-02T17:30:00+05:30', 'end': '2026-01-02T12:30:00Z'}],)"
+      }
+    },
+    {
+      "id": "batch-accepts-tuple",
+      "task": "batch",
+      "risk_point": "list-only input",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "batch.invalid_atomicity",
+        "batch.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "batch.invalid_atomicity": "expected ValueError(INVALID_INPUT); operation succeeded",
+        "batch.randomized_differential": "seed 8: accepted an operation that must fail with one of ['INVALID_INPUT']; returned []. Minimal sequence (1 steps): book_many((),)"
+      }
+    },
+    {
+      "id": "no-intra-batch-check",
+      "task": "batch",
+      "risk_point": "conflicts within the batch",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "batch.atomic_conflicts",
+        "batch.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "batch.atomic_conflicts": "expected ValueError(CONFLICT); operation succeeded",
+        "batch.randomized_differential": "seed 3: accepted an operation that must fail with one of ['CONFLICT']; returned [{'id': 'c', 'room': 'maple', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T12:30:00.000Z'}, {'id': 'b', 'room': 'maple', 'start': '2026-01-02T12:00:00.000Z', 'end': '2026-01-02T13:00:00.000Z'}]. Minimal sequence (1 steps): book_many([{'id': 'c', 'room': 'maple', 'start': '2026-01-02T14:00:00+02:00', 'end': '2026-01-02T12:30:00Z'}, {'id': 'b', 'room': 'maple', 'start': '2026-01-02T12:00:00Z', 'end': '2026-01-02T18:30:00+05:30'}],)"
+      }
+    },
+    {
+      "id": "batch-mutates-input",
+      "task": "batch",
+      "risk_point": "input not mutated",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "batch.feature",
+        "batch.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "batch.feature": "batch mutated input; expected [{'id': 'z', 'room': 'maple', 'start': '2026-01-02T10:00:00Z', 'end': '2026-01-02T11:00:00Z'}, {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T12:00:00+02:00', 'end': '2026-01-02T13:00:00+02:00'}], got []",
+        "batch.randomized_differential": "seed 0: book_many mutated its input. Minimal sequence (1 steps): book_many([{'id': 'c', 'room': 'cedar', 'start': '2026-01-02T12:00:00Z', 'end': '2026-01-02T14:30:00.5+02:00'}],)"
+      }
+    },
+    {
+      "id": "batch-wrong-order",
+      "task": "batch",
+      "risk_point": "results in input order",
+      "equivalent": null,
+      "killed": true,
+      "killed_by_fixed_checks": true,
+      "killed_by_randomized_checks": true,
+      "failed_checks": [
+        "batch.feature",
+        "batch.randomized_differential"
+      ],
+      "unevaluable_checks": [],
+      "evaluator_status": "completed",
+      "details": {
+        "batch.feature": "batch must return input order; expected [{'id': 'z', 'room': 'maple', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}], got [{'id': 'a', 'room': 'cedar', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}, {'id': 'z', 'room': 'maple', 'start': '2026-01-02T10:00:00.000Z', 'end': '2026-01-02T11:00:00.000Z'}]",
+        "batch.randomized_differential": "seed 1: returned [{'id': 'f', 'room': 'maple', 'start': '2026-01-02T08:30:00.000Z', 'end': '2026-01-02T10:00:00.000Z'}, {'id': 'j', 'room': 'cedar', 'start': '2026-01-02T08:30:00.000Z', 'end': '2026-01-02T09:00:00.000Z'}], expected [{'id': 'j', 'room': 'cedar', 'start': '2026-01-02T08:30:00.000Z', 'end': '2026-01-02T09:00:00.000Z'}, {'id': 'f', 'room': 'maple', 'start': '2026-01-02T08:30:00.000Z', 'end': . Minimal sequence (1 steps): book_many([{'id': 'j', 'room': 'cedar', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T04:00:00-05:00'}, {'id': 'f', 'room': 'maple', 'start': '2026-01-02T03:30:00-05:00', 'end': '2026-01-02T12:00:00+02:00'}],)"
+      }
+    }
+  ]
+}

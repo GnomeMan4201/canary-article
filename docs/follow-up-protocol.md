@@ -30,6 +30,22 @@ This step changes no agent setting, so it is not an arm. Every major test-based 
 
 The evaluator change alters the source fingerprint, so it must land before the first 02 pilot. Every arm then uses the same hardened evaluator.
 
+### Step 0 results (2026-11-25)
+
+- **Planted bugs** (`lab/mutation.py`, [report](../artifacts/mutation-step0/summary.json)): 32 mutants across all three tasks. One is equivalent: Python's `timezone()` already rejects ±24:00, so loosening the offset-hour bound changes nothing. It is excluded from the score.
+  - Before hardening, the fixed checks caught 30 of the remaining 31. The survivor was a reschedule that silently moved the booking to another room.
+  - The hardened evaluator catches 31 of 31. A new fixed check, `reschedule.preserves_room`, covers the survivor, and the randomized checks also catch all 31 on their own.
+- **Randomized stateful and differential checks** (`evaluator/randomized.py`, `evaluator/oracle.py`). Each task runs 120 fixed-seed sequences of 18 operations. Every step is compared with a trusted oracle on:
+  - acceptance;
+  - returned values;
+  - error codes, where any code the contract permits is accepted, since it sets no precedence;
+  - stored state;
+  - detachment of inputs, results and listings.
+
+  A failure is shrunk to a minimal reproduction. These replace the planned Hypothesis checks: the evaluation container is offline and standard-library only, so a seeded standard-library generator does the same job without adding a dependency.
+- **Calibration**: all 16 container calibration cases still meet their expectations under the hardened evaluator ([report](../artifacts/calibration-step0/summary.json)).
+- **main-01 re-score** (`lab/rescore.py`, [report](../artifacts/main-01-rescore-step0/summary.json)): all 30 snapshots, hash-checked and evaluated in the isolated container, still pass every check. No outcome changed, and no exact-marker run now fails. The 30/30 headline stands and needs no amendment. It now rests on a stronger instrument, and Step 0 did not produce any marker/failure disagreement.
+
 ## Change one factor per arm
 
 Changing two things at once would leave no way to attribute a new failure to either change. Each arm changes exactly one thing relative to main-01 and is reported as its own cohort.
@@ -108,7 +124,7 @@ Report everything main-01 reports. In addition:
 
 ## Prerequisites before any 02 collection
 
-1. Step 0's hardened evaluator, with its planted-bug kill count published, and the main-01 re-score reported.
+1. ~~Step 0's hardened evaluator, with its planted-bug kill count published, and the main-01 re-score reported.~~ Done; see Step 0 results. `freeze-main` still reads `artifacts/calibration/summary.json`, which the published article links to, so it needs an option to use `artifacts/calibration-step0` before a 02 freeze.
 2. Changes to `lab/` alter the source fingerprint. The post-publication report change already does this. Every arm therefore needs a new six-run pilot and fresh calibration before `freeze-main`, as the runner enforces.
 3. ~~Condition C support in runner, report, and tests.~~ Done.
 4. ~~The negative-control mode in the runner, with a test.~~ Done (`plan-control`, read-only workspace).

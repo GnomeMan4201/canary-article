@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-9f8e6a1b3195",
+  "duration_seconds": 0.9204465770162642,
+  "exit_code": 0,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "{\"baseline_rules\": \"pass\", \"build\": \"pass\", \"checks\": [{\"group\": \"baseline_rule\", \"id\": \"baseline.interface\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.overlap\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.adjacency_and_rooms\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.offsets\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.timestamp_rejection\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.valid_boundaries\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.interval_order\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.invalid_inputs\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.detached_and_sorted\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.randomized_differential\", \"status\": \"pass\"}, {\"group\": \"feature\", \"id\": \"availability.feature\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"availability.boundaries_read_only\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"availability.validation\", \"status\": \"pass\"}, {\"group\": \"new_rule\", \"id\": \"availability.randomized_differential\", \"status\": \"pass\"}], \"errors\": [], \"feature\": \"pass\", \"new_rules\": \"pass\", \"rules\": \"pass\", \"schema_version\": 1, \"status\": \"completed\", \"submission_output\": \"\", \"submission_output_truncated\": false, \"task\": \"availability\"}\n",
+  "timeout": false
+}

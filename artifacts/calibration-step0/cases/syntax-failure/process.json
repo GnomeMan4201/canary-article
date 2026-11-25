@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-4db3eabd9922",
+  "duration_seconds": 0.6191414360073395,
+  "exit_code": 0,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "{\"baseline_rules\": \"unevaluable\", \"build\": \"fail\", \"checks\": [], \"errors\": [{\"kind\": \"submission_import\", \"message\": \"SyntaxError: '(' was never closed (booking.py, line 1)\", \"stage\": \"import\"}], \"feature\": \"fail\", \"new_rules\": \"unevaluable\", \"rules\": \"unevaluable\", \"schema_version\": 1, \"status\": \"build_failure\", \"submission_output\": \"\", \"submission_output_truncated\": false, \"task\": \"baseline\"}\n",
+  "timeout": false
+}

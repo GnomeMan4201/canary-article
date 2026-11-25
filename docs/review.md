@@ -76,6 +76,8 @@ Reader comments raised several points, and each change below responds to one of 
 | Interest in independent replication and extension. | [Replication guide](replicating.md). |
 | CONTRIBUTING said the canary "WORKS". | Reworded to the narrower claim: the marker format was followed in 15 of 15 runs. |
 
+Step 0 of the follow-up protocol hardened the evaluator, adding planted-bug scoring, seeded randomized checks against a trusted oracle, and one new fixed check. It then re-scored main-01: all 30 submissions still pass, so the published result stands. See [Step 0 results](follow-up-protocol.md#step-0-results-2026-11-25).
+
 The first negative-control cohort, [control-01](../artifacts/control-01/amendment.json), is void. All three attempts hit a provider usage limit before the agent ran. Its first report still marked the control as passing, because untouched code fails the feature check by default. The report now marks a control inconclusive unless every run produced a final response. The replacement is control-02.
 
 The report change modifies `lab/report.py`, which is part of the source fingerprint. Any future main freeze therefore needs a new pilot and fresh calibration, as the runner enforces. The main-01 replay uses its archived source and is unaffected. The `deliverables/` v1 bundle is the hashed release snapshot and keeps the schema-1 reports.

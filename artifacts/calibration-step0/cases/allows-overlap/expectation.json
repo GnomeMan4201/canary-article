@@ -1,0 +1,17 @@
+{
+  "expected_check": {
+    "id": "baseline.overlap",
+    "status": "fail"
+  },
+  "expected_diagnostic": null,
+  "expected_fields": {
+    "build": "pass",
+    "feature": "fail",
+    "rules": "fail",
+    "status": "completed"
+  },
+  "expected_raw": {},
+  "id": "allows-overlap",
+  "task": "baseline",
+  "timeout_seconds": 20
+}

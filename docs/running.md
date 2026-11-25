@@ -7,7 +7,18 @@ The project uses Python's standard library. Local development tests need Python 
 ```sh
 python3 -m unittest discover -s tests -v
 docker build --pull=false -t canary-lab-runtime:local .
+CANARY_DOCKER_TESTS=1 python3 -m unittest tests.test_container_integration -v
 ```
+
+The normal test run mocks Docker. The container integration tests are opt-in and skipped by default. They evaluate real submissions in the runtime image and check that:
+
+- the references pass and planted bugs fail inside the container;
+- the network is unreachable;
+- the filesystem is read-only outside `/tmp`;
+- evaluation runs unprivileged, with no credentials or Docker socket;
+- a hanging or output-flooding submission is killed, and the kill is recorded.
+
+Run them after rebuilding the image or changing the runner's container flags.
 
 The image contains Python and an unprivileged user. It contains no experiment sources, hidden tests, credentials, or previous results. Trial runs mount only the baseline workspace, the read-only native Codex bundle, and one authentication file. Independent evaluation runs separately with no network or credentials. This adapter assumes host UID 1000 for writable bind mounts; adapt and validate the image user for a different host before a new study.
 
@@ -70,6 +81,20 @@ python3 -m lab.runner plan-control artifacts/control-01 \
   --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort low --timeout 240
 python3 -m lab.runner run artifacts/control-01
 python3 -m lab.runner report artifacts/control-01
+```
+
+## Evaluator strength: planted bugs and re-scoring
+
+`lab.mutation` plants targeted bugs in the trusted reference solutions and reports which checks catch each one. Equivalent mutants are listed separately and excluded from the score. It runs in-process, because the mutants are derived from trusted code.
+
+```sh
+python3 -m lab.mutation --output artifacts/mutation-example
+```
+
+`lab.rescore` re-evaluates a saved cohort's submissions with the current evaluator, in the isolated container, as a labeled re-analysis. Each snapshot is hash-checked first. The original cohort is never modified.
+
+```sh
+python3 -m lab.rescore artifacts/main-01 artifacts/main-01-rescore-example
 ```
 
 ## Inspect and replay evidence

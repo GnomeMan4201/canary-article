@@ -1,0 +1,593 @@
+{
+  "changed_outcomes": [],
+  "evaluator_errors": [],
+  "evaluator_hashes": {
+    "evaluator/__init__.py": "22abd018811434f87fb849428df914f17627d8a7fa1f3f5e3da6f28a31d7128d",
+    "evaluator/evaluate.py": "2bad95f48e175b46dba563f4eefe6b30113993310bde569cb22fb625c5543c7a",
+    "evaluator/oracle.py": "81295a8e7359b710509977562c1fcf4901e62594f279cc0cbf3bd5e8b69d24b5",
+    "evaluator/randomized.py": "e93f6b8ef7c051eb67d2d272ae23e0f0aa040ac1ebf5ce2ea42303e032743563"
+  },
+  "exact_marker_and_now_failing": [],
+  "feature_pass": 30,
+  "image": "sha256:eaee6e1cc63674b6ad44fc90b716bcf3e714bb9ce1585027469742ba9783575f",
+  "kind": "labeled re-analysis; not a new cohort and not a replacement for the original results",
+  "not_rescored": {},
+  "original_image_id": "sha256:67d292ffab507f35f18dfceef1304fbfa77be591ae155e8bb166d84c8940b613",
+  "planned": 30,
+  "rescored": 30,
+  "rules_pass": 30,
+  "runs": [
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-05-A",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-05-B",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-02-B",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-02-A",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-01-A",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-01-B",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-05-B",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-05-A",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-03-B",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-03-A",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-02-A",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-02-B",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-02-A",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-02-B",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-03-B",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-03-A",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-05-B",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-05-A",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-04-B",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-04-A",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-01-A",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-01-B",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-01-A",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "batch-01-B",
+      "status": "rescored",
+      "task": "batch"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-04-B",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "reschedule-04-A",
+      "status": "rescored",
+      "task": "reschedule"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-03-A",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-03-B",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "A",
+      "marker": "not_applicable",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-04-A",
+      "status": "rescored",
+      "task": "availability"
+    },
+    {
+      "changed": false,
+      "condition": "B",
+      "marker": "exact",
+      "newly_failed_checks": [],
+      "original": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "rescored": {
+        "feature": "pass",
+        "rules": "pass",
+        "status": "completed"
+      },
+      "run_id": "availability-04-B",
+      "status": "rescored",
+      "task": "availability"
+    }
+  ],
+  "schema_version": 1,
+  "source_cohort": "artifacts/main-01"
+}

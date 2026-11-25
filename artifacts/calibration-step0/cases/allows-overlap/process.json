@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-3094589e830f",
+  "duration_seconds": 0.7207593979837839,
+  "exit_code": 0,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "{\"baseline_rules\": \"fail\", \"build\": \"pass\", \"checks\": [{\"group\": \"baseline_rule\", \"id\": \"baseline.interface\", \"status\": \"pass\"}, {\"detail\": \"expected ValueError(CONFLICT); operation succeeded\", \"group\": \"baseline_rule\", \"id\": \"baseline.overlap\", \"status\": \"fail\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.adjacency_and_rooms\", \"status\": \"pass\"}, {\"detail\": \"expected ValueError(CONFLICT); operation succeeded\", \"group\": \"baseline_rule\", \"id\": \"baseline.offsets\", \"status\": \"fail\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.timestamp_rejection\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.valid_boundaries\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.interval_order\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.invalid_inputs\", \"status\": \"pass\"}, {\"group\": \"baseline_rule\", \"id\": \"baseline.detached_and_sorted\", \"status\": \"pass\"}, {\"detail\": \"seed 0: accepted an operation that must fail with one of ['CONFLICT']; returned {'id': 'b', 'room': 'maple', 'start': '2026-01-02T08:00:00.000Z', 'end': '2026-01-02T09:30:00.000Z'}. Minimal sequence (2 steps): book({'id': 'h', 'room': 'maple', 'start': '2026-01-02T08:30:00Z', 'end': '2026-01-02T09:30:00.25Z'},); book({'id': 'b', 'room': 'maple', 'start': '2026-01-02T03:00:00-05:00', 'end': '2026-01-02T09:30:00Z'},)\", \"group\": \"baseline_rule\", \"id\": \"baseline.randomized_differential\", \"status\": \"fail\"}, {\"group\": \"feature\", \"id\": \"baseline.feature\", \"status\": \"pass\"}], \"errors\": [], \"feature\": \"fail\", \"new_rules\": \"unevaluable\", \"rules\": \"fail\", \"schema_version\": 1, \"status\": \"completed\", \"submission_output\": \"\", \"submission_output_truncated\": false, \"task\": \"baseline\"}\n",
+  "timeout": false
+}

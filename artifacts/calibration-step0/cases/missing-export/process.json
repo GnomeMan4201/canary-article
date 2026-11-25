@@ -1,0 +1,10 @@
+{
+  "cleanup_verified": true,
+  "container": "canary-eval-9ed6b4fc42c9",
+  "duration_seconds": 0.7195378270116635,
+  "exit_code": 0,
+  "output_truncated": false,
+  "stderr": "",
+  "stdout": "{\"baseline_rules\": \"unevaluable\", \"build\": \"fail\", \"checks\": [], \"errors\": [{\"kind\": \"submission_import\", \"message\": \"AttributeError: module 'canary_submission_booking' has no attribute 'BookingStore'\", \"stage\": \"import\"}], \"feature\": \"fail\", \"new_rules\": \"unevaluable\", \"rules\": \"unevaluable\", \"schema_version\": 1, \"status\": \"build_failure\", \"submission_output\": \"\", \"submission_output_truncated\": false, \"task\": \"baseline\"}\n",
+  "timeout": false
+}
