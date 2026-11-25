@@ -41,7 +41,6 @@ Keep the article practical and curious. Explain distinctions among evidence that
 ## Project documents
 
 - [Experiment protocol](experiment.md): comparison groups, checks, measurements, and evidence requirements.
-- [Article fragments](../notes/fragments.md): possible passages and observations to develop as the work progresses.
 - [Expert review and decisions](review.md): engineering, experimental-methods, and editorial findings, with remaining requirements before trials.
 
 Current state: reviewed experiment design, with implementation and validation requirements still open. The booking service, runner, and visual explorer have not been implemented, and no agent trials have been run. Build and validate the evidence pipeline before investing in the visual explorer.

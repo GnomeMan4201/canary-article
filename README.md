@@ -64,6 +64,6 @@ Report generation and replay require no model calls. Replay verifies the saved s
 - [Frozen main plan](artifacts/main-01/plan.json), including source and runtime hashes.
 - [Engineering, methods, and editorial review decisions](docs/review.md), including post-publication changes.
 - [Draft follow-up protocol (main-02)](docs/follow-up-protocol.md) and [replication guide](docs/replicating.md).
-- [Article fragments](notes/fragments.md) and [cover prompts](article/assets/README.md).
+- [Cover prompts](article/assets/README.md).
 
 The protocol text preserves the design written before collection; the frozen plan and readiness record identify the version actually run. The evidence viewer was added as a presentation layer without changing the frozen evaluator or scoring. Raw artifacts are ignored by Git and included separately in the local delivery bundle.
