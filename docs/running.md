@@ -93,6 +93,20 @@ python3 -m lab.runner run artifacts/control-01
 python3 -m lab.runner report artifacts/control-01
 ```
 
+## Arms 02a and 02b
+
+Each arm changes one setting relative to main-01. Pilot and main plans must use the same setting, and the runner refuses to combine the two.
+
+- **02a, instruction load:** `--extra-rules K` appends K neutral, independently checkable rules to `AGENTS.md` in every condition. The rules cycle through four kinds: include a phrase in the final reply, add a comment line to `booking.py`, avoid a word, and include a line with a given prefix. Every run gets fresh tokens. Each run's result records `extra_rule_outcomes` as followed, violated, unobserved or unevaluable. The report adds per-rule compliance, how often all rules were followed, and the rate expected if rules were followed independently.
+- **02b, per-function marker:** `--marker-mode per_function` replaces condition B's final-reply marker. It asks for `# canary:<token>` as the first line of every function the agent adds or modifies. Changes are found by comparing the code structure with the baseline, so comments and formatting don't count. Condition C gets a neutral text matched to this instruction's length. The run-level marker is exact when every changed function is exact, absent when none carries the token, and malformed otherwise. It is unobserved when no function changed. The report adds function-level counts.
+
+```sh
+python3 -m lab.runner plan-pilot artifacts/pilot-02a --conditions ABC --extra-rules 25 \
+  --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort high --timeout 240
+python3 -m lab.runner plan-pilot artifacts/pilot-02b --conditions ABC --marker-mode per_function \
+  --binary "$CANARY_CODEX_BINARY" --model gpt-6-astra --effort high --timeout 240
+```
+
 ## Evaluator strength: planted bugs and re-scoring
 
 `lab.mutation` plants targeted bugs in the trusted reference solutions and reports which checks catch each one. Equivalent mutants are listed separately and excluded from the score. It runs in-process, because the mutants are derived from trusted code.

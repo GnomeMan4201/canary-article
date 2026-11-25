@@ -293,6 +293,30 @@ class RunnerEvidenceTests(unittest.TestCase):
         self.assertEqual(plan["calibration"]["path"], "artifacts/calibration/summary.json")
         self.assertNotIn("calibration", self.plan("another-pilot"))
 
+    def test_extra_rules_and_marker_mode_are_planned_per_run(self):
+        plan = self.plan(extra_rules=8)
+        self.assertEqual(plan["arm"], {"extra_rules": 8, "marker_mode": "final_response"})
+        self.assertEqual(self.plan("per-function", marker_mode="per_function")["arm"]["marker_mode"], "per_function")
+        values = [rule["value"] for row in plan["runs"] for rule in row["extra_rules"] if rule["type"] == "response_phrase"]
+        self.assertEqual(len(values), len(set(values)))
+        self.assertTrue(all(len(row["extra_rules"]) == 8 for row in plan["runs"]))
+        self.assertNotIn("extra_rules", self.plan("plain")["runs"][0])
+        self.assertEqual(self.plan("plain-2")["arm"], {"extra_rules": 0, "marker_mode": "final_response"})
+
+    def test_invalid_arm_settings_are_rejected(self):
+        with self.assertRaises(ValueError):
+            self.plan("bad-mode", marker_mode="every_line")
+        with self.assertRaises(ValueError):
+            self.plan("too-many", extra_rules=10_000)
+        with self.assertRaisesRegex(ValueError, "One factor per arm"):
+            self.plan("both", extra_rules=4, marker_mode="per_function")
+
+    def test_main_rejects_pilot_with_different_arm(self):
+        pilot, previous = self.completed_pilot()
+        self.calibration(previous["source_hashes"])
+        with self.assertRaisesRegex(ValueError, "arm settings"):
+            self.plan("main-load", "main", pilot, extra_rules=4)
+
     def save_snapshot(self):
         plan = self.plan()
         row = plan["runs"][0]

@@ -130,7 +130,9 @@ Report everything main-01 reports. In addition:
 4. ~~The negative-control mode in the runner, with a test.~~ Done (`plan-control`, read-only workspace).
 5. Report intervals: add Wilson and Clopper-Pearson intervals to `report.json`.
 6. A per-run harness record: CLI version, the model ID the API returned, effort, tools, resources, timestamps, and a hash of the instruction stack actually sent. Restrict network egress to the inference endpoint. Treat a CLI version change as a new cohort.
-7. For 02a and 02b: runner support for the extra rules and the per-function marker, plus a scorer for the per-function marker, with tests.
+7. ~~For 02a and 02b: runner support for the extra rules and the per-function marker, plus a scorer for the per-function marker, with tests.~~ Done: `--extra-rules K` and `--marker-mode per_function` (see the [run guide](running.md#arms-02a-and-02b)). Two decisions are still open before the 02a pilot:
+   - **K.** The runner allows up to 40 extra rules. Pick K from a short calibration pilot so that compliance with all rules lands well below 100%.
+   - **Function-level comparison.** The per-function marker is scored per function, but the hidden checks test behaviour, not individual functions. A function-by-function comparison with check results would need checks mapped to functions. The report gives function-level compliance and the existing run-level 2×2.
 8. For 02f only: contract, reference solutions, and calibration cases for the new tasks.
 9. Before any live run: rebuild the runtime image and run `doctor`. Confirm that the read-only mount blocks writes in a control pilot.
 

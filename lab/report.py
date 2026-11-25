@@ -99,6 +99,47 @@ def _summarize(runs: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _extra_rules_summary(runs: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Arm 02a: per-rule compliance, joint compliance, and the product-of-marginals baseline."""
+    scored = [run for run in runs if run["recording_status"] == "recorded" and run["result"].get("extra_rule_outcomes")]
+    if not scored:
+        return None
+    per_rule: dict[str, Counter[str]] = {}
+    for run in scored:
+        for outcome in run["result"]["extra_rule_outcomes"]:
+            per_rule.setdefault(outcome["id"], Counter())[outcome["status"]] += 1
+    rates = {}
+    for rule_id, counts in sorted(per_rule.items()):
+        observed = counts["followed"] + counts["violated"]
+        rates[rule_id] = _rate(counts["followed"], observed)
+    fully_observed = [run for run in scored
+                      if all(o["status"] in {"followed", "violated"} for o in run["result"]["extra_rule_outcomes"])]
+    joint = _rate(sum(all(o["status"] == "followed" for o in run["result"]["extra_rule_outcomes"]) for run in fully_observed),
+                  len(fully_observed))
+    expected = None
+    if all(rate["value"] is not None for rate in rates.values()):
+        expected = 1.0
+        for rate in rates.values():
+            expected *= rate["value"]
+    return {"runs": len(scored), "rules_per_run": len(scored[0]["result"]["extra_rule_outcomes"]),
+            "per_rule": {rule_id: dict(counts) for rule_id, counts in sorted(per_rule.items())},
+            "per_rule_compliance": rates, "all_rules_followed": joint,
+            "expected_all_followed_if_independent": expected}
+
+
+def _function_marker_summary(runs: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Arm 02b: function-level marker outcomes across marker-enabled runs."""
+    scored = [run for run in runs if run["recording_status"] == "recorded"
+              and isinstance(run["result"].get("marker"), dict) and "functions" in run["result"]["marker"]]
+    if not scored:
+        return None
+    functions = [item for run in scored for item in run["result"]["marker"]["functions"]]
+    counts = Counter(item["status"] for item in functions)
+    return {"runs": len(scored), "functions": len(functions), "status_counts": dict(counts),
+            "exact_functions": _rate(counts["exact"], len(functions)),
+            "runs_without_changed_functions": sum(not run["result"]["marker"]["functions"] for run in scored)}
+
+
 def _read_runs(cohort_dir: Path, plan: dict[str, Any]) -> list[dict[str, Any]]:
     if plan.get("phase") not in {"pilot", "main", "control"} or not isinstance(plan.get("runs"), list):
         raise ValueError("plan.json must declare phase pilot, main, or control and a runs list")
@@ -215,6 +256,22 @@ def _render(report: dict[str, Any]) -> str:
                 _counts(group["evaluation"]["rules"]), _counts(group["evaluation"]["feature"]),
                 " / ".join(str(group["four_cells"][cell]) for cell in CELL_NAMES),
             ])
+    arm_html = ""
+    extra = report.get("extra_rules")
+    if extra:
+        rows = [[rule_id, f'{rate["numerator"]}/{rate["denominator"]}', "Undefined" if rate["value"] is None else f'{rate["value"]:.1%}']
+                for rule_id, rate in extra["per_rule_compliance"].items()]
+        joint = extra["all_rules_followed"]
+        expected = extra["expected_all_followed_if_independent"]
+        arm_html += (f'<h2>Extra rules (instruction load)</h2><p>{extra["runs"]} runs carried {extra["rules_per_run"]} extra rules each. '
+                     f'All rules followed: {joint["numerator"]}/{joint["denominator"]}. Expected if rules were followed independently: '
+                     f'{"undefined" if expected is None else f"{expected:.1%}"}.</p>'
+                     + _table(["Rule", "Followed", "Rate"], rows, "Per-rule compliance among observed runs"))
+    fm = report.get("function_markers")
+    if fm:
+        exact = fm["exact_functions"]
+        arm_html += (f'<h2>Per-function marker</h2><p>{fm["functions"]} added or modified functions across {fm["runs"]} marker-enabled runs; '
+                     f'exact marker on {exact["numerator"]}/{exact["denominator"]}. Runs that changed no function: {fm["runs_without_changed_functions"]}.</p>')
     control_html = ""
     if report.get("negative_control"):
         nc = report["negative_control"]
@@ -255,7 +312,7 @@ footer{{margin-top:40px;border-top:2px solid var(--ink);padding-top:16px;font-si
 <p class="muted">These are descriptive final outcomes. They do not establish causation, early warning, or reliability beyond these tasks. A constant marker cannot distinguish outcomes; zero denominators are undefined.</p>
 <h2>Signal versus work</h2><p>A marker shows only that the final response followed one instruction. This table sets it against feature completion for every recorded marker-enabled run, including runs whose rules could not be evaluated. Exact markers with incomplete or unevaluable work: {summary["marker_present_work_blocked"]}.</p>{signal_table}
 <p class="muted">“Feature incomplete” means the independent feature check failed. It does not identify why: a broken runtime, a refusal, and an unfinished implementation all land in the same cell.</p>
-{control_html}<h2>By task and condition</h2>{breakdown}<p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Conditions A and C have no marker and do not enter those cells. C adds a neutral instruction of matched length.</p>
+{arm_html}{control_html}<h2>By task and condition</h2>{breakdown}<p class="muted">* Four-cell order: exact/pass, exact/fail, noncompliant/pass, noncompliant/fail. Conditions A and C have no marker and do not enter those cells. C adds a neutral instruction of matched length.</p>
 <h2>Run evidence</h2><p>Expand a run to inspect recorded statuses, per-check evidence, errors, duration, and usage where supplied.</p>{''.join(details)}
 <footer>Static report from saved cohort evidence. No model calls, external assets, or network requests are required. Machine-readable aggregate: report.json.</footer>
 </main></body></html>'''
@@ -280,6 +337,14 @@ def build_report(cohort_dir: Path, output_dir: Path) -> dict[str, Any]:
         },
         "runs": runs,
     }
+    if plan.get("arm"):
+        report["arm"] = plan["arm"]
+    extra = _extra_rules_summary(runs)
+    if extra:
+        report["extra_rules"] = extra
+    function_markers = _function_marker_summary(runs)
+    if function_markers:
+        report["function_markers"] = function_markers
     if plan["phase"] == "control":
         recorded = [run for run in runs if run["recording_status"] == "recorded"]
         violations = [run["run_id"] for run in recorded

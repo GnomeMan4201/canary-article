@@ -15,6 +15,7 @@ import time
 from datetime import datetime, timezone
 
 from lab.marker import parse_events, score_marker
+from lab import rules as extra_rules_module
 
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = ('reschedule', 'availability', 'batch')
@@ -33,12 +34,18 @@ def marker_instruction(token):
             'Put all other text on subsequent lines.\n')
 
 
-def build_instructions(base, condition, token):
+MARKER_MODES = ('final_response', 'per_function')
+
+
+def build_instructions(base, condition, token, marker_mode='final_response', extra_rules=()):
+    """Shared rules, then any extra load rules (every condition), then B's marker or C's neutral text."""
+    text = base + extra_rules_module.extra_rules_text(list(extra_rules))
+    per_function = marker_mode == 'per_function'
     if condition == 'B':
-        return base + marker_instruction(token)
+        return text + (extra_rules_module.function_marker_instruction(token) if per_function else marker_instruction(token))
     if condition == 'C':
-        return base + NEUTRAL_INSTRUCTION
-    return base
+        return text + (extra_rules_module.NEUTRAL_PER_FUNCTION_INSTRUCTION if per_function else NEUTRAL_INSTRUCTION)
+    return text
 
 
 def now():
@@ -200,7 +207,7 @@ def doctor(binary, image):
 
 
 def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=None, conditions='AB',
-              calibration=None):
+              calibration=None, extra_rules=0, marker_mode='final_response'):
     output = output.resolve()
     if output.exists():
         raise FileExistsError('Cohort directory already exists; choose a new directory')
@@ -212,6 +219,13 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
         raise ValueError('conditions must be one of: ' + ', '.join(CONDITION_SETS))
     # A control cohort is one marker run per task with a read-only workspace.
     condition_list = ('B',) if phase == 'control' else CONDITION_SETS[conditions]
+    if marker_mode not in MARKER_MODES:
+        raise ValueError('marker_mode must be one of: ' + ', '.join(MARKER_MODES))
+    if not 0 <= extra_rules <= extra_rules_module.MAX_EXTRA_RULES:
+        raise ValueError(f'extra_rules must be between 0 and {extra_rules_module.MAX_EXTRA_RULES}')
+    if extra_rules and marker_mode != 'final_response':
+        raise ValueError('One factor per arm: use extra rules (02a) or the per-function marker (02b), not both')
+    arm = {'extra_rules': extra_rules, 'marker_mode': marker_mode}
     info = doctor(binary, image)
     versions = fingerprint()
     if phase == 'main':
@@ -220,6 +234,8 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
         previous = json.loads((pilot / 'plan.json').read_text())
         if previous['phase'] != 'pilot' or tuple(previous.get('conditions', ('A', 'B'))) != condition_list:
             raise ValueError('Expected a pilot plan with the same conditions')
+        if previous.get('arm', {'extra_rules': 0, 'marker_mode': 'final_response'}) != arm:
+            raise ValueError('Main arm settings differ from pilot: extra rules or marker mode')
         if len(previous['runs']) != len(TASKS) * len(condition_list):
             raise ValueError('Expected one pilot run per task and condition')
         if previous['source_hashes'] != versions:
@@ -254,8 +270,10 @@ def make_plan(output, phase, binary, image, model, effort, timeout, seed, pilot=
             runs.append({'run_id': f'{task}-{repeat:02d}-{condition}', 'task': task,
                          'repeat': repeat, 'block': f'{task}-{repeat:02d}', 'condition': condition,
                          'token': secrets.token_hex(8) if condition == 'B' else None})
+            if extra_rules:
+                runs[-1]['extra_rules'] = extra_rules_module.generate_rules(extra_rules)
     plan = {'schema_version': 1, 'phase': phase, 'frozen': phase == 'main',
-            'created_at': now(), 'seed': seed, 'conditions': list(condition_list),
+            'created_at': now(), 'seed': seed, 'conditions': list(condition_list), 'arm': arm,
             'runs': runs, 'source_hashes': versions,
             'runtime': {**info, 'model': model, 'effort': effort, 'timeout_seconds': timeout,
                         'evaluation_timeout_seconds': 20, 'token_limit': None,
@@ -291,7 +309,9 @@ def run_one(cohort, plan, run, auth_file):
     snapshot.mkdir()
     base = ROOT / 'fixtures/baseline'
     original = (base / 'booking.py').read_text()
-    instructions = build_instructions((base / 'AGENTS.md').read_text(), run['condition'], run['token'])
+    marker_mode = plan.get('arm', {}).get('marker_mode', 'final_response')
+    instructions = build_instructions((base / 'AGENTS.md').read_text(), run['condition'], run['token'],
+                                      marker_mode, run.get('extra_rules', ()))
     prompt = (ROOT / 'tasks' / (run['task']+'.txt')).read_text()
     (destination / 'instructions.md').write_text(instructions)
     (destination / 'prompt.txt').write_text(prompt)
@@ -379,16 +399,25 @@ def run_one(cohort, plan, run, auth_file):
     (destination / 'changes.diff').write_text(''.join(difflib.unified_diff(
         original.splitlines(keepends=True), changed.splitlines(keepends=True),
         fromfile='baseline/booking.py', tofile='submission/booking.py')))
+    if marker_mode == 'per_function' and run['token']:
+        submitted = snapshot / 'booking.py'
+        marker = extra_rules_module.score_function_markers(
+            submitted.read_text(encoding='utf-8', errors='replace') if submitted.is_file() else None,
+            original, run['token'])
+    else:
+        marker = score_marker(final, run['token'])
     result = {**run, 'schema_version': 1, 'phase': plan['phase'], 'finished_at': now(),
               'termination': 'timeout' if timed_out else ('completed' if code == 0 and events['completed'] and not events['errors'] and control['cleanup_verified'] and not control['output_truncated'] else 'runtime_error'),
               'exit_code': code, 'duration_seconds': duration, 'usage': events['usage'],
-              'marker': score_marker(final, run['token']), 'evaluation': evaluation,
+              'marker': marker, 'marker_mode': marker_mode, 'evaluation': evaluation,
               'instruction_loading_evidence': 'unavailable',
               'final_response_observed': final is not None, 'refusal_classification': 'not_inferred',
               'event_errors': events['errors'], 'process_control': control,
               'event_parse_errors': events['malformed_lines'], 'snapshot_rejected_paths': rejected,
               'snapshot_redacted_paths': redacted_paths,
               'snapshot_hashes': {str(p.relative_to(snapshot)): sha(p) for p in sorted(snapshot.rglob('*')) if p.is_file()}}
+    if run.get('extra_rules'):
+        result['extra_rule_outcomes'] = extra_rules_module.score_rules(run['extra_rules'], final, snapshot)
     write_json(destination / 'result.json', result)
     return result
 
@@ -441,6 +470,10 @@ def main():
         p.add_argument('--seed', type=int, default=20261029)
         if name != 'plan-control':
             p.add_argument('--conditions', default='AB', choices=sorted(CONDITION_SETS))
+        p.add_argument('--extra-rules', type=int, default=0,
+                       help='arm 02a: neutral checkable rules added to AGENTS.md in every condition')
+        p.add_argument('--marker-mode', default='final_response', choices=MARKER_MODES,
+                       help='arm 02b: per_function asks for # canary:<token> in every added or modified function')
         if name == 'freeze-main':
             p.add_argument('--pilot', type=Path, required=True)
             p.add_argument('--calibration', type=Path,
@@ -461,7 +494,8 @@ def main():
         phase = {'plan-pilot': 'pilot', 'freeze-main': 'main', 'plan-control': 'control'}[args.command]
         plan = make_plan(args.output, phase, args.binary, args.image, args.model, args.effort,
                          args.timeout, args.seed, getattr(args, 'pilot', None),
-                         getattr(args, 'conditions', 'AB'), getattr(args, 'calibration', None))
+                         getattr(args, 'conditions', 'AB'), getattr(args, 'calibration', None),
+                         args.extra_rules, args.marker_mode)
         print(json.dumps({'phase':plan['phase'], 'runs':len(plan['runs']), 'output':str(args.output)}))
     elif args.command == 'run':
         if args.limit is not None and args.limit < 1:

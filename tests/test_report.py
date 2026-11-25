@@ -130,6 +130,36 @@ class ReportTests(unittest.TestCase):
         self.add_run("ok")
         self.assertNotIn("negative_control", self.build())
 
+    def test_extra_rule_and_function_marker_summaries(self):
+        self.plan["arm"] = {"extra_rules": 2, "marker_mode": "per_function"}
+        outcomes = lambda first, second: [{"id": "rule-01", "type": "response_phrase", "status": first},
+                                          {"id": "rule-02", "type": "code_comment", "status": second}]
+        def with_functions(run_id, status, functions):
+            path = self.cohort / "runs" / run_id / "result.json"
+            result = json.loads(path.read_text())
+            result["marker"] = {"status": status, "functions": functions}
+            path.write_text(json.dumps(result))
+        self.add_run("r1", extra_rule_outcomes=outcomes("followed", "followed"))
+        with_functions("r1", "exact", [{"function": "f", "change": "added", "status": "exact"}])
+        self.add_run("r2", extra_rule_outcomes=outcomes("followed", "violated"))
+        with_functions("r2", "malformed", [{"function": "f", "change": "added", "status": "exact"},
+                                           {"function": "g", "change": "modified", "status": "absent"}])
+        self.add_run("r3", extra_rule_outcomes=outcomes("unobserved", "followed"))
+        with_functions("r3", "unobserved", [])
+        report = self.build()
+        extra = report["extra_rules"]
+        self.assertEqual(extra["per_rule_compliance"]["rule-01"]["denominator"], 2)
+        self.assertEqual(extra["per_rule_compliance"]["rule-02"]["numerator"], 2)
+        self.assertEqual((extra["all_rules_followed"]["numerator"], extra["all_rules_followed"]["denominator"]), (1, 2))
+        self.assertAlmostEqual(extra["expected_all_followed_if_independent"], 1.0 * (2 / 3))
+        markers = report["function_markers"]
+        self.assertEqual((markers["functions"], markers["exact_functions"]["numerator"]), (3, 2))
+        self.assertEqual(markers["runs_without_changed_functions"], 1)
+        self.assertEqual(report["arm"]["marker_mode"], "per_function")
+        html = (self.output / "report.html").read_text()
+        self.assertIn("Extra rules (instruction load)", html)
+        self.assertIn("Per-function marker", html)
+
     def test_empty_denominators_are_null(self):
         report = self.build()
         for rate in report["summary"]["rates"].values():
