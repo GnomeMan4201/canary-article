@@ -1,0 +1,10 @@
+{
+  "block": "batch-01",
+  "condition": "B",
+  "phase": "control",
+  "repeat": 1,
+  "run_id": "batch-01-B",
+  "started_at": "2026-11-25T07:45:37.302654+00:00",
+  "task": "batch",
+  "token": "ebdc84264e89aba3"
+}

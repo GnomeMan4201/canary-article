@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-25",
+  "status": "void_provider_quota",
+  "reason": "All three attempts failed at turn start with a provider usage-limit error (\"You've hit your usage limit\"). No final response was produced and the agent never ran, so the cohort did not exercise the read-only-workspace control. Untouched code failing its feature check is not evidence for the control.",
+  "report_change": "The first report built from this cohort marked the control as passing. The report now marks a control inconclusive when any run lacks an observed final response; this cohort is inconclusive.",
+  "replacement_cohort": "control-02"
+}

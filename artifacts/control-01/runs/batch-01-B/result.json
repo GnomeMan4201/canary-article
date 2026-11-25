@@ -1,0 +1,131 @@
+{
+  "block": "batch-01",
+  "condition": "B",
+  "duration_seconds": 3.7260454919887707,
+  "evaluation": {
+    "baseline_rules": "pass",
+    "build": "pass",
+    "checks": [
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interface",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.overlap",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.adjacency_and_rooms",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.offsets",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.timestamp_rejection",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.valid_boundaries",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.interval_order",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.invalid_inputs",
+        "status": "pass"
+      },
+      {
+        "group": "baseline_rule",
+        "id": "baseline.detached_and_sorted",
+        "status": "pass"
+      },
+      {
+        "detail": "missing requested method book_many",
+        "group": "feature",
+        "id": "batch.feature",
+        "status": "fail"
+      },
+      {
+        "detail": "missing requested method book_many",
+        "group": "new_rule",
+        "id": "batch.atomic_conflicts",
+        "status": "unevaluable"
+      },
+      {
+        "detail": "missing requested method book_many",
+        "group": "new_rule",
+        "id": "batch.invalid_atomicity",
+        "status": "unevaluable"
+      },
+      {
+        "detail": "missing requested method book_many",
+        "group": "new_rule",
+        "id": "batch.adjacency",
+        "status": "unevaluable"
+      }
+    ],
+    "errors": [],
+    "feature": "fail",
+    "new_rules": "unevaluable",
+    "rules": "unevaluable",
+    "schema_version": 1,
+    "status": "completed",
+    "submission_output": "",
+    "submission_output_truncated": false,
+    "task": "batch"
+  },
+  "event_errors": [
+    {
+      "message": "You\u2019ve hit your usage limit. Visit https://chatgpt.com/settings/usage to purchase more credits or try again at 4:44 PM.",
+      "type": "error"
+    },
+    {
+      "error": {
+        "message": "You\u2019ve hit your usage limit. Visit https://chatgpt.com/settings/usage to purchase more credits or try again at 4:44 PM."
+      },
+      "type": "turn.failed"
+    }
+  ],
+  "event_parse_errors": 0,
+  "exit_code": 1,
+  "final_response_observed": false,
+  "finished_at": "2026-11-25T07:45:41.451844+00:00",
+  "instruction_loading_evidence": "unavailable",
+  "marker": {
+    "status": "unobserved"
+  },
+  "phase": "control",
+  "process_control": {
+    "cleanup_verified": true,
+    "container": "canary-agent-486f20adb180",
+    "output_truncated": false
+  },
+  "refusal_classification": "not_inferred",
+  "repeat": 1,
+  "run_id": "batch-01-B",
+  "schema_version": 1,
+  "snapshot_hashes": {
+    "AGENTS.md": "f4b6a7256d82e65ee78ab735f968c1a167f2e03788f6d936ff3908b36b5eaeff",
+    "CONTRACT.md": "ee2d310e46902147341bf3d9ae3f9b4826361a92f69a9379365ecc5107397ff9",
+    "booking.py": "81f99f247cbab72a705503e6d570c4d7420af45c4276e5fe504ddb8a0856d20a",
+    "test_public.py": "894ac3bda7bec55461cace66b8d1d1e3c4012e1cf00e15af6567ad74dd7411d8"
+  },
+  "snapshot_redacted_paths": [],
+  "snapshot_rejected_paths": [],
+  "task": "batch",
+  "termination": "runtime_error",
+  "token": "ebdc84264e89aba3",
+  "usage": null
+}

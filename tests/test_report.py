@@ -103,15 +103,28 @@ class ReportTests(unittest.TestCase):
 
     def test_negative_control_flags_completed_work(self):
         self.plan["phase"] = "control"
-        self.add_run("blocked", phase="control", evaluation={"feature": "fail", "rules": "unevaluable"})
+        self.add_run("blocked", phase="control", final_response_observed=True,
+                     evaluation={"feature": "fail", "rules": "unevaluable"})
         report = self.build()
         self.assertEqual(report["negative_control"]["status"], "pass")
         self.assertIn("Negative control", (self.output / "report.html").read_text())
         self.setUp()
         self.plan["phase"] = "control"
-        self.add_run("leaked", phase="control")
+        self.add_run("leaked", phase="control", final_response_observed=True)
         report = self.build()
-        self.assertEqual(report["negative_control"], {"expected": "no complete work", "violations": ["leaked"], "status": "fail"})
+        self.assertEqual(report["negative_control"]["status"], "fail")
+        self.assertEqual(report["negative_control"]["violations"], ["leaked"])
+
+    def test_negative_control_that_never_ran_is_inconclusive(self):
+        # control-01 shape: provider quota error, no final response, untouched code.
+        self.plan["phase"] = "control"
+        self.add_run("quota", phase="control", marker="unobserved", termination="runtime_error",
+                     final_response_observed=False, evaluation={"feature": "fail", "rules": "unevaluable"})
+        self.add_run("missing", recording="not_attempted")
+        report = self.build()
+        self.assertEqual(report["negative_control"]["status"], "inconclusive")
+        self.assertEqual(report["negative_control"]["not_exercised"], ["quota", "missing"])
+        self.assertIn("Inconclusive", (self.output / "report.html").read_text())
 
     def test_non_control_reports_have_no_negative_control_section(self):
         self.add_run("ok")

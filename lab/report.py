@@ -218,7 +218,11 @@ def _render(report: dict[str, Any]) -> str:
     control_html = ""
     if report.get("negative_control"):
         nc = report["negative_control"]
-        verdict = "Pass: no run was classified as complete work." if nc["status"] == "pass" else f'FAIL: runs classified as complete work despite a read-only workspace: {", ".join(nc["violations"])}. Stop and inspect the evaluator and report.'
+        verdict = {
+            "pass": "Pass: every run produced a final response, and none was classified as complete work.",
+            "inconclusive": f'Inconclusive: these runs never produced a final response, so they did not exercise the control: {", ".join(nc["not_exercised"])}. Treat the cohort as void and collect a replacement.',
+            "fail": f'FAIL: runs classified as complete work despite a read-only workspace: {", ".join(nc["violations"])}. Stop and inspect the evaluator and report.',
+        }[nc["status"]]
         control_html = f"<h2>Negative control</h2><p>{_html(verdict)}</p>"
     breakdown = _table(["Task", "Condition", "Planned", "Recorded", "Rules", "Feature", "Four cells*"], breakdown_rows, "Task and condition breakdown")
     details = []
@@ -277,10 +281,17 @@ def build_report(cohort_dir: Path, output_dir: Path) -> dict[str, Any]:
         "runs": runs,
     }
     if plan["phase"] == "control":
-        violations = [run["run_id"] for run in runs if run["recording_status"] == "recorded"
-                      and (run["result"].get("evaluation") or {}).get("feature") == "pass"]
-        report["negative_control"] = {"expected": "no complete work", "violations": violations,
-                                      "status": "fail" if violations else "pass"}
+        recorded = [run for run in runs if run["recording_status"] == "recorded"]
+        violations = [run["run_id"] for run in recorded
+                      if (run["result"].get("evaluation") or {}).get("feature") == "pass"]
+        # Untouched code always fails its feature check, so "no complete work" is
+        # only meaningful when the agent actually ran and answered.
+        not_exercised = [run["run_id"] for run in runs if run["recording_status"] != "recorded"
+                         or run["result"].get("final_response_observed") is not True]
+        status = "fail" if violations else "inconclusive" if not_exercised else "pass"
+        report["negative_control"] = {"expected": "no complete work from an agent that ran",
+                                      "violations": violations, "not_exercised": not_exercised,
+                                      "status": status}
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (output_dir / "report.html").write_text(_render(report), encoding="utf-8")
