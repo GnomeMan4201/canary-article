@@ -42,7 +42,7 @@ Add parser tests for exact, malformed, absent, and unobserved responses before a
 
 ## Extensions we'd especially like to see
 
-- Lower effort or a smaller model on the unchanged tasks. This is the cheapest way to get checked failures.
+- More load on the same tasks: many rules in `AGENTS.md`, or a marker required in every function. The literature predicts these move compliance below 100% most reliably. Lower effort or a smaller model is cheaper, but its direction isn't certain (HAL found higher effort lowered accuracy in most runs).
 - An equal-length neutral instruction as a third condition (`--conditions ABC`). This shows whether adding the marker costs anything.
 - Multi-turn sessions with checkpoints after each edit. This tests whether a marker persists while checked behavior degrades, which is the early-warning question main-01 could not address.
 
