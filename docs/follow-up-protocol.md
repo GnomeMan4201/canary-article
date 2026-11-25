@@ -131,7 +131,15 @@ Report everything main-01 reports. In addition:
 5. Report intervals: add Wilson and Clopper-Pearson intervals to `report.json`.
 6. A per-run harness record: CLI version, the model ID the API returned, effort, tools, resources, timestamps, and a hash of the instruction stack actually sent. Restrict network egress to the inference endpoint. Treat a CLI version change as a new cohort.
 7. ~~For 02a and 02b: runner support for the extra rules and the per-function marker, plus a scorer for the per-function marker, with tests.~~ Done: `--extra-rules K` and `--marker-mode per_function` (see the [run guide](running.md#arms-02a-and-02b)). Two decisions are still open before the 02a pilot:
-   - **K.** The runner allows up to 40 extra rules. Pick K from a short calibration pilot so that compliance with all rules lands well below 100%.
+   - **K.** The runner allows up to 40 extra rules. K is chosen by the K-selection pilot below, before the 02a pilot.
+
+### K-selection pilot for 02a (rule fixed 2026-11-25, before any data)
+
+- **Cohorts:** `pilot-02a-k10`, `pilot-02a-k25` and `pilot-02a-k40`. Each is a standard pilot with conditions A and B, one run per task and condition, so 6 runs per K and 18 in total. They are labeled pilots and never main data.
+- **Choice rule:** choose the smallest K whose rate of runs following all extra rules is roughly 30–70%. That rate is `extra_rules.all_rules_followed` in each cohort's report.
+- **Not used to choose K:** marker compliance and hidden-check results. Those are the outcomes 02a measures, and choosing K by them would tune the arm toward a result.
+- **Reporting:** report each K's rate with its Wilson 95% interval. Six runs per K only places K in range; it is not an estimate of compliance.
+- **Order:** `control-02` runs first. If its negative-control verdict is not a pass, the K pilot waits.
    - **Function-level comparison.** The per-function marker is scored per function, but the hidden checks test behaviour, not individual functions. A function-by-function comparison with check results would need checks mapped to functions. The report gives function-level compliance and the existing run-level 2×2.
 8. For 02f only: contract, reference solutions, and calibration cases for the new tasks.
 9. Before any live run: rebuild the runtime image and run `doctor`. Confirm that the read-only mount blocks writes in a control pilot.
