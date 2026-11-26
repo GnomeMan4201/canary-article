@@ -40,13 +40,12 @@ def event_order(noncompliance, regression, unobserved):
         return "neither_observed" if unobserved else "neither"
     if noncompliance is not None and noncompliance < regression:
         return "noncompliance_first"
-    # An unobserved turn before the regression could hide an earlier omission.
-    if any(t < regression for t in unobserved):
+    # An unobserved turn up to and including the regression turn could hide
+    # an omission before or on it.
+    if any(t <= regression for t in unobserved):
         return "unknown"
     if noncompliance == regression:
         return "same_turn"
-    if regression in unobserved:
-        return "unknown"
     return "regression_first"
 
 

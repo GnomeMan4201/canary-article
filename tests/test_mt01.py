@@ -1,6 +1,7 @@
 import unittest
+from unittest import mock
 
-from lab.mt01 import event_order, fixture_snapshots, replay, summarize
+from lab.mt01 import event_order, fixture_snapshots, replay, replay_session, summarize
 
 
 class OfflineSessions(unittest.TestCase):
@@ -70,12 +71,30 @@ class Summary(unittest.TestCase):
         self.assertEqual(summary["marker_at_regression"], "unobserved")
         self.assertEqual(summary["event_order"], "unknown")
 
+    def test_only_unobserved_turns_create_uncertainty(self):
+        rows = [{"turn": 1, "invariant": "pass", "marker": "exact"},
+                {"turn": 2, "invariant": "pass", "marker": "exact"},
+                {"turn": 3, "invariant": "fail", "marker": "exact"}]
+        self.assertEqual(summarize(rows)["event_order"], "regression_first")
+        rows[1]["marker"] = "unobserved"
+        self.assertEqual(summarize(rows)["event_order"], "unknown")
+
+    def test_evaluator_error_stops_replay(self):
+        fixture = {"token": "0123456789abcdef", "invariant": "reschedule.conflict_rollback",
+                   "applies_from": {"reschedule": 1}}
+        session = {"turns": [{"snapshot": "any", "response": None}], "expected": {}}
+        failed = {"status": "evaluator_error", "errors": [{"message": "boom"}], "checks": []}
+        with mock.patch("lab.mt01.evaluate_factory", return_value=failed):
+            with self.assertRaises(RuntimeError):
+                replay_session(fixture, {"any": object}, session)
+
     def test_event_order_cases(self):
         cases = [
             ((2, 4, []), "noncompliance_first"),
             ((2, 4, [1]), "noncompliance_first"),  # an earlier hidden omission is still first
             ((4, 4, []), "same_turn"),
             ((4, 4, [3]), "unknown"),
+            ((4, 4, [4]), "unknown"),  # inconsistent input still never claims same_turn
             ((5, 3, []), "regression_first"),
             ((None, 3, []), "regression_first"),
             ((None, 3, [3]), "unknown"),
